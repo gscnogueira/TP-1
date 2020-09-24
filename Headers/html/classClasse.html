@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: CEP Class Reference</title>
+<title>My Project: Classe Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,62 +63,60 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classCEP-members.html">List of all members</a>  </div>
+<a href="classClasse-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">CEP Class Reference</div>  </div>
+<div class="title">Classe Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Padrão para representação de <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a>.  
- <a href="classCEP.html#details">More...</a></p>
+<p>Padrão para representação de classe.  
+ <a href="classClasse.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae523478a9613027113b25bf933a0fb16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCEP.html#ae523478a9613027113b25bf933a0fb16">CEP</a> (int valor=1000000)</td></tr>
-<tr class="separator:ae523478a9613027113b25bf933a0fb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49378d2aa16ec633aeacb0091fdf2074"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCEP.html#a49378d2aa16ec633aeacb0091fdf2074">get_valor</a> () const</td></tr>
-<tr class="separator:a49378d2aa16ec633aeacb0091fdf2074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb7caec7275018dbec78cdfaaa860a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCEP.html#a3bb7caec7275018dbec78cdfaaa860a8">set_valor</a> (int valor)</td></tr>
-<tr class="separator:a3bb7caec7275018dbec78cdfaaa860a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c4f7556e102a26e2f824d3b49703b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClasse.html#a84c4f7556e102a26e2f824d3b49703b0">Classe</a> (string nome=&quot;CDB&quot;)</td></tr>
+<tr class="separator:a84c4f7556e102a26e2f824d3b49703b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ba669fca609b909ffdd47c2ac72898"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClasse.html#a05ba669fca609b909ffdd47c2ac72898">get_classe</a> () const</td></tr>
+<tr class="separator:a05ba669fca609b909ffdd47c2ac72898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef502faaa628548170c072a78cac7ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClasse.html#a4ef502faaa628548170c072a78cac7ae">set_classe</a> (string nome)</td></tr>
+<tr class="separator:a4ef502faaa628548170c072a78cac7ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Padrão para representação de <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a>. </p>
-<h3><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><p>Padrão para representação de classe. </p>
+<h3><a class="anchor" id="autotoc_md1"></a>
 Requezitos de formatação</h3>
-<p>Para um valor ser armazenado em uma instância da classe <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a>, é necessário que o mesmo esteja nas seguintes faixas (de acordo com a localidade):</p>
-<ul>
-<li>1000000 a 5999999 (São Paulo);</li>
-<li>8000000 a 8499999 (São Paulo);</li>
-<li>20000000 a 26600999 (Rio de Janeiro);</li>
-<li>70000000 a 70999999 (Brasília);</li>
-<li>40000000 a 41999999 (Salvador);</li>
-<li>60000000 a 60999999 (Fortaleza). </li>
+<p>Cada instância da classe <a class="el" href="classClasse.html" title="Padrão para representação de classe.">Classe</a> possui um atributo <code>nome</code>. Este atributo <b>deve</b> ser exatamente igual a uma das seguintes cadeias de caracteres:</p><ul>
+<li>"CDB";</li>
+<li>"LC";</li>
+<li>"LCA";</li>
+<li>"LCI";</li>
+<li>"LF"; </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae523478a9613027113b25bf933a0fb16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae523478a9613027113b25bf933a0fb16">&#9670;&nbsp;</a></span>CEP()</h2>
+<a id="a84c4f7556e102a26e2f824d3b49703b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c4f7556e102a26e2f824d3b49703b0">&#9670;&nbsp;</a></span>Classe()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CEP::CEP </td>
+          <td class="memname">Classe::Classe </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em> = <code>1000000</code></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome</em> = <code>&quot;CDB&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <ul>
-<li>Cria objeto e armazena a valor informado caso o mesmo seja <b>válido</b>.</li>
-<li>Lança exceção caso o valor informado seja <b>inválido</b>.</li>
+<li>Cria objeto e armazena a cadeia de caracteres informada,caso a mesmo seja <b>válida</b>, no atributo <code>nome</code>.</li>
+<li>Lança exceção caso a cadeia de caracteres informada seja <b>inválida</b>.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">valor</td><td>: Valor de <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a> a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor <b>1000000</b> é armazenado no objeto. </td></tr>
+    <tr><td class="paramname">nome</td><td>: Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres **"CDB"** é armazenada no objeto. </td></tr>
   </table>
   </dd>
 </dl>
@@ -132,8 +130,8 @@ Requezitos de formatação</h3>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a49378d2aa16ec633aeacb0091fdf2074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49378d2aa16ec633aeacb0091fdf2074">&#9670;&nbsp;</a></span>get_valor()</h2>
+<a id="a05ba669fca609b909ffdd47c2ac72898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05ba669fca609b909ffdd47c2ac72898">&#9670;&nbsp;</a></span>get_classe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +140,7 @@ Requezitos de formatação</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int CEP::get_valor </td>
+          <td class="memname">string Classe::get_classe </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -154,30 +152,30 @@ Requezitos de formatação</h3>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Valor de <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a> armazenado na instância da classe. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valor do atributo <code>nome</code>. </dd></dl>
 
 </div>
 </div>
-<a id="a3bb7caec7275018dbec78cdfaaa860a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb7caec7275018dbec78cdfaaa860a8">&#9670;&nbsp;</a></span>set_valor()</h2>
+<a id="a4ef502faaa628548170c072a78cac7ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef502faaa628548170c072a78cac7ae">&#9670;&nbsp;</a></span>set_classe()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CEP::set_valor </td>
+          <td class="memname">void Classe::set_classe </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <ul>
-<li>Armazena valor informado caso o mesmo seja <b>válido</b>.</li>
-<li>Lança exceção caso o valor informado seja <b>inválido</b>. <dl class="params"><dt>Parameters</dt><dd>
+<li>Armazena cadeia de caracteres informada,caso o mesmo seja <b>válida</b>, no atributo nome.</li>
+<li>Caso seja passada uma cadeia de caracteres <b>inválida</b> como argumento, uma exceção é lançada. <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">valor</td><td>: Valor de <a class="el" href="classCEP.html" title="Padrão para representação de CEP.">CEP</a> a ser armazenado. </td></tr>
+    <tr><td class="paramname">valor</td><td>: Cadeia de caracteres a ser armazena no atributo <code>nome</code>. </td></tr>
   </table>
   </dd>
 </dl>

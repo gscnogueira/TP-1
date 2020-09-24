@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sistema De insvestimentos: Referência da Classe CEP</title>
+<title>Sistema De insvestimentos: Referência da Classe CodigoDeAgencia</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_c_e_p.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('class_codigo_de_agencia.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,62 +83,55 @@ $(document).ready(function(){initNavTree('class_c_e_p.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="class_c_e_p-members.html">Lista de todos os Membros</a>  </div>
+<a href="class_codigo_de_agencia-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência da Classe CEP</div>  </div>
+<div class="title">Referência da Classe CodigoDeAgencia</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Padrão para representação de <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a>.  
- <a href="class_c_e_p.html#details">Mais...</a></p>
+<p>Padrão para representação de código de agência.  
+ <a href="class_codigo_de_agencia.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:ae523478a9613027113b25bf933a0fb16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">CEP</a> (int valor=1000000)</td></tr>
-<tr class="separator:ae523478a9613027113b25bf933a0fb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49378d2aa16ec633aeacb0091fdf2074"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">get_valor</a> () const</td></tr>
-<tr class="separator:a49378d2aa16ec633aeacb0091fdf2074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb7caec7275018dbec78cdfaaa860a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">set_valor</a> (int valor)</td></tr>
-<tr class="separator:a3bb7caec7275018dbec78cdfaaa860a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7338cec7e9e77c91c710e4848027642f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_de_agencia.html#a7338cec7e9e77c91c710e4848027642f">CodigoDeAgencia</a> (string codigo=&quot;0001&quot;)</td></tr>
+<tr class="separator:a7338cec7e9e77c91c710e4848027642f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e762b161b36a9dd008ac81c5511f2a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_de_agencia.html#a35e762b161b36a9dd008ac81c5511f2a">get_codigo</a> ()</td></tr>
+<tr class="separator:a35e762b161b36a9dd008ac81c5511f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e2878e842ceddb43533d54277d72df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_de_agencia.html#af6e2878e842ceddb43533d54277d72df">set_codigo</a> (string codigo)</td></tr>
+<tr class="separator:af6e2878e842ceddb43533d54277d72df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Padrão para representação de <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a>. </p>
-<h3><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><p>Padrão para representação de código de agência. </p>
+<p>A classe <a class="el" href="class_codigo_de_agencia.html" title="Padrão para representação de código de agência.">CodigoDeAgencia</a> possui o intuito de criar objeto que armazena o código de uma agência bancária.</p>
+<h3><a class="anchor" id="autotoc_md2"></a>
 Requezitos de Formato</h3>
-<p>Para um valor ser armazenado em uma instância da classe <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a>, é necessário que o mesmo esteja nas seguintes faixas (de acordo com a localidade):</p>
-<ul>
-<li>1000000 a 5999999 (São Paulo);</li>
-<li>8000000 a 8499999 (São Paulo);</li>
-<li>20000000 a 26600999 (Rio de Janeiro);</li>
-<li>70000000 a 70999999 (Brasília);</li>
-<li>40000000 a 41999999 (Salvador);</li>
-<li>60000000 a 60999999 (Fortaleza). </li>
-</ul>
+<p>Para ser considerado válido o código de agência fornecido à instância da classe deve possuir o formato <code>XXXX</code>, onde <code>X</code> é um digito. O código <code>0000</code> é considerado <b>inválido</b>. </p>
 </div><h2 class="groupheader">Construtores e Destrutores</h2>
-<a id="ae523478a9613027113b25bf933a0fb16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae523478a9613027113b25bf933a0fb16">&#9670;&nbsp;</a></span>CEP()</h2>
+<a id="a7338cec7e9e77c91c710e4848027642f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7338cec7e9e77c91c710e4848027642f">&#9670;&nbsp;</a></span>CodigoDeAgencia()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CEP::CEP </td>
+          <td class="memname">CodigoDeAgencia::CodigoDeAgencia </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em> = <code>1000000</code></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>codigo</em> = <code>&quot;0001&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <ul>
-<li>Cria objeto e armazena a valor informado caso o mesmo seja <b>válido</b>.</li>
-<li>Lança exceção caso o valor informado seja <b>inválido</b>.</li>
+<li>Cria objeto e armazena código passado no mesmo, em caso de argumento <b>válido</b>.</li>
+<li>Lança exceção caso o argumento passado seja <b>inválido.</b></li>
 </ul>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">valor</td><td>: Valor de <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a> a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor <b>1000000</b> é armazenado no objeto. </td></tr>
+    <tr><td class="paramname">codigo</td><td>: cadeia de caracteres correspondente ao código de agência que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é <code>0001</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -152,8 +145,8 @@ Requezitos de Formato</h3>
 </div>
 </div>
 <h2 class="groupheader">Funções membros</h2>
-<a id="a49378d2aa16ec633aeacb0091fdf2074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49378d2aa16ec633aeacb0091fdf2074">&#9670;&nbsp;</a></span>get_valor()</h2>
+<a id="a35e762b161b36a9dd008ac81c5511f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35e762b161b36a9dd008ac81c5511f2a">&#9670;&nbsp;</a></span>get_codigo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,10 +155,10 @@ Requezitos de Formato</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int CEP::get_valor </td>
+          <td class="memname">string CodigoDeAgencia::get_codigo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -174,30 +167,30 @@ Requezitos de Formato</h3>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Retorna</dt><dd>Número inteiro correspondente ao valor de <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a> armazenado na instância da classe. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>Cadeia de caracteres correspondente ao código da agência bancária. </dd></dl>
 
 </div>
 </div>
-<a id="a3bb7caec7275018dbec78cdfaaa860a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb7caec7275018dbec78cdfaaa860a8">&#9670;&nbsp;</a></span>set_valor()</h2>
+<a id="af6e2878e842ceddb43533d54277d72df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e2878e842ceddb43533d54277d72df">&#9670;&nbsp;</a></span>set_codigo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CEP::set_valor </td>
+          <td class="memname">void CodigoDeAgencia::set_codigo </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>codigo</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <ul>
-<li>Armazena valor informado caso o mesmo seja <b>válido</b>.</li>
-<li>Lança exceção caso o valor informado seja <b>inválido</b>. <dl class="params"><dt>Parâmetros</dt><dd>
+<li>Em caso de argumento <b>válido</b>, armazena código no objeto.</li>
+<li>Caso seja passada uma cadeia de caracteres <b>inválida</b> como argumento, uma exceção é lançada. <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">valor</td><td>: Valor de <a class="el" href="class_c_e_p.html" title="Padrão para representação de CEP.">CEP</a> a ser armazenado. </td></tr>
+    <tr><td class="paramname">codigo</td><td>: Cadeia de caracteres a ser armazena no atributo <code>nome</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -220,7 +213,7 @@ Requezitos de Formato</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_c_e_p.html">CEP</a></li>
+    <li class="navelem"><a class="el" href="class_codigo_de_agencia.html">CodigoDeAgencia</a></li>
     <li class="footer">Gerado por <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

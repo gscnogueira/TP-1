@@ -13,7 +13,7 @@ using namespace std;
 /// \brief Padrão para representação de CEP.
 ///
 
-///  ### Requezitos de formatação
+/// ### Requezitos de Formato
 ///
 ///  Para um valor ser armazenado em uma instância da classe CEP, é necessário que o mesmo esteja nas seguintes faixas (de acordo com a localidade):
 ///
@@ -36,7 +36,7 @@ class CEP{
         ///@throw invalid_argument
 
         CEP(int valor=1000000);
-        /// @return Valor de CEP armazenado na instância da classe.
+        /// @return Número inteiro correspondente ao valor de CEP armazenado na instância da classe.
         int get_valor() const;
 
         /// - Armazena valor informado caso o mesmo seja **válido**.
@@ -57,8 +57,10 @@ inline int CEP::get_valor() const{return valor;};
 //----------------------------------------------------------
 
 /// \brief Padrão para representação de classe.
+//
+/// A classe Classe possui o intuito de criar objeto que armazena a classe de um produto de investimento.
 
-/// ### Requezitos de formatação
+/// ### Requezitos de Formato
 /// Cada instância da classe Classe possui um atributo `nome`. Este atributo **deve** ser exatamente igual a uma das seguintes cadeias de caracteres:
 /// - "CDB";
 /// - "LC";
@@ -74,10 +76,10 @@ class Classe{
         ///- Cria objeto e armazena a cadeia de caracteres informada,caso a mesmo seja **válida**, no atributo `nome`.
         ///- Lança exceção caso a cadeia de caracteres informada seja **inválida**.
         ///
-        ///@param nome : Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres **"CDB"** é armazenada no objeto.
+        ///@param nome : Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres `CDB` é armazenada no objeto.
         /// @throw invalid_argument
         Classe(string nome = "CDB");
-        ///@return Valor do atributo `nome`.
+        ///@return Cadeia de caracteres correspondente à classe do produto de investimento.
         string get_classe() const;
         /// - Armazena cadeia de caracteres informada,caso o mesmo seja **válida**, no atributo nome.
         ///
@@ -87,6 +89,78 @@ class Classe{
 
         void set_classe(string nome);
 };
-
 inline string Classe::get_classe() const{return nome;};
+
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-AGÊNCIA-----------------------
+//----------------------------------------------------------
+
+/// \brief Padrão para representação de código de agência.
+///
+/// A classe CodigoDeAgencia possui o intuito de criar objeto que armazena o código de uma agência bancária.
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido o código de agência fornecido à instância da classe deve possuir o formato `XXXX`, onde `X` é um digito. O código `0000` é considerado **inválido**.
+class CodigoDeAgencia{
+    private:
+        static const int TAMANHO = 4;
+        static const string EXCESSAO;
+        string codigo;
+        void validar(string codigo);
+    public:
+        ///- Cria objeto e armazena código passado no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param codigo : cadeia de caracteres correspondente ao código de agência que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `0001`.
+        /// @throw invalid_argument
+        CodigoDeAgencia(string codigo = "0001");
+        /// \return Cadeia de caracteres correspondente ao código da agência bancária.
+        string get_codigo();
+        /// - Em caso de argumento **válido**, armazena código no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres a ser armazena no atributo `nome`.
+        /// @throw invalid_argument
+        void set_codigo(string codigo);
+};
+
+inline string CodigoDeAgencia::get_codigo(){return codigo;};
+
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-APLICAÇÃO---------------------
+//----------------------------------------------------------
+
+/// \brief Padrão para representação de código de aplicação.
+///
+/// A classe CodigoDeAplicacao possui o intuito de criar objeto que armazena o código de uma aplicação financeira.
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido o código de aplicação fornecido à instância da classe deve possuir o formato `XXXXX`, onde `X` é um digito. O código `00000` é considerado **inválido**.
+class CodigoDeAplicacao{
+    private:
+        static const int TAMANHO = 5;
+        static const string EXCESSAO;
+        string codigo;
+        void validar(string codigo);
+    public:
+        ///- Cria objeto e armazena código passado no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param codigo : cadeia de caracteres correspondente ao código de agência que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `00001`.
+        /// @throw invalid_argument
+        CodigoDeAplicacao(string codigo = "00001");
+        /// \return Cadeia de caracteres correspondente ao código da aplicação.
+        string get_codigo();
+        /// - Em caso de argumento **válido**, armazena código no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres a ser armazena no atributo `nome`.
+        /// @throw invalid_argument
+        void set_codigo(string codigo);
+};
+
+inline string CodigoDeAplicacao::get_codigo(){return codigo;};
+
 #endif

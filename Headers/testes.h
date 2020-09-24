@@ -7,7 +7,6 @@ using namespace std;
 //----------------------------------------------------------
 //-------------------------CEP------------------------------
 //----------------------------------------------------------
-
 class TUCEP{
     private:
         const static int VALOR_VALIDO = 8000000;
@@ -19,17 +18,42 @@ class TUCEP{
     public:
         bool run();
 };
-
 //----------------------------------------------------------
 //------------------------CLASSE----------------------------
 //----------------------------------------------------------
-
-
 class TUClasse{
     private:
         static const string VALOR_VALIDO;
         static const string VALOR_INVALIDO;
         Classe classe;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-AGÊNCIA-----------------------
+//----------------------------------------------------------
+class TUCodigoDeAgencia{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        CodigoDeAgencia codigo_de_agencia;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-APLICAÇÃO---------------------
+//----------------------------------------------------------
+class TUCodigoDeAplicacao{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        CodigoDeAplicacao codigo_de_aplicacao;
         bool estado=true;
         void testa_sucesso();
         void testa_falha();

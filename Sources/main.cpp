@@ -14,4 +14,12 @@ int main(){
     TUClasse t_classe;
     if(t_classe.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUCodigoDeAgencia t_codigo_de_agencia;
+    if(t_codigo_de_agencia.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
+
+    TUCodigoDeAplicacao t_codigo_de_aplicacao;
+    if(t_codigo_de_aplicacao.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

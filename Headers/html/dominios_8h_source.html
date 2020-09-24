@@ -119,31 +119,78 @@ $(document).ready(function(){initNavTree('dominios_8h_source.html',''); initResi
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//------------------------CLASSE----------------------------</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_classe.html">   68</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe.html">Classe</a>{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> set&lt;string&gt; CLASSES_VALIDAS;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">string</span> nome;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">   79</a></span>&#160;        <a class="code" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe</a>(<span class="keywordtype">string</span> nome = <span class="stringliteral">&quot;CDB&quot;</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">string</span> get_classe() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">   88</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">set_classe</a>(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">   91</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> nome;};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_classe.html">   70</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe.html">Classe</a>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> set&lt;string&gt; CLASSES_VALIDAS;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">string</span> nome;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">   81</a></span>&#160;        <a class="code" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe</a>(<span class="keywordtype">string</span> nome = <span class="stringliteral">&quot;CDB&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">string</span> get_classe() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">   90</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">set_classe</a>(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">   92</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> nome;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//------------------CÓDIGO-DE-AGÊNCIA-----------------------</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_codigo_de_agencia.html">  104</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_codigo_de_agencia.html">CodigoDeAgencia</a>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TAMANHO = 4;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">string</span> EXCESSAO;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">string</span> codigo;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> codigo);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_codigo_de_agencia.html#a7338cec7e9e77c91c710e4848027642f">  117</a></span>&#160;<span class="comment"></span>        <a class="code" href="class_codigo_de_agencia.html#a7338cec7e9e77c91c710e4848027642f">CodigoDeAgencia</a>(<span class="keywordtype">string</span> codigo = <span class="stringliteral">&quot;0001&quot;</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">string</span> get_codigo();</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="class_codigo_de_agencia.html#af6e2878e842ceddb43533d54277d72df">  125</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_codigo_de_agencia.html#af6e2878e842ceddb43533d54277d72df">set_codigo</a>(<span class="keywordtype">string</span> codigo);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="class_codigo_de_agencia.html#a35e762b161b36a9dd008ac81c5511f2a">  128</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_codigo_de_agencia.html#a35e762b161b36a9dd008ac81c5511f2a">CodigoDeAgencia::get_codigo</a>(){<span class="keywordflow">return</span> codigo;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">//------------------CÓDIGO-DE-APLICAÇÃO---------------------</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="class_codigo_de_aplicacao.html">  140</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_codigo_de_aplicacao.html">CodigoDeAplicacao</a>{</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TAMANHO = 5;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">string</span> EXCESSAO;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">string</span> codigo;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> codigo);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="class_codigo_de_aplicacao.html#a5432f8a490769531e8cbbcfbf3a9a9f8">  153</a></span>&#160;<span class="comment"></span>        <a class="code" href="class_codigo_de_aplicacao.html#a5432f8a490769531e8cbbcfbf3a9a9f8">CodigoDeAplicacao</a>(<span class="keywordtype">string</span> codigo = <span class="stringliteral">&quot;00001&quot;</span>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">string</span> get_codigo();</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="class_codigo_de_aplicacao.html#ad4d5195db5bdd85d2688a6a2cc16cb07">  161</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_codigo_de_aplicacao.html#ad4d5195db5bdd85d2688a6a2cc16cb07">set_codigo</a>(<span class="keywordtype">string</span> codigo);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;};</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="class_codigo_de_aplicacao.html#a1c721b14937afe590d89cffd830a3261">  164</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_codigo_de_aplicacao.html#a1c721b14937afe590d89cffd830a3261">CodigoDeAplicacao::get_codigo</a>(){<span class="keywordflow">return</span> codigo;};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_c_e_p_html_a49378d2aa16ec633aeacb0091fdf2074"><div class="ttname"><a href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a></div><div class="ttdeci">int get_valor() const</div><div class="ttdef"><b>Definition:</b> dominios.h:51</div></div>
+<div class="ttc" id="aclass_codigo_de_aplicacao_html_ad4d5195db5bdd85d2688a6a2cc16cb07"><div class="ttname"><a href="class_codigo_de_aplicacao.html#ad4d5195db5bdd85d2688a6a2cc16cb07">CodigoDeAplicacao::set_codigo</a></div><div class="ttdeci">void set_codigo(string codigo)</div></div>
 <div class="ttc" id="aclass_c_e_p_html_a3bb7caec7275018dbec78cdfaaa860a8"><div class="ttname"><a href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">CEP::set_valor</a></div><div class="ttdeci">void set_valor(int valor)</div></div>
 <div class="ttc" id="aclass_c_e_p_html"><div class="ttname"><a href="class_c_e_p.html">CEP</a></div><div class="ttdoc">Padrão para representação de CEP.</div><div class="ttdef"><b>Definition:</b> dominios.h:26</div></div>
-<div class="ttc" id="aclass_classe_html"><div class="ttname"><a href="class_classe.html">Classe</a></div><div class="ttdoc">Padrão para representação de classe.</div><div class="ttdef"><b>Definition:</b> dominios.h:68</div></div>
+<div class="ttc" id="aclass_classe_html"><div class="ttname"><a href="class_classe.html">Classe</a></div><div class="ttdoc">Padrão para representação de classe.</div><div class="ttdef"><b>Definition:</b> dominios.h:70</div></div>
 <div class="ttc" id="aclass_c_e_p_html_ae523478a9613027113b25bf933a0fb16"><div class="ttname"><a href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">CEP::CEP</a></div><div class="ttdeci">CEP(int valor=1000000)</div></div>
-<div class="ttc" id="aclass_classe_html_a05ba669fca609b909ffdd47c2ac72898"><div class="ttname"><a href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a></div><div class="ttdeci">string get_classe() const</div><div class="ttdef"><b>Definition:</b> dominios.h:91</div></div>
+<div class="ttc" id="aclass_codigo_de_agencia_html"><div class="ttname"><a href="class_codigo_de_agencia.html">CodigoDeAgencia</a></div><div class="ttdoc">Padrão para representação de código de agência.</div><div class="ttdef"><b>Definition:</b> dominios.h:104</div></div>
+<div class="ttc" id="aclass_codigo_de_aplicacao_html_a5432f8a490769531e8cbbcfbf3a9a9f8"><div class="ttname"><a href="class_codigo_de_aplicacao.html#a5432f8a490769531e8cbbcfbf3a9a9f8">CodigoDeAplicacao::CodigoDeAplicacao</a></div><div class="ttdeci">CodigoDeAplicacao(string codigo=&quot;00001&quot;)</div></div>
+<div class="ttc" id="aclass_classe_html_a05ba669fca609b909ffdd47c2ac72898"><div class="ttname"><a href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a></div><div class="ttdeci">string get_classe() const</div><div class="ttdef"><b>Definition:</b> dominios.h:92</div></div>
+<div class="ttc" id="aclass_codigo_de_agencia_html_a7338cec7e9e77c91c710e4848027642f"><div class="ttname"><a href="class_codigo_de_agencia.html#a7338cec7e9e77c91c710e4848027642f">CodigoDeAgencia::CodigoDeAgencia</a></div><div class="ttdeci">CodigoDeAgencia(string codigo=&quot;0001&quot;)</div></div>
 <div class="ttc" id="aclass_classe_html_a4ef502faaa628548170c072a78cac7ae"><div class="ttname"><a href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">Classe::set_classe</a></div><div class="ttdeci">void set_classe(string nome)</div></div>
+<div class="ttc" id="aclass_codigo_de_agencia_html_af6e2878e842ceddb43533d54277d72df"><div class="ttname"><a href="class_codigo_de_agencia.html#af6e2878e842ceddb43533d54277d72df">CodigoDeAgencia::set_codigo</a></div><div class="ttdeci">void set_codigo(string codigo)</div></div>
 <div class="ttc" id="aclass_classe_html_a84c4f7556e102a26e2f824d3b49703b0"><div class="ttname"><a href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe::Classe</a></div><div class="ttdeci">Classe(string nome=&quot;CDB&quot;)</div></div>
+<div class="ttc" id="aclass_codigo_de_aplicacao_html_a1c721b14937afe590d89cffd830a3261"><div class="ttname"><a href="class_codigo_de_aplicacao.html#a1c721b14937afe590d89cffd830a3261">CodigoDeAplicacao::get_codigo</a></div><div class="ttdeci">string get_codigo()</div><div class="ttdef"><b>Definition:</b> dominios.h:164</div></div>
+<div class="ttc" id="aclass_codigo_de_aplicacao_html"><div class="ttname"><a href="class_codigo_de_aplicacao.html">CodigoDeAplicacao</a></div><div class="ttdoc">Padrão para representação de código de aplicação.</div><div class="ttdef"><b>Definition:</b> dominios.h:140</div></div>
+<div class="ttc" id="aclass_codigo_de_agencia_html_a35e762b161b36a9dd008ac81c5511f2a"><div class="ttname"><a href="class_codigo_de_agencia.html#a35e762b161b36a9dd008ac81c5511f2a">CodigoDeAgencia::get_codigo</a></div><div class="ttdeci">string get_codigo()</div><div class="ttdef"><b>Definition:</b> dominios.h:128</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
