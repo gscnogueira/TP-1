@@ -34,7 +34,7 @@ class CEP{
 
         /// - Armazena valor informado caso o mesmo seja **válido**.
         ///
-        /// - Lança exceção caso o valor informado seja **inválido**;
+        /// - Lança exceção caso o valor informado seja **inválido**.
         /// @param valor : Valor de CEP a ser armazenado.
         /// @throw invalid_argument
         void set_valor(int valor);
@@ -49,16 +49,35 @@ inline int CEP::get_valor() const{return valor;};
 //------------------------CLASSE----------------------------
 //----------------------------------------------------------
 
+/// \brief Padrão para representação de classe.
 
+/// ### Requezitos de formatação
+/// Cada instância da classe Classe possui um atributo `nome`. Este atributo **deve** ser exatamente igual a uma das seguintes cadeias de caracteres:
+/// - "CDB";
+/// - "LC";
+/// - "LCA";
+/// - "LCI";
+/// - "LF";
 class Classe{
     private:
         static const set<string> CLASSES_VALIDAS;
         string nome;
         void validar(string nome);
     public:
-        Classe();
-        Classe(string nome);
+        ///- Cria objeto e armazena a cadeia de caracteres informada,caso a mesmo seja **válida**, no atributo `nome`.
+        ///- Lança exceção caso a cadeia de caracteres informada seja **inválida**.
+        ///
+        ///@param nome : Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres "CDB" é armazenada no objeto.
+        /// @throw invalid_argument
+        Classe(string nome = "CDB");
+        ///@return Valor do atributo `nome`.
         string get_classe() const;
+        /// - Armazena cadeia de caracteres informada,caso o mesmo seja **válida**, no atributo nome.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param valor : Cadeia de caracteres a ser armazena no atributo `nome`.
+        /// @throw invalid_argument
+
         void set_classe(string nome);
 };
 

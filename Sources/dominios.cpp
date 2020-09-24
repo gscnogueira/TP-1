@@ -37,10 +37,6 @@ const set<string> Classe::CLASSES_VALIDAS ={"CDB","LCA","LCI","LF","LC"};
 void Classe::validar(string nome){
     if(!CLASSES_VALIDAS.count(nome))
         throw invalid_argument("Argumento inválido");
-    this->nome=nome;
-}
-Classe::Classe(){
-    this->nome="CDB";
 }
 Classe::Classe(string nome){
     validar(nome);

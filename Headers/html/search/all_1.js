@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5fvalor_1',['get_valor',['../class_c_e_p.html#a7f60aecdf49c20950efce3c13090322f',1,'CEP']]]
+  ['get_5fclasse_2',['get_classe',['../class_classe.html#a05ba669fca609b909ffdd47c2ac72898',1,'Classe']]],
+  ['get_5fvalor_3',['get_valor',['../class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074',1,'CEP']]]
 ];
