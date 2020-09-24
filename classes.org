@@ -1,8 +1,8 @@
 
-* TODO Domínios
-** TODO CEP
-*** TODO Classe;
-*** TODO Teste de Unidade;
+* DOING Domínios
+** DOING CEP
+*** DOING Classe;
+*** DOING Teste de Unidade;
 *** TODO Documentação;
 ** TODO CLASSE
 *** TODO Classe;
