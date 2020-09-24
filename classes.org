@@ -1,13 +1,13 @@
 
 * DOING Domínios
-** DOING CEP
-*** DOING Classe;
-*** DOING Teste de Unidade;
-*** TODO Documentação;
-** TODO CLASSE
-*** TODO Classe;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
+** DONE CEP
+*** DONE Classe;
+*** DONE Teste de Unidade;
+*** DONE Documentação;
+** DONE CLASSE
+*** DONE Classe;
+*** DONE Teste de Unidade;
+*** DONE Documentação;
 ** TODO CÓDIGO DE AGÊNCIA
 *** TODO Classe;
 *** TODO Teste de Unidade;
