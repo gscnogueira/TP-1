@@ -24,6 +24,11 @@ void CEP::validar(int valor){
     if(!valido)
         throw invalid_argument("Argumento invalido.");
 }
+CEP::CEP(int valor){
+    validar(valor); 
+    this->valor=valor;
+}
+
 void CEP::set_valor(int valor){
     validar(valor);
     this->valor=valor;

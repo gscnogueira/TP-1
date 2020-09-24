@@ -12,19 +12,12 @@ class TUCEP{
     private:
         const static int VALOR_VALIDO = 8000000;
         const static int VALOR_INVALIDO = 999999;
-        CEP *cep;
-        int estado;
-        
-        void set_up();
-        void tear_down();
+        CEP cep;
+        int estado=true;
         void testa_sucesso();
         void testa_falha();
     public:
-
-        const static int  SUCESSO =  0;
-        const static int  FALHA   = -1;
-
-        int run();
+        bool run();
 };
 
 //----------------------------------------------------------

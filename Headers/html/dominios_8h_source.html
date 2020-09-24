@@ -103,42 +103,45 @@ $(document).ready(function(){initNavTree('dominios_8h_source.html',''); initResi
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> vector&lt;pair&lt;int,int&gt;&gt; REGIOES;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">int</span> valor);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> get_valor() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">   40</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">set_valor</a>(<span class="keywordtype">int</span> valor);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">   38</a></span>&#160;        <a class="code" href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">CEP</a>(<span class="keywordtype">int</span> valor=1000000);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> get_valor() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">   44</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> valor;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//------------------------CLASSE----------------------------</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">   47</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">set_valor</a>(<span class="keywordtype">int</span> valor);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">   51</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> valor;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_classe.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe.html">Classe</a>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> set&lt;string&gt; CLASSES_VALIDAS;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">string</span> nome;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">   72</a></span>&#160;        <a class="code" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe</a>(<span class="keywordtype">string</span> nome = <span class="stringliteral">&quot;CDB&quot;</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">string</span> get_classe() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">   81</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">set_classe</a>(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">   84</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> nome;};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//------------------------CLASSE----------------------------</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_classe.html">   68</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe.html">Classe</a>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> set&lt;string&gt; CLASSES_VALIDAS;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">string</span> nome;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">   79</a></span>&#160;        <a class="code" href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe</a>(<span class="keywordtype">string</span> nome = <span class="stringliteral">&quot;CDB&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">string</span> get_classe() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">   88</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">set_classe</a>(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">   91</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> nome;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_c_e_p_html_a49378d2aa16ec633aeacb0091fdf2074"><div class="ttname"><a href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a></div><div class="ttdeci">int get_valor() const</div><div class="ttdef"><b>Definition:</b> dominios.h:44</div></div>
+<div class="ttc" id="aclass_c_e_p_html_a49378d2aa16ec633aeacb0091fdf2074"><div class="ttname"><a href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a></div><div class="ttdeci">int get_valor() const</div><div class="ttdef"><b>Definition:</b> dominios.h:51</div></div>
 <div class="ttc" id="aclass_c_e_p_html_a3bb7caec7275018dbec78cdfaaa860a8"><div class="ttname"><a href="class_c_e_p.html#a3bb7caec7275018dbec78cdfaaa860a8">CEP::set_valor</a></div><div class="ttdeci">void set_valor(int valor)</div></div>
 <div class="ttc" id="aclass_c_e_p_html"><div class="ttname"><a href="class_c_e_p.html">CEP</a></div><div class="ttdoc">Padrão para representação de CEP.</div><div class="ttdef"><b>Definition:</b> dominios.h:26</div></div>
-<div class="ttc" id="aclass_classe_html"><div class="ttname"><a href="class_classe.html">Classe</a></div><div class="ttdoc">Padrão para representação de classe.</div><div class="ttdef"><b>Definition:</b> dominios.h:61</div></div>
-<div class="ttc" id="aclass_classe_html_a05ba669fca609b909ffdd47c2ac72898"><div class="ttname"><a href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a></div><div class="ttdeci">string get_classe() const</div><div class="ttdef"><b>Definition:</b> dominios.h:84</div></div>
+<div class="ttc" id="aclass_classe_html"><div class="ttname"><a href="class_classe.html">Classe</a></div><div class="ttdoc">Padrão para representação de classe.</div><div class="ttdef"><b>Definition:</b> dominios.h:68</div></div>
+<div class="ttc" id="aclass_c_e_p_html_ae523478a9613027113b25bf933a0fb16"><div class="ttname"><a href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">CEP::CEP</a></div><div class="ttdeci">CEP(int valor=1000000)</div></div>
+<div class="ttc" id="aclass_classe_html_a05ba669fca609b909ffdd47c2ac72898"><div class="ttname"><a href="class_classe.html#a05ba669fca609b909ffdd47c2ac72898">Classe::get_classe</a></div><div class="ttdeci">string get_classe() const</div><div class="ttdef"><b>Definition:</b> dominios.h:91</div></div>
 <div class="ttc" id="aclass_classe_html_a4ef502faaa628548170c072a78cac7ae"><div class="ttname"><a href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">Classe::set_classe</a></div><div class="ttdeci">void set_classe(string nome)</div></div>
 <div class="ttc" id="aclass_classe_html_a84c4f7556e102a26e2f824d3b49703b0"><div class="ttname"><a href="class_classe.html#a84c4f7556e102a26e2f824d3b49703b0">Classe::Classe</a></div><div class="ttdeci">Classe(string nome=&quot;CDB&quot;)</div></div>
 <!-- start footer part -->

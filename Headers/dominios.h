@@ -29,6 +29,13 @@ class CEP{
     static const vector<pair<int,int>> REGIOES;
         void validar(int valor);
     public:
+        ///- Cria objeto e armazena a valor informado caso o mesmo seja **válido**.
+        ///- Lança exceção caso o valor informado seja **inválido**.
+        ///
+        ///@param valor : Valor de CEP a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor **1000000** é armazenado no objeto.
+        ///@throw invalid_argument
+
+        CEP(int valor=1000000);
         /// @return Valor de CEP armazenado na instância da classe.
         int get_valor() const;
 
@@ -67,7 +74,7 @@ class Classe{
         ///- Cria objeto e armazena a cadeia de caracteres informada,caso a mesmo seja **válida**, no atributo `nome`.
         ///- Lança exceção caso a cadeia de caracteres informada seja **inválida**.
         ///
-        ///@param nome : Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres "CDB" é armazenada no objeto.
+        ///@param nome : Cadeia de caracteres correspondente ao nome a ser armazenado no objeto. Caso esse parâmetro seja omitido, a cadeia de caracteres **"CDB"** é armazenada no objeto.
         /// @throw invalid_argument
         Classe(string nome = "CDB");
         ///@return Valor do atributo `nome`.
