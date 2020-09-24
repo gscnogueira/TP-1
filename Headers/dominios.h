@@ -30,7 +30,7 @@ class CEP{
         void validar(int valor);
     public:
         /// @return Valor de CEP armazenado na instância da classe.
-        int get_valor();
+        int get_valor() const;
 
         /// - Armazena valor informado caso o mesmo seja **válido**.
         ///
@@ -41,31 +41,26 @@ class CEP{
 
 };
 
-inline int CEP::get_valor(){return valor;};
+inline int CEP::get_valor() const{return valor;};
 
 
 
+//----------------------------------------------------------
+//------------------------CLASSE----------------------------
+//----------------------------------------------------------
 
 
+class Classe{
+    private:
+        static const set<string> CLASSES_VALIDAS;
+        string nome;
+        void validar(string nome);
+    public:
+        Classe();
+        Classe(string nome);
+        string get_classe() const;
+        void set_classe(string nome);
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+inline string Classe::get_classe() const{return nome;};
 #endif

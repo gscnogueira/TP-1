@@ -28,3 +28,26 @@ void CEP::set_valor(int valor){
     validar(valor);
     this->valor=valor;
 }
+//----------------------------------------------------------
+//------------------------CLASSE----------------------------
+//----------------------------------------------------------
+
+const set<string> Classe::CLASSES_VALIDAS ={"CDB","LCA","LCI","LF","LC"};
+
+void Classe::validar(string nome){
+    if(!CLASSES_VALIDAS.count(nome))
+        throw invalid_argument("Argumento inválido");
+    this->nome=nome;
+}
+Classe::Classe(){
+    this->nome="CDB";
+}
+Classe::Classe(string nome){
+    validar(nome);
+    this->nome=nome;
+}
+void Classe::set_classe(string nome){
+    validar(nome);
+    this->nome=nome;
+}
+

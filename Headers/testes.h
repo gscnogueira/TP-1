@@ -4,6 +4,9 @@
 
 using namespace std;
 
+//----------------------------------------------------------
+//-------------------------CEP------------------------------
+//----------------------------------------------------------
 
 class TUCEP{
     private:
@@ -24,5 +27,20 @@ class TUCEP{
         int run();
 };
 
+//----------------------------------------------------------
+//------------------------CLASSE----------------------------
+//----------------------------------------------------------
 
+
+class TUClasse{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Classe classe;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
 #endif

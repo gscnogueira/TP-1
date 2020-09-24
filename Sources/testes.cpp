@@ -39,3 +39,38 @@ int TUCEP::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------CLASSE----------------------------
+//----------------------------------------------------------
+
+const string TUClasse::VALOR_VALIDO="LCI";
+const string TUClasse::VALOR_INVALIDO="BLAU";
+
+void TUClasse::testa_sucesso(){
+    try{
+        classe.set_classe(VALOR_VALIDO);
+        if(classe.get_classe()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+
+void TUClasse::testa_falha(){
+    try{
+        classe.set_classe(VALOR_INVALIDO);
+        if(classe.get_classe()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUClasse::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}
+

@@ -6,13 +6,16 @@ using namespace std;
 
 int main(){
 
-    TUCEP teste;
+    TUCEP t_cep;
 
-    switch(teste.run()){
+    switch(t_cep.run()){
         case TUCEP::SUCESSO: cout<< "SUCESSO"<<endl;
                              break;
         case TUCEP::FALHA: cout<< "FALHA"<<endl;
                              break;
-
     }
+    
+    TUClasse t_classe;
+    if(t_classe.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }
