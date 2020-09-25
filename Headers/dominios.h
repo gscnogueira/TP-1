@@ -203,4 +203,44 @@ class CodigoDeBanco{
         void set_codigo(string codigo);
 };
 inline string CodigoDeBanco::get_codigo()const{return codigo;};
+//----------------------------------------------------------
+//-------------------CÓDIGO-DE-PRODUTO----------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de código de produto.
+///
+/// A classe CodigoDeProduto possui o intuito de criar objeto que armazena o código de um produto de investimento.
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, o código de produto fornecido à instância da classe deve possuir o formato `XXX`, onde `X` é um digito. O código `000` é considerado **inválido**.
+
+class CodigoDeProduto{
+   private:
+       static const int TAMANHO = 3;
+       static const string EXCESSAO;
+       string codigo;
+       void validar(string codigo);
+    public:
+        ///- Cria objeto e armazena código passado no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param codigo : cadeia de caracteres correspondente ao código de produto que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `001`.
+        /// @throw invalid_argument
+       CodigoDeProduto(string codigo="001");
+        /// \return Cadeia de caracteres correspondente ao código de produto.
+       string get_codigo() const;
+        /// - Em caso de argumento **válido**, armazena código no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres correspondente ao código de produto que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+       void set_codigo(string codigo);
+};
+
+inline string CodigoDeProduto::get_codigo() const{ return codigo;};
+
+//----------------------------------------------------------
+//------------------------CPF-------------------------------
+//----------------------------------------------------------
 #endif

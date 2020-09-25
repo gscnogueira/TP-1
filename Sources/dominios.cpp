@@ -115,4 +115,29 @@ void CodigoDeBanco::set_codigo(string codigo){
     validar(codigo);
     this->codigo=codigo;
 }
+//----------------------------------------------------------
+//-------------------CÓDIGO-DE-PRODUTO----------------------
+//----------------------------------------------------------
+
+const string CodigoDeProduto::EXCESSAO="000";
+
+void CodigoDeProduto::validar(string codigo){
+    if(codigo.length()!=TAMANHO)
+        throw invalid_argument("CodigoDeProduto::validar");
+    if(codigo==EXCESSAO)
+        throw invalid_argument("CodigoDeProduto::validar");
+    for(char e:codigo)
+        if(!isdigit(e))
+            throw invalid_argument("CodigoDeProduto::validar");
+}
+
+CodigoDeProduto::CodigoDeProduto(string codigo){
+    validar(codigo);
+    this->codigo=codigo;
+}
+
+void CodigoDeProduto::set_codigo(string codigo){
+    validar(codigo);
+    this->codigo=codigo;
+}
 

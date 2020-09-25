@@ -4,5 +4,6 @@ var annotated_dup =
     [ "Classe", "class_classe.html", "class_classe" ],
     [ "CodigoDeAgencia", "class_codigo_de_agencia.html", "class_codigo_de_agencia" ],
     [ "CodigoDeAplicacao", "class_codigo_de_aplicacao.html", "class_codigo_de_aplicacao" ],
-    [ "CodigoDeBanco", "class_codigo_de_banco.html", "class_codigo_de_banco" ]
+    [ "CodigoDeBanco", "class_codigo_de_banco.html", "class_codigo_de_banco" ],
+    [ "CodigoDeProduto", "class_codigo_de_produto.html", "class_codigo_de_produto" ]
 ];
