@@ -22,4 +22,8 @@ int main(){
     TUCodigoDeAplicacao t_codigo_de_aplicacao;
     if(t_codigo_de_aplicacao.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUCodigoDeBanco t_codigo_de_banco;
+    if(t_codigo_de_banco.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

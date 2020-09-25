@@ -95,3 +95,24 @@ void CodigoDeAplicacao::set_codigo(string codigo){
     validar(codigo);
     this->codigo=codigo;
 }
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-BANCO-------------------------
+//----------------------------------------------------------
+
+const set<string> CodigoDeBanco::BANCOS={"341","001","237","104","033"};
+
+void CodigoDeBanco::validar(string codigo){
+    if(!BANCOS.count(codigo))
+        throw invalid_argument("CodigoDeBanco::validar");
+}
+
+CodigoDeBanco::CodigoDeBanco(string codigo){
+    validar(codigo);
+    this->codigo=codigo;
+
+}
+void CodigoDeBanco::set_codigo(string codigo){
+    validar(codigo);
+    this->codigo=codigo;
+}
+

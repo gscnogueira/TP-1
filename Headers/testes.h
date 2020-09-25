@@ -60,4 +60,18 @@ class TUCodigoDeAplicacao{
     public:
         bool run();
 };
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-BANCO-------------------------
+//----------------------------------------------------------
+class TUCodigoDeBanco{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        CodigoDeBanco codigo_de_banco;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
 #endif

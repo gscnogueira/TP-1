@@ -116,16 +116,16 @@ class CodigoDeAgencia{
         /// @throw invalid_argument
         CodigoDeAgencia(string codigo = "0001");
         /// \return Cadeia de caracteres correspondente ao código da agência bancária.
-        string get_codigo();
+        string get_codigo()const;
         /// - Em caso de argumento **válido**, armazena código no objeto.
         ///
         /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
-        /// @param codigo : Cadeia de caracteres a ser armazena no atributo `nome`.
+        /// @param codigo : Cadeia de caracteres correspondente ao código de agência que se deseja armazenar no objeto.
         /// @throw invalid_argument
         void set_codigo(string codigo);
 };
 
-inline string CodigoDeAgencia::get_codigo(){return codigo;};
+inline string CodigoDeAgencia::get_codigo()const{return codigo;};
 
 //----------------------------------------------------------
 //------------------CÓDIGO-DE-APLICAÇÃO---------------------
@@ -148,19 +148,59 @@ class CodigoDeAplicacao{
         //
         ///- Lança exceção caso o argumento passado seja **inválido.**
         ///
-        ///@param codigo : cadeia de caracteres correspondente ao código de agência que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `00001`.
+        ///@param codigo : cadeia de caracteres correspondente ao código de aplicação que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `00001`.
         /// @throw invalid_argument
         CodigoDeAplicacao(string codigo = "00001");
         /// \return Cadeia de caracteres correspondente ao código da aplicação.
-        string get_codigo();
+        string get_codigo() const;
         /// - Em caso de argumento **válido**, armazena código no objeto.
         ///
         /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
-        /// @param codigo : Cadeia de caracteres a ser armazena no atributo `nome`.
+        /// @param codigo : Cadeia de caracteres correspondente ao código de aplicação que se deseja armazenar no objeto.
         /// @throw invalid_argument
         void set_codigo(string codigo);
 };
 
-inline string CodigoDeAplicacao::get_codigo(){return codigo;};
+inline string CodigoDeAplicacao::get_codigo()const{return codigo;};
 
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-BANCO-------------------------
+//----------------------------------------------------------
+//
+/// \brief Padrão para representação de código de banco.
+///
+/// A classe CodigoDeBanco possui o intuito de criar objeto que armazena o código de uma instituição bancária;
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido o código de banco fornecido à instância da classe deve possuir o formato `XXX`, onde `X` é um digito. Apenas os códigos dos 5 maiores bancos brasileiros por ativos totais são válidos, sendo eles:
+///
+///- Banco Itaú Unibanco (341);
+///- Banco do Brasil (001);
+///- Banco Bradesco (237); 
+///- Caixa Econômica Federal (104);
+///- Banco Santander Brasil (033).
+
+class CodigoDeBanco{
+    private:
+        static const set<string> BANCOS;
+        string codigo;
+        void validar(string codigo);
+    public:
+        ///- Cria objeto e armazena código passado no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param codigo : cadeia de caracteres correspondente ao código de banco que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o código armazenado é `001`.
+        /// @throw invalid_argument
+        CodigoDeBanco(string codigo = "001");
+        /// \return Cadeia de caracteres correspondente ao código de banco.
+        string get_codigo()const;
+        /// - Em caso de argumento **válido**, armazena código no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres que corresponde ao código de banco a ser armazenado no objeto.
+        /// @throw invalid_argument
+        void set_codigo(string codigo);
+};
+inline string CodigoDeBanco::get_codigo()const{return codigo;};
 #endif

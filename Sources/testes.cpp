@@ -127,3 +127,38 @@ bool TUCodigoDeAplicacao::run(){
     testa_falha();
     return estado;
 }
+//----------------------------------------------------------
+//------------------CÓDIGO-DE-BANCO-------------------------
+//----------------------------------------------------------
+
+const string TUCodigoDeBanco::VALOR_VALIDO="104";
+const string TUCodigoDeBanco::VALOR_INVALIDO="125";
+
+void TUCodigoDeBanco::testa_sucesso(){
+    try{
+        codigo_de_banco.set_codigo(VALOR_VALIDO);
+        if(codigo_de_banco.get_codigo()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+
+void TUCodigoDeBanco::testa_falha(){
+    try{
+        codigo_de_banco.set_codigo(VALOR_INVALIDO);
+        if(codigo_de_banco.get_codigo()==VALOR_INVALIDO)
+            estado = false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUCodigoDeBanco::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}
+
