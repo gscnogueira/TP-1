@@ -1,75 +1,75 @@
 
 * DOING Domínios
-** DONE CEP
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE CLASSE
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE CÓDIGO DE AGÊNCIA
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE Código de Aplicação
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE CÓDIGO DE BANCO
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE CÓDIGO DE PRODUTO
-*** DONE Classe;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** DONE CPF
-*** DONE Classes;
-*** DONE Unidade;
-*** DONE Documentação;
-** DONE DATA
-*** DONE Classes;
-*** DONE Teste de Unidade;
-*** DONE Documentação;
-** TODO EMISSOR
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO ENDEREÇO
-*** TODO Classes;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
-** TODO HORÁRIO
-*** TODO Classes;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
-** TODO NOME
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO NÚMERO
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO PRAZO
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO SENHA
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO TAXA
-*** TODO Classes;
-*** TODO Unidade;
-*** TODO Documentação;
-** TODO VALOR MÍNIMO
-*** TODO Classe;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
-** TODO VALOR DE APLICAÇÃO
-*** TODO Classe;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
+** DONE CEP [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CLASSE [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE AGÊNCIA [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE Código de Aplicação [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE BANCO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE PRODUTO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CPF [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE DATA [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** TODO EMISSOR [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO ENDEREÇO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO HORÁRIO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO NOME [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO NÚMERO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO PRAZO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO SENHA [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO TAXA [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO VALOR MÍNIMO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO VALOR DE APLICAÇÃO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
     
