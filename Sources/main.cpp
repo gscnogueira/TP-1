@@ -34,4 +34,8 @@ int main(){
     TUCPF t_CPF;
     if(t_CPF.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUData t_data;
+    if(t_data.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

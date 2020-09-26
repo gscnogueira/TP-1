@@ -107,4 +107,19 @@ class TUCPF{
     public:
         bool run(); 
 };
+//----------------------------------------------------------
+//------------------------DATA------------------------------
+//----------------------------------------------------------
+class TUData{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Data data;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+
+};
 #endif

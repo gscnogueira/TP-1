@@ -239,3 +239,38 @@ bool TUCPF::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------DATA------------------------------
+//----------------------------------------------------------
+
+const string TUData::VALOR_VALIDO="29/02/2020";
+const string TUData::VALOR_INVALIDO="31/09/2020";
+
+void TUData::testa_sucesso(){
+    try{
+        data.set_data(VALOR_VALIDO);
+        if(data.get_data()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+
+void TUData::testa_falha(){
+    try{
+        data.set_data(VALOR_INVALIDO);
+        if(data.get_data()==VALOR_INVALIDO)
+           estado=false; 
+
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUData::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}

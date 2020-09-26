@@ -268,4 +268,38 @@ class CPF{
 
 };
 inline string CPF::get_cpf() const { return cpf; };
+//----------------------------------------------------------
+//------------------------DATA------------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de data.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter o formato `XX/XX/XXXX`. São validas quaisquer datas existentes no periodo entre 01/01/2020 e 31/12/2099;
+
+class Data{
+    private:
+        static const int TAMANHO = 10;
+        string data;
+        void validar(string data);
+    public:
+        Data();
+        ///- Cria objeto e armazena cadeia de caracteres passada no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param codigo : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto. Caso o parâmetro seja omitido, a data atual é armazenada. Caso a data atual não seja detectada, a data 01/01/2020 é armazenada.
+        /// @throw invalid_argument
+        Data(string data);
+        /// \return Cadeia de caracteres correspondente à data armazenada no objeto.
+        string get_data() const;
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde à data no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+        void set_data(string data);
+};
+inline string Data::get_data() const { return data; };
 #endif

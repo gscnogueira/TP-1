@@ -191,3 +191,73 @@ void CPF::set_cpf(string cpf){
     validar(cpf);
     this->cpf=cpf;
 }
+//----------------------------------------------------------
+//------------------------DATA------------------------------
+//----------------------------------------------------------
+
+void Data::validar(string data){
+
+    set<int> trinta {4,6,9,11};
+    set<int> trinta_e_um {1,3,5,7,8,10,12};
+
+    if(data.length()!=TAMANHO)
+        throw invalid_argument("data::validar");
+        
+    if(!regex_match(data,regex("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
+        throw invalid_argument("data::validar");
+
+    int dia = stoi(data.substr(0,2));
+    int mes = stoi(data.substr(3,2));
+    int ano = stoi(data.substr(6));
+
+    if(mes>12 or mes<1)
+        throw invalid_argument("data::validar");
+    if(ano>2099 or ano<2020)
+        throw invalid_argument("data::validar");
+
+    if(trinta.count(mes))
+        if(dia>30 or dia<1)
+            throw invalid_argument("data::validar");
+    
+    if(trinta_e_um.count(mes))
+        if(dia>31 or dia<1)
+            throw invalid_argument("data::validar");
+    if(mes==2){
+        if(!ano%4)
+            if(dia>29 or dia<1)
+                throw invalid_argument("data::validar");
+        if(ano%4)
+            if(dia>28 or dia<1)
+                throw invalid_argument("data::validar");
+            
+    }
+
+}
+Data::Data(){
+
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,sizeof(buffer),"%d/%m/%Y",timeinfo);
+    string aux(buffer);
+    try{
+        validar(aux);
+        data=aux;
+    }
+    catch(invalid_argument &e){
+        data="01/01/2020";
+    }
+}
+
+Data::Data(string data){
+    validar(data);
+    this->data=data;
+}
+
+void Data::set_data(string data){
+    validar(data);
+    this->data=data;
+}
