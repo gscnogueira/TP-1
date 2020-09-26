@@ -38,4 +38,8 @@ int main(){
     TUData t_data;
     if(t_data.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUEmissor t_emissor;
+    if(t_emissor.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

@@ -274,3 +274,49 @@ bool TUData::run(){
     testa_falha();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------EMISSOR---------------------------
+//----------------------------------------------------------
+
+const string TUEmissor::VALOR_VALIDO="Meu Amor 2000";
+const string TUEmissor::VALOR_INVALIDO="Minha nossa";
+
+
+void  TUEmissor::set_up(){
+    ptr_emissor=new Emissor();
+    estado=true;
+}
+void TUEmissor::tear_down(){
+    delete ptr_emissor;
+}
+void TUEmissor::testa_sucesso(){
+    try{
+        ptr_emissor->set_emissor(VALOR_VALIDO);
+        if(ptr_emissor->get_emissor()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        cout<<e.what()<<endl;
+        estado=false;
+    }
+}
+
+void TUEmissor::testa_falha(){
+    try{
+        ptr_emissor->set_emissor(VALOR_INVALIDO);
+        if(ptr_emissor->get_emissor()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUEmissor::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}
+

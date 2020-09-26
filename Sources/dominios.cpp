@@ -3,6 +3,19 @@
 
 using namespace std;
 
+vector<string> split(string str){
+
+    vector<string> palavras;
+    std::size_t current, previous =0;
+    current=str.find(" ");
+    while(current != string::npos){
+        palavras.push_back(str.substr(previous,current-previous));
+        previous=current+1;
+        current=str.find_first_of(" ",previous);
+    }
+    palavras.push_back(str.substr(previous,current-previous));
+    return palavras;
+}
 //----------------------------------------------------------
 //-------------------------CEP------------------------------
 //----------------------------------------------------------
@@ -260,4 +273,40 @@ Data::Data(string data){
 void Data::set_data(string data){
     validar(data);
     this->data=data;
+}
+//----------------------------------------------------------
+//------------------------EMISSOR---------------------------
+//----------------------------------------------------------
+const set<char> Emissor::VALIDOS={' ',',','.','-'};
+
+void Emissor::validar(string emissor){
+
+    vector<string> palavras=split(emissor);
+
+    if(emissor.length()>TAMANHO_MAX or emissor.length()<TAMANHO_MIN)
+        throw invalid_argument("Tamanho inválido");
+    for(int i=0;i<(int)emissor.length();i++)
+        if((!isalnum(emissor[i]))and(!VALIDOS.count(emissor[i])))
+            throw invalid_argument("Caractere inválido");
+
+    for(string e : palavras){
+        if(isalpha(e[0])){
+            if(islower(e[0]))
+                throw invalid_argument("Primeira letra da palavra não é minuscula");
+            for(char c : e){
+                if(!isalpha(c))
+                    throw invalid_argument("Apenas dígitos e números podem estar em sequência");
+            }
+         }           
+        if(isdigit(e[0]))
+            for(char c : e){
+                if(!isdigit(c))
+                    throw invalid_argument("Apenas dígitos e números podem estar em sequência");
+            }
+    }
+}
+
+void Emissor::set_emissor(string emissor){
+    validar(emissor);
+    this->emissor=emissor;
 }

@@ -122,4 +122,22 @@ class TUData{
         bool run();
 
 };
+//----------------------------------------------------------
+//------------------------EMISSOR---------------------------
+//----------------------------------------------------------
+
+class TUEmissor{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Emissor* ptr_emissor;
+        bool estado;
+        void set_up();
+        void testa_sucesso();
+        void testa_falha();
+        void tear_down();
+    public:
+        bool run(); 
+};
+
 #endif

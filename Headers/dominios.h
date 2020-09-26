@@ -294,7 +294,7 @@ class Data{
         Data(string data);
         /// \return Cadeia de caracteres correspondente à data armazenada no objeto.
         string get_data() const;
-        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde à data no objeto.
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde à data armazenada no objeto.
         ///
         /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
         /// @param codigo : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto.
@@ -302,4 +302,38 @@ class Data{
         void set_data(string data);
 };
 inline string Data::get_data() const { return data; };
+//----------------------------------------------------------
+//------------------------EMISSOR---------------------------
+//----------------------------------------------------------
+///\brief Padrão para representação de emissor de produto de investimento.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter de 5 a 30 caracteres. São considerado caracteres **válidos**:
+///- Dígito (0-9) 
+///- Espaço
+///- Hífen
+///- Letra (A-Z ou a-z)
+///- Ponto
+///- Virgula
+///
+/// Apenas letras e digitos podem estar em sequência. Em termo cuja primeira letra é um caractere, a mesma **deve** ser maiúscula.
+class Emissor{
+    private:
+        static const set<char> VALIDOS;
+        static const int TAMANHO_MIN = 5;
+        static const int TAMANHO_MAX = 30;
+        string emissor;
+        void validar(string emissor);
+    public:
+        /// \return Cadeia de caracteres correspondente ao emissor de produto de investimento.
+        string get_emissor() const;
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde ao emissor armazenado no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param emissor : Cadeia de caracteres correspondente ao emissor que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+        void set_emissor(string emissor);
+};
+inline string Emissor::get_emissor()const{return emissor;};
 #endif
