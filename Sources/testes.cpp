@@ -171,8 +171,8 @@ const string TUCodigoDeProduto::VALOR_INVALIDO="1b4";
 
 void TUCodigoDeProduto::testa_sucesso(){
     try{
-        codigo_de_produtos.set_codigo(VALOR_VALIDO);
-        if(codigo_de_produtos.get_codigo()!=VALOR_VALIDO)
+        codigo_de_produto.set_codigo(VALOR_VALIDO);
+        if(codigo_de_produto.get_codigo()!=VALOR_VALIDO)
             estado=false;
     }
     catch(invalid_argument &e){
@@ -182,8 +182,8 @@ void TUCodigoDeProduto::testa_sucesso(){
 
 void TUCodigoDeProduto::testa_falha(){
     try{
-        codigo_de_produtos.set_codigo(VALOR_INVALIDO);
-        if(codigo_de_produtos.get_codigo()==VALOR_INVALIDO)
+        codigo_de_produto.set_codigo(VALOR_INVALIDO);
+        if(codigo_de_produto.get_codigo()==VALOR_INVALIDO)
             estado=false;
     }
     catch(invalid_argument &e){
@@ -199,3 +199,43 @@ bool TUCodigoDeProduto::run(){
 //----------------------------------------------------------
 //------------------------CPF-------------------------------
 //----------------------------------------------------------
+
+const string TUCPF::VALOR_VALIDO="200.094.918-56";
+const string TUCPF::VALOR_INVALIDO="111.111.111-11";
+
+void  TUCPF::set_up(){
+    cpf=new CPF();
+    estado=true;
+}
+void TUCPF::tear_down(){
+    delete cpf;
+}
+void TUCPF::testa_sucesso(){
+    try{
+        cpf->set_cpf(VALOR_VALIDO);
+        if(cpf->get_cpf()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+
+void TUCPF::testa_falha(){
+    try{
+        cpf->set_cpf(VALOR_INVALIDO);
+        if(cpf->get_cpf()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUCPF::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}

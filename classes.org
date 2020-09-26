@@ -16,16 +16,16 @@
 *** DONE Classe;
 *** DONE Teste de Unidade;
 *** DONE Documentação;
-** TODO CÓDIGO DE BANCO
-*** TODO Classe;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
-** TODO CÓDIGO DE PRODUTO
-*** TODO Classe;
-*** TODO Teste de Unidade;
-*** TODO Documentação;
-** TODO CPF
-*** TODO Classes;
+** DONE CÓDIGO DE BANCO
+*** DONE Classe;
+*** DONE Teste de Unidade;
+*** DONE Documentação;
+** DONE CÓDIGO DE PRODUTO
+*** DONE Classe;
+*** DONE Teste de Unidade;
+*** DONE Documentação;
+** DOING CPF
+*** DOING Classes;
 *** TODO Unidade;
 *** TODO Documentação;
 ** TODO DATA

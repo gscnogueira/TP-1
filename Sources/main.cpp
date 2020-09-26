@@ -30,4 +30,8 @@ int main(){
     TUCodigoDeProduto t_codigo_de_produto;
     if(t_codigo_de_produto.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUCPF t_CPF;
+    if(t_CPF.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

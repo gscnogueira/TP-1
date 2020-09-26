@@ -82,12 +82,29 @@ class TUCodigoDeProduto{
     private:
         static const string VALOR_VALIDO;
         static const string VALOR_INVALIDO;
-        CodigoDeProduto codigo_de_produtos;
+        CodigoDeProduto codigo_de_produto;
         bool estado=true;
         void testa_sucesso();
         void testa_falha();
     public:
         bool run();
 
+};
+//----------------------------------------------------------
+//------------------------CPF-------------------------------
+//----------------------------------------------------------
+
+class TUCPF{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        CPF* cpf;
+        bool estado;
+        void set_up();
+        void testa_sucesso();
+        void testa_falha();
+        void tear_down();
+    public:
+        bool run(); 
 };
 #endif

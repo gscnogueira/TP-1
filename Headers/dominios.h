@@ -243,4 +243,29 @@ inline string CodigoDeProduto::get_codigo() const{ return codigo;};
 //----------------------------------------------------------
 //------------------------CPF-------------------------------
 //----------------------------------------------------------
+
+///\brief Padrão para representação de CPF.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, o CPF ser passado deve ter o formato `XXX.XXX.XXX-XX`. Além disso, o CPF fornecido deve ser válido de acordo com algorítimo de validação de CPF elaborado pelo ministério da fazenda.
+
+class CPF{
+    private:
+        static const int TAMANHO = 14;
+        string cpf;
+        void validar(string cpf);
+    public:
+        /// \return Cadeia de caracteres correspondente ao CPF armazenado no objeto.
+        string get_cpf() const;
+/// - Em caso de argumento **válido**, armazena código no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param codigo : Cadeia de caracteres correspondente ao CPF que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+
+        void set_cpf(string cpf);
+
+};
+inline string CPF::get_cpf() const { return cpf; };
 #endif
