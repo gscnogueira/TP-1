@@ -10,7 +10,6 @@ int main(){
     if(t_cep.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
 
-    
     TUClasse t_classe;
     if(t_classe.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
@@ -46,5 +45,9 @@ int main(){
 
     TUEndereco t_endereco;
     if(t_endereco.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
+
+    TUHorario t_horario;
+    if(t_horario.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
 }

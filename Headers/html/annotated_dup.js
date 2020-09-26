@@ -9,5 +9,6 @@ var annotated_dup =
     [ "CPF", "class_c_p_f.html", "class_c_p_f" ],
     [ "Data", "class_data.html", "class_data" ],
     [ "Emissor", "class_emissor.html", "class_emissor" ],
-    [ "Endereco", "class_endereco.html", "class_endereco" ]
+    [ "Endereco", "class_endereco.html", "class_endereco" ],
+    [ "Horario", "class_horario.html", "class_horario" ]
 ];

@@ -353,8 +353,56 @@ void Endereco::set_endereco(string endereco){
     this->endereco=endereco;
 }
 
+//----------------------------------------------------------
+//------------------------HORÁRIO---------------------------
+//----------------------------------------------------------
 
+void Horario::validar(string horario){
+    
+    if(horario.length()!=TAMANHO)
+        throw invalid_argument("Horario::validar -> Tamanho inválido");
+        
+    if(!regex_match(horario,regex("[0-9]{2}\\:[0-9]{2}")))
+        throw invalid_argument("Horario::validar -> Formato inválido");
 
+    int horas   = stoi(horario.substr(0,2));
+    int minutos = stoi(horario.substr(3));
+    if(horas<13 or horas>17 )
+        throw invalid_argument("Horario::validar -> Horário inválido");
 
+    if(minutos<0 or minutos>59 )
+        throw invalid_argument("Horario::validar -> Horário inválido");
+    if(horas==17 and minutos!= 0)
+        throw invalid_argument("Horario::validar -> Horário inválido");
+}
+
+Horario::Horario(){
+
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,sizeof(buffer),"%H:%M",timeinfo);
+    string aux(buffer);
+    try{
+        validar(aux);
+        horario=aux;
+    }
+    catch(invalid_argument &e){
+        horario="13:00";
+    }
+}
+
+Horario::Horario(string horario){
+    validar(horario);
+    this->horario=horario;
+}
+
+void Horario::set_horario(string horario){
+    validar(horario);
+    this->horario=horario;
+}
 
 

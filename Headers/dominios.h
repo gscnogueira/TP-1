@@ -289,15 +289,15 @@ class Data{
         //
         ///- Lança exceção caso o argumento passado seja **inválido.**
         ///
-        ///@param codigo : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto. Caso o parâmetro seja omitido, a data atual é armazenada. Caso a data atual não seja detectada, a data 01/01/2020 é armazenada.
+        ///@param data : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto. Caso o parâmetro seja omitido, a data atual é armazenada. Caso a data atual não seja detectada, a data 01/01/2020 é armazenada.
         /// @throw invalid_argument
         Data(string data);
         /// \return Cadeia de caracteres correspondente à data armazenada no objeto.
         string get_data() const;
-        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde à data armazenada no objeto.
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres corresponde à data no objeto.
         ///
         /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
-        /// @param codigo : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto.
+        /// @param data : Cadeia de caracteres correspondente à data que se deseja armazenar no objeto.
         /// @throw invalid_argument
         void set_data(string data);
 };
@@ -370,4 +370,40 @@ class Endereco{
 
 };
 inline string Endereco::get_endereco()const{return endereco;};
+
+//----------------------------------------------------------
+//------------------------HORÁRIO---------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de horário.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter o formato `XX:XX`. São validos **apenas** horários entre 13:00 e 17:00 horas;
+
+class Horario{
+    private:
+        static const int TAMANHO=5;
+        string horario;
+        void validar(string horario);
+    public:
+       Horario();
+  ///- Cria objeto e armazena cadeia de caracteres passada no mesmo, em caso de argumento **válido**.
+        //
+        ///- Lança exceção caso o argumento passado seja **inválido.**
+        ///
+        ///@param horario : Cadeia de caracteres correspondente ao horario que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o horario atual é armazenado. Caso o horario atual não seja válido, ou detectado, a cadeia de caracteres 13:00 é armazenada.
+        /// @throw invalid_argument
+        Horario(string horario);
+        /// \return Cadeia de caracteres correspondente ao horario armazenado no objeto.
+        string get_horario() const;
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param horario : Cadeia de caracteres correspondente ao horário que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+        void set_horario(string horario);
+};
+inline string Horario::get_horario()const{return horario;};
+
 #endif

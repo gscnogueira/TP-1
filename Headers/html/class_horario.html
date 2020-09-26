@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sistema De insvestimentos: Referência da Classe Data</title>
+<title>Sistema De insvestimentos: Referência da Classe Horario</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_data.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('class_horario.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,43 +83,43 @@ $(document).ready(function(){initNavTree('class_data.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="class_data-members.html">Lista de todos os Membros</a>  </div>
+<a href="class_horario-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência da Classe Data</div>  </div>
+<div class="title">Referência da Classe Horario</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Padrão para representação de data.  
- <a href="class_data.html#details">Mais...</a></p>
+<p>Padrão para representação de horário.  
+ <a href="class_horario.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:afdf974c5438dd5c68cc48c28c99f44c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#afdf974c5438dd5c68cc48c28c99f44c7">Data</a> (string data)</td></tr>
-<tr class="separator:afdf974c5438dd5c68cc48c28c99f44c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02346bf28fa1a8ddd3882815708ff9e5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a02346bf28fa1a8ddd3882815708ff9e5">get_data</a> () const</td></tr>
-<tr class="separator:a02346bf28fa1a8ddd3882815708ff9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a186eb1482c1ca3ea280e8ff03f7494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a8a186eb1482c1ca3ea280e8ff03f7494">set_data</a> (string data)</td></tr>
-<tr class="separator:a8a186eb1482c1ca3ea280e8ff03f7494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b3a6fbc50141655409334b64a6f933"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_horario.html#a42b3a6fbc50141655409334b64a6f933">Horario</a> (string horario)</td></tr>
+<tr class="separator:a42b3a6fbc50141655409334b64a6f933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d09138af83c16c81c21fc408685337"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_horario.html#a95d09138af83c16c81c21fc408685337">get_horario</a> () const</td></tr>
+<tr class="separator:a95d09138af83c16c81c21fc408685337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4215e6ef0941c0c38d27f1ad53391071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_horario.html#a4215e6ef0941c0c38d27f1ad53391071">set_horario</a> (string horario)</td></tr>
+<tr class="separator:a4215e6ef0941c0c38d27f1ad53391071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Padrão para representação de data. </p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<div class="textblock"><p>Padrão para representação de horário. </p>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Requezitos de Formato</h3>
-<p>Para ser considerado válido, a cadeia de caracteres a ser passada deve ter o formato <code>XX/XX/XXXX</code>. São validas quaisquer datas existentes no periodo entre 01/01/2020 e 31/12/2099; </p>
+<p>Para ser considerado válido, a cadeia de caracteres a ser passada deve ter o formato <code>XX:XX</code>. São validos <b>apenas</b> horários entre 13:00 e 17:00 horas; </p>
 </div><h2 class="groupheader">Construtores e Destrutores</h2>
-<a id="afdf974c5438dd5c68cc48c28c99f44c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdf974c5438dd5c68cc48c28c99f44c7">&#9670;&nbsp;</a></span>Data()</h2>
+<a id="a42b3a6fbc50141655409334b64a6f933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b3a6fbc50141655409334b64a6f933">&#9670;&nbsp;</a></span>Horario()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Data::Data </td>
+          <td class="memname">Horario::Horario </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"><em>horario</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -130,7 +130,7 @@ Requezitos de Formato</h3>
 </ul>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>: Cadeia de caracteres correspondente à data que se deseja armazenar no objeto. Caso o parâmetro seja omitido, a data atual é armazenada. Caso a data atual não seja detectada, a data 01/01/2020 é armazenada. </td></tr>
+    <tr><td class="paramname">horario</td><td>: Cadeia de caracteres correspondente ao horario que se deseja armazenar no objeto. Caso o parâmetro seja omitido, o horario atual é armazenado. Caso o horario atual não seja válido, ou detectado, a cadeia de caracteres 13:00 é armazenada. </td></tr>
   </table>
   </dd>
 </dl>
@@ -144,8 +144,8 @@ Requezitos de Formato</h3>
 </div>
 </div>
 <h2 class="groupheader">Funções membros</h2>
-<a id="a02346bf28fa1a8ddd3882815708ff9e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02346bf28fa1a8ddd3882815708ff9e5">&#9670;&nbsp;</a></span>get_data()</h2>
+<a id="a95d09138af83c16c81c21fc408685337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d09138af83c16c81c21fc408685337">&#9670;&nbsp;</a></span>get_horario()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +154,7 @@ Requezitos de Formato</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string Data::get_data </td>
+          <td class="memname">string Horario::get_horario </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -166,30 +166,30 @@ Requezitos de Formato</h3>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Retorna</dt><dd>Cadeia de caracteres correspondente à data armazenada no objeto. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>Cadeia de caracteres correspondente ao horario armazenado no objeto. </dd></dl>
 
 </div>
 </div>
-<a id="a8a186eb1482c1ca3ea280e8ff03f7494"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a186eb1482c1ca3ea280e8ff03f7494">&#9670;&nbsp;</a></span>set_data()</h2>
+<a id="a4215e6ef0941c0c38d27f1ad53391071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4215e6ef0941c0c38d27f1ad53391071">&#9670;&nbsp;</a></span>set_horario()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Data::set_data </td>
+          <td class="memname">void Horario::set_horario </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"><em>horario</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <ul>
-<li>Em caso de argumento <b>válido</b>, armazena cadeia de caracteres corresponde à data no objeto.</li>
+<li>Em caso de argumento <b>válido</b>, armazena cadeia de caracteres no objeto.</li>
 <li>Caso seja passada uma cadeia de caracteres <b>inválida</b> como argumento, uma exceção é lançada. <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>: Cadeia de caracteres correspondente à data que se deseja armazenar no objeto. </td></tr>
+    <tr><td class="paramname">horario</td><td>: Cadeia de caracteres correspondente ao horário que se deseja armazenar no objeto. </td></tr>
   </table>
   </dd>
 </dl>
@@ -212,7 +212,7 @@ Requezitos de Formato</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_data.html">Data</a></li>
+    <li class="navelem"><a class="el" href="class_horario.html">Horario</a></li>
     <li class="footer">Gerado por <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

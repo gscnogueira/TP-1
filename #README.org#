@@ -1,48 +1,56 @@
 
 * DOING Domínios
-** DONE CEP [3/3]
+** DOING CEP [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE CLASSE [3/3]
+  - [ ] Arrumar Excessão;
+** DOING CLASSE [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE CÓDIGO DE AGÊNCIA [3/3]
+  - [ ] Arrumar Excessão;
+** DOING CÓDIGO DE AGÊNCIA [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE Código de Aplicação [3/3]
+  - [ ] Arrumar Excessão;
+** DOING Código de Aplicação [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE CÓDIGO DE BANCO [3/3]
+  - [ ] Arrumar Excessão;
+** DOING CÓDIGO DE BANCO [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE CÓDIGO DE PRODUTO [3/3]
+  - [ ] Arrumar Excessão;
+** DOING CÓDIGO DE PRODUTO [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE CPF [3/3]
+  - [ ] Arrumar Excessão;
+** DOING CPF [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DONE DATA [3/3]
+  - [ ] Arrumar Excessão;
+** DONE DATA [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
+  - [ ] Arrumar Excessão;
 ** DONE EMISSOR [3/3]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DOING ENDEREÇO [2/3]
+** DONE ENDEREÇO [3/3]
   - [X] Classe;
   - [X] Teste de Unidade;
-  - [ ] Documentação;
-** TODO HORÁRIO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
+  - [X] Documentação;
+** DOING HORÁRIO [2/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
   - [ ] Documentação;
 ** TODO NOME [0/3]
   - [ ] Classe;

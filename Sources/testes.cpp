@@ -364,3 +364,38 @@ bool TUEndereco::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------HORÁRIO---------------------------
+//----------------------------------------------------------
+
+const string TUHorario::VALOR_VALIDO="16:20";
+const string TUHorario::VALOR_INVALIDO="17:30";
+
+void TUHorario::testa_sucesso(){
+    try{
+        horario.set_horario(VALOR_VALIDO);
+        if(horario.get_horario()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+
+void TUHorario::testa_falha(){
+    try{
+        horario.set_horario(VALOR_INVALIDO);
+        if(horario.get_horario()==VALOR_INVALIDO)
+           estado=false; 
+
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUHorario::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}

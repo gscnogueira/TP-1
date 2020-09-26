@@ -157,4 +157,19 @@ class TUEndereco{
     public:
         bool run(); 
 };
+//----------------------------------------------------------
+//------------------------HORÁRIO---------------------------
+//----------------------------------------------------------
+class TUHorario{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Horario horario;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+
+};
 #endif
