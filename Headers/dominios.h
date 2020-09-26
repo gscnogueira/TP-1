@@ -315,7 +315,6 @@ inline string Data::get_data() const { return data; };
 ///- Hífen
 ///- Letra (A-Z ou a-z)
 ///- Ponto
-///- Virgula
 ///
 /// Apenas letras e digitos podem estar em sequência. Em termo cuja primeira letra é um caractere, a mesma **deve** ser maiúscula.
 class Emissor{
@@ -336,4 +335,39 @@ class Emissor{
         void set_emissor(string emissor);
 };
 inline string Emissor::get_emissor()const{return emissor;};
+
+//----------------------------------------------------------
+//------------------------ENDEREÇO--------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de endereço.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter de 5 a 20 caracteres. São considerado caracteres **válidos**:
+///- Dígito (0-9) 
+///- Espaço
+///- Letra (A-Z ou a-z)
+///- Ponto
+///
+/// Apenas letras e digitos podem estar em sequência. Em termo cuja primeira letra é um caractere, a mesma **deve** ser maiúscula.
+class Endereco{
+    private:
+        static const set<char> VALIDOS;
+        static const int TAMANHO_MIN = 5;
+        static const int TAMANHO_MAX = 20;
+        string endereco;
+        void validar(string endereco);
+    public:
+        /// \return Cadeia de caracteres correspondente ao endereço armazenado no objeto.
+        string get_endereco() const;
+        /// - Em caso de argumento **válido**, armazena valor de endereço no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param endereco : Cadeia de caracteres correspondente ao endereco que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+        void set_endereco(string endereco);
+
+};
+inline string Endereco::get_endereco()const{return endereco;};
 #endif

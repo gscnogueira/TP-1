@@ -277,31 +277,34 @@ void Data::set_data(string data){
 //----------------------------------------------------------
 //------------------------EMISSOR---------------------------
 //----------------------------------------------------------
-const set<char> Emissor::VALIDOS={' ',',','.','-'};
+const set<char> Emissor::VALIDOS={' ','.','-'};
 
 void Emissor::validar(string emissor){
 
     vector<string> palavras=split(emissor);
 
     if(emissor.length()>TAMANHO_MAX or emissor.length()<TAMANHO_MIN)
-        throw invalid_argument("Tamanho inválido");
+        throw invalid_argument("Emissor::validar -> Tamanho inválido");
+
     for(int i=0;i<(int)emissor.length();i++)
         if((!isalnum(emissor[i]))and(!VALIDOS.count(emissor[i])))
-            throw invalid_argument("Caractere inválido");
+            throw invalid_argument("Emissor::validar -> Caractere inválido");
 
     for(string e : palavras){
         if(isalpha(e[0])){
             if(islower(e[0]))
-                throw invalid_argument("Primeira letra da palavra não é minuscula");
+                throw invalid_argument("Emissor::validar -> Primeira letra da palavra não é minuscula");
+
             for(char c : e){
                 if(!isalpha(c))
-                    throw invalid_argument("Apenas dígitos e números podem estar em sequência");
+                    throw invalid_argument("Emissor::validar-> Apenas dígitos e números podem estar em sequência");
             }
          }           
+
         if(isdigit(e[0]))
             for(char c : e){
                 if(!isdigit(c))
-                    throw invalid_argument("Apenas dígitos e números podem estar em sequência");
+                    throw invalid_argument("Emissor::validar -> Apenas dígitos e números podem estar em sequência");
             }
     }
 }
@@ -310,3 +313,48 @@ void Emissor::set_emissor(string emissor){
     validar(emissor);
     this->emissor=emissor;
 }
+//----------------------------------------------------------
+//------------------------ENDEREÇO--------------------------
+//----------------------------------------------------------
+
+const set<char> Endereco::VALIDOS={' ','.'};
+
+void Endereco::validar(string endereco){
+    vector<string> palavras =split(endereco);
+
+    if(endereco.length()>TAMANHO_MAX or endereco.length()<TAMANHO_MIN)
+        throw invalid_argument("Endereco::validar -> Tamanho inválido");
+
+    for(int i=0;i<(int)endereco.length();i++)
+        if((!isalnum(endereco[i]))and(!VALIDOS.count(endereco[i])))
+            throw invalid_argument("Endereco::validar -> Caractere inválido");
+    for(string e : palavras){
+
+        if(isalpha(e[0])){
+            if(islower(e[0]))
+                throw invalid_argument("Endereco::validar -> Primeira letra da palavra não é minuscula");
+
+            for(char c : e){
+                if(!isalpha(c))
+                    throw invalid_argument("Endereco::validar-> Apenas dígitos e números podem estar em sequência");
+            }
+         }           
+
+        if(isdigit(e[0]))
+            for(char c : e){
+                if(!isdigit(c))
+                    throw invalid_argument("Endereco::validar -> Apenas dígitos e números podem estar em sequência");
+            }
+    }
+}
+
+void Endereco::set_endereco(string endereco){
+    validar(endereco);
+    this->endereco=endereco;
+}
+
+
+
+
+
+

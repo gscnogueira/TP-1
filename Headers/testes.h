@@ -140,4 +140,21 @@ class TUEmissor{
         bool run(); 
 };
 
+//----------------------------------------------------------
+//------------------------ENDEREÇO--------------------------
+//----------------------------------------------------------
+
+class TUEndereco{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Endereco* ptr_endereco;
+        bool estado;
+        void set_up();
+        void testa_sucesso();
+        void testa_falha();
+        void tear_down();
+    public:
+        bool run(); 
+};
 #endif

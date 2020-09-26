@@ -1,0 +1,75 @@
+
+* DOING Domínios
+** DONE CEP [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CLASSE [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE AGÊNCIA [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE Código de Aplicação [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE BANCO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CÓDIGO DE PRODUTO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE CPF [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE DATA [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DONE EMISSOR [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DOING ENDEREÇO [2/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [ ] Documentação;
+** TODO HORÁRIO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO NOME [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO NÚMERO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO PRAZO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO SENHA [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO TAXA [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO VALOR MÍNIMO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+** TODO VALOR DE APLICAÇÃO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;
+    

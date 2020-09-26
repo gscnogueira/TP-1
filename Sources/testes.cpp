@@ -278,7 +278,7 @@ bool TUData::run(){
 //------------------------EMISSOR---------------------------
 //----------------------------------------------------------
 
-const string TUEmissor::VALOR_VALIDO="Meu Amor 2000";
+const string TUEmissor::VALOR_VALIDO="Meu Amor - 2000";
 const string TUEmissor::VALOR_INVALIDO="Minha nossa";
 
 
@@ -319,4 +319,48 @@ bool TUEmissor::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------ENDEREÇO--------------------------
+//----------------------------------------------------------
 
+const string TUEndereco::VALOR_VALIDO="Meu Amor 2000";
+const string TUEndereco::VALOR_INVALIDO="Minha - nossa";
+
+
+void  TUEndereco::set_up(){
+    ptr_endereco=new Endereco();
+    estado=true;
+}
+void TUEndereco::tear_down(){
+    delete ptr_endereco;
+}
+void TUEndereco::testa_sucesso(){
+    try{
+        ptr_endereco->set_endereco(VALOR_VALIDO);
+        if(ptr_endereco->get_endereco()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        cout<<e.what()<<endl;
+        estado=false;
+    }
+}
+
+void TUEndereco::testa_falha(){
+    try{
+        ptr_endereco->set_endereco(VALOR_INVALIDO);
+        if(ptr_endereco->get_endereco()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUEndereco::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}

@@ -42,4 +42,9 @@ int main(){
     TUEmissor t_emissor;
     if(t_emissor.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+
+    TUEndereco t_endereco;
+    if(t_endereco.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }
