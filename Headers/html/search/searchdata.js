@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
   0: "cdeghnps",
-  1: "cdehnp",
+  1: "cdehnps",
   2: "cdghps"
 };
 

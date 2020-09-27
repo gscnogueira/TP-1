@@ -471,7 +471,7 @@ inline string Numero::get_numero()const{return numero;};
 //------------------------PRAZO-----------------------------
 //----------------------------------------------------------
 
-///\brief Padrão para representação de prazo.
+///\brief Padrão para representação de prazo em meses.
 ///
 ///
 /// ### Requezitos de Formato
@@ -502,4 +502,32 @@ class Prazo{
        void set_prazo(int prazo);
 };
 inline int Prazo::get_prazo()const{return prazo;};
+
+//----------------------------------------------------------
+//------------------------SENHA-----------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de senha.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válida, a senha deve ter o formato `XXXXXX`, onde X é um digito. Os digitos devem ser distintos entre si.
+
+class Senha{
+    private:
+        static const int TAMANHO = 6;
+        string senha;
+        void validar(string senha);
+    public:
+        /// @return Cadeia de caracteres correspondente à senha armazenada na instância da classe.
+        string get_senha() const;
+        /// - Armazena valor informado caso o mesmo seja **válido**.
+        ///
+        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// @param senha : Senha a ser armazenada.
+        /// @throw invalid_argument
+        void set_senha(string senha);
+};
+inline string Senha::get_senha()const{return senha;};
+
 #endif

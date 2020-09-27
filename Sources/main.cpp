@@ -62,4 +62,8 @@ int main(){
     TUPrazo t_prazo;
     if(t_prazo.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUSenha t_senha;
+    if(t_senha.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

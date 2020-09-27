@@ -13,5 +13,6 @@ var annotated_dup =
     [ "Horario", "class_horario.html", "class_horario" ],
     [ "Nome", "class_nome.html", "class_nome" ],
     [ "Numero", "class_numero.html", "class_numero" ],
-    [ "Prazo", "class_prazo.html", "class_prazo" ]
+    [ "Prazo", "class_prazo.html", "class_prazo" ],
+    [ "Senha", "class_senha.html", "class_senha" ]
 ];

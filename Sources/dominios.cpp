@@ -415,7 +415,7 @@ void Nome::validar(string nome){
 
     for(char e : nome)
         if((!isalpha(e)) and e!=' ')
-            throw invalid_argument("Nome::validar -> Caracter inválido");
+            throw invalid_argument("Nome::validar -> Caractere inválido");
             
     for(int i=1;i<(int)nome.length();i++)
         if(nome[i]==' ' and nome[i-1]==' ')
@@ -512,3 +512,30 @@ void Prazo::set_prazo(int prazo){
     validar(prazo);
     this->prazo=prazo;
 }
+
+//----------------------------------------------------------
+//------------------------SENHA-----------------------------
+//----------------------------------------------------------
+
+void Senha::validar(string senha){
+    vector<bool> numeros (10,false);
+
+    if(senha.length()!=TAMANHO)
+        throw invalid_argument("Senha::validar -> Tamanho inválido");
+
+    for(char e : senha){
+        if(!isdigit(e))
+            throw invalid_argument("Senha::validar -> Caracteres devem ser digitos");
+        if(numeros[e-'0'])
+            throw invalid_argument("Senha::validar -> Digitos devem ser distintos");
+        else
+            numeros[e-'0']=true;
+    }
+}
+
+
+void Senha::set_senha(string senha){
+    validar(senha);
+    this->senha=senha;
+}
+

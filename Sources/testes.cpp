@@ -518,3 +518,47 @@ bool TUPrazo::run(){
     testa_falha();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------SENHA-----------------------------
+//----------------------------------------------------------
+const string TUSenha::VALOR_VALIDO="123456";
+const string TUSenha::VALOR_INVALIDO="123451";
+
+
+void  TUSenha::set_up(){
+    ptr_senha=new Senha();
+    estado=true;
+}
+void TUSenha::tear_down(){
+    delete ptr_senha;
+}
+void TUSenha::testa_sucesso(){
+    try{
+        ptr_senha->set_senha(VALOR_VALIDO);
+        if(ptr_senha->get_senha()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        cout<<e.what()<<endl;
+        estado=false;
+    }
+}
+
+void TUSenha::testa_falha(){
+    try{
+        ptr_senha->set_senha(VALOR_INVALIDO);
+        if(ptr_senha->get_senha()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUSenha::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}
