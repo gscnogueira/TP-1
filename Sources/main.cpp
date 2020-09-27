@@ -58,4 +58,8 @@ int main(){
     TUNumero t_numero;
     if(t_numero.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUPrazo t_prazo;
+    if(t_prazo.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

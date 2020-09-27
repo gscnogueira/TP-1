@@ -467,4 +467,39 @@ class Numero{
 
 };
 inline string Numero::get_numero()const{return numero;};
+//----------------------------------------------------------
+//------------------------PRAZO-----------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de prazo.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, o prazo deve possuir valor 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66 ou 72.
+
+
+class Prazo{
+    private:
+        static const int MAXIMO = 72;
+        static const int MINIMO = 6;
+        void validar(int prazo);
+        int prazo;
+    public:
+        ///- Cria objeto e armazena a valor informado, caso o mesmo seja **válido**.
+        ///- Lança exceção caso o valor informado seja **inválido**.
+        ///
+        ///@param prazo : Valor de prazo a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor **6** é armazenado no objeto.
+        ///@throw invalid_argument
+
+       Prazo(int prazo=6);
+        /// @return Número inteiro correspondente ao prazo armazenado na instância da classe.
+       int get_prazo() const;
+        /// - Armazena valor informado caso o mesmo seja **válido**.
+        ///
+        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// @param prazo : Valor de prazo a ser armazenado.
+        /// @throw invalid_argument
+       void set_prazo(int prazo);
+};
+inline int Prazo::get_prazo()const{return prazo;};
 #endif

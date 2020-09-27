@@ -60,10 +60,10 @@
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** TODO PRAZO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
+** DONE PRAZO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
 ** TODO SENHA [0/3]
   - [ ] Classe;
   - [ ] Teste de Unidade;

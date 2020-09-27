@@ -207,4 +207,18 @@ class TUNumero{
     public:
         bool run(); 
 };
+//----------------------------------------------------------
+//------------------------PRAZO-----------------------------
+//----------------------------------------------------------
+class TUPrazo{
+    private:
+        const static int VALOR_VALIDO = 48;
+        const static int VALOR_INVALIDO = 16;
+        Prazo prazo;
+        int estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
 #endif

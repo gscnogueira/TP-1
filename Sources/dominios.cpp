@@ -492,4 +492,23 @@ void Numero::set_numero(string numero){
     validar(numero);
     this->numero=numero;
 }
+//----------------------------------------------------------
+//------------------------PRAZO-----------------------------
+//----------------------------------------------------------
 
+void Prazo::validar(int prazo){
+    if(prazo<6 or prazo>72)
+        throw invalid_argument("Prazo::validar");
+    if(prazo%6)
+        throw invalid_argument("Prazo::validar");
+}
+
+Prazo::Prazo(int prazo){
+    validar(prazo);
+    this->prazo=prazo;
+}
+
+void Prazo::set_prazo(int prazo){
+    validar(prazo);
+    this->prazo=prazo;
+}

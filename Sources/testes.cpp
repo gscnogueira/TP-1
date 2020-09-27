@@ -490,3 +490,31 @@ bool TUNumero::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------PRAZO-----------------------------
+//----------------------------------------------------------
+void TUPrazo::testa_sucesso(){
+    try{
+        prazo.set_prazo(VALOR_VALIDO);
+        if(prazo.get_prazo()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+void TUPrazo::testa_falha(){
+    try{
+        prazo.set_prazo(VALOR_INVALIDO);
+        estado = false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUPrazo::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}
