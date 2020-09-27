@@ -410,4 +410,33 @@ inline string Horario::get_horario()const{return horario;};
 //------------------------NOME------------------------------
 //----------------------------------------------------------
 
+///\brief Padrão para representação de Nome.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter de 5 a 30 caracteres. São considerado caracteres **válidos**:
+///- Espaço
+///- Letra (A-Z ou a-z)
+///
+/// Não são aceitos espaços em sequência. A primeira letra de cada termo **deve** ser maiúscula.
+
+class Nome{
+    private:
+        static const int TAMANHO_MIN = 5;
+        static const int TAMANHO_MAX = 30;
+        string nome;
+        void validar(string nome);
+    public:
+        /// \return Cadeia de caracteres correspondente ao nome armazenado no objeto.
+        string get_nome() const;
+        /// - Em caso de argumento **válido**, armazena nome no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param nome : Cadeia de caracteres correspondente ao nome que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+        void set_nome(string nome);
+
+};
+inline string Nome::get_nome()const{return nome;};
+
 #endif

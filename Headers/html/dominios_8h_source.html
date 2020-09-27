@@ -297,7 +297,25 @@ $(document).ready(function(){initNavTree('dominios_8h_source.html',''); initResi
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;};</div>
 <div class="line"><a name="l00407"></a><span class="lineno"><a class="line" href="class_horario.html#a95d09138af83c16c81c21fc408685337">  407</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_horario.html#a95d09138af83c16c81c21fc408685337">Horario::get_horario</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> horario;};</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">//------------------------NOME------------------------------</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
+<div class="line"><a name="l00423"></a><span class="lineno"><a class="line" href="class_nome.html">  423</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_nome.html">Nome</a>{</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TAMANHO_MIN = 5;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TAMANHO_MAX = 30;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordtype">string</span> nome;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordtype">void</span> validar(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordtype">string</span> get_nome() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00437"></a><span class="lineno"><a class="line" href="class_nome.html#a3f7fa24188cbfaaf69725f805d18a187">  437</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_nome.html#a3f7fa24188cbfaaf69725f805d18a187">set_nome</a>(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;};</div>
+<div class="line"><a name="l00440"></a><span class="lineno"><a class="line" href="class_nome.html#a0a87131b2d6f24fb1d3ad8bb1c195f5f">  440</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code" href="class_nome.html#a0a87131b2d6f24fb1d3ad8bb1c195f5f">Nome::get_nome</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> nome;};</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_c_e_p_html_a49378d2aa16ec633aeacb0091fdf2074"><div class="ttname"><a href="class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074">CEP::get_valor</a></div><div class="ttdeci">int get_valor() const</div><div class="ttdef"><b>Definition:</b> dominios.h:51</div></div>
@@ -315,8 +333,10 @@ $(document).ready(function(){initNavTree('dominios_8h_source.html',''); initResi
 <div class="ttc" id="aclass_c_e_p_html"><div class="ttname"><a href="class_c_e_p.html">CEP</a></div><div class="ttdoc">Padrão para representação de CEP.</div><div class="ttdef"><b>Definition:</b> dominios.h:26</div></div>
 <div class="ttc" id="aclass_classe_html"><div class="ttname"><a href="class_classe.html">Classe</a></div><div class="ttdoc">Padrão para representação de classe.</div><div class="ttdef"><b>Definition:</b> dominios.h:70</div></div>
 <div class="ttc" id="aclass_codigo_de_agencia_html_a5e7fc47dfd94c672316a41db2c0d3c95"><div class="ttname"><a href="class_codigo_de_agencia.html#a5e7fc47dfd94c672316a41db2c0d3c95">CodigoDeAgencia::get_codigo</a></div><div class="ttdeci">string get_codigo() const</div><div class="ttdef"><b>Definition:</b> dominios.h:128</div></div>
+<div class="ttc" id="aclass_nome_html"><div class="ttname"><a href="class_nome.html">Nome</a></div><div class="ttdoc">Padrão para representação de Nome.</div><div class="ttdef"><b>Definition:</b> dominios.h:423</div></div>
 <div class="ttc" id="aclass_data_html"><div class="ttname"><a href="class_data.html">Data</a></div><div class="ttdoc">Padrão para representação de data.</div><div class="ttdef"><b>Definition:</b> dominios.h:281</div></div>
 <div class="ttc" id="aclass_codigo_de_banco_html"><div class="ttname"><a href="class_codigo_de_banco.html">CodigoDeBanco</a></div><div class="ttdoc">Padrão para representação de código de banco.</div><div class="ttdef"><b>Definition:</b> dominios.h:183</div></div>
+<div class="ttc" id="aclass_nome_html_a3f7fa24188cbfaaf69725f805d18a187"><div class="ttname"><a href="class_nome.html#a3f7fa24188cbfaaf69725f805d18a187">Nome::set_nome</a></div><div class="ttdeci">void set_nome(string nome)</div></div>
 <div class="ttc" id="aclass_c_e_p_html_ae523478a9613027113b25bf933a0fb16"><div class="ttname"><a href="class_c_e_p.html#ae523478a9613027113b25bf933a0fb16">CEP::CEP</a></div><div class="ttdeci">CEP(int valor=1000000)</div></div>
 <div class="ttc" id="aclass_horario_html_a4215e6ef0941c0c38d27f1ad53391071"><div class="ttname"><a href="class_horario.html#a4215e6ef0941c0c38d27f1ad53391071">Horario::set_horario</a></div><div class="ttdeci">void set_horario(string horario)</div></div>
 <div class="ttc" id="aclass_codigo_de_agencia_html"><div class="ttname"><a href="class_codigo_de_agencia.html">CodigoDeAgencia</a></div><div class="ttdoc">Padrão para representação de código de agência.</div><div class="ttdef"><b>Definition:</b> dominios.h:104</div></div>
@@ -327,6 +347,7 @@ $(document).ready(function(){initNavTree('dominios_8h_source.html',''); initResi
 <div class="ttc" id="aclass_classe_html_a4ef502faaa628548170c072a78cac7ae"><div class="ttname"><a href="class_classe.html#a4ef502faaa628548170c072a78cac7ae">Classe::set_classe</a></div><div class="ttdeci">void set_classe(string nome)</div></div>
 <div class="ttc" id="aclass_codigo_de_produto_html"><div class="ttname"><a href="class_codigo_de_produto.html">CodigoDeProduto</a></div><div class="ttdoc">Padrão para representação de código de produto.</div><div class="ttdef"><b>Definition:</b> dominios.h:217</div></div>
 <div class="ttc" id="aclass_endereco_html_ae6fd024dbc65ad40a18314d2c1c8188b"><div class="ttname"><a href="class_endereco.html#ae6fd024dbc65ad40a18314d2c1c8188b">Endereco::get_endereco</a></div><div class="ttdeci">string get_endereco() const</div><div class="ttdef"><b>Definition:</b> dominios.h:372</div></div>
+<div class="ttc" id="aclass_nome_html_a0a87131b2d6f24fb1d3ad8bb1c195f5f"><div class="ttname"><a href="class_nome.html#a0a87131b2d6f24fb1d3ad8bb1c195f5f">Nome::get_nome</a></div><div class="ttdeci">string get_nome() const</div><div class="ttdef"><b>Definition:</b> dominios.h:440</div></div>
 <div class="ttc" id="aclass_data_html_a02346bf28fa1a8ddd3882815708ff9e5"><div class="ttname"><a href="class_data.html#a02346bf28fa1a8ddd3882815708ff9e5">Data::get_data</a></div><div class="ttdeci">string get_data() const</div><div class="ttdef"><b>Definition:</b> dominios.h:304</div></div>
 <div class="ttc" id="aclass_data_html_afdf974c5438dd5c68cc48c28c99f44c7"><div class="ttname"><a href="class_data.html#afdf974c5438dd5c68cc48c28c99f44c7">Data::Data</a></div><div class="ttdeci">Data(string data)</div></div>
 <div class="ttc" id="aclass_codigo_de_produto_html_a7a69f88318169e12b51c67071901ce60"><div class="ttname"><a href="class_codigo_de_produto.html#a7a69f88318169e12b51c67071901ce60">CodigoDeProduto::CodigoDeProduto</a></div><div class="ttdeci">CodigoDeProduto(string codigo=&quot;001&quot;)</div></div>

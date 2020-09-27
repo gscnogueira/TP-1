@@ -1,5 +1,6 @@
 #include "../Headers/dominios.h"
 #include <bits/stdc++.h>
+#include <cctype>
 
 using namespace std;
 
@@ -13,7 +14,8 @@ vector<string> split(string str){
         previous=current+1;
         current=str.find_first_of(" ",previous);
     }
-    palavras.push_back(str.substr(previous,current-previous));
+    if(previous<str.length())
+        palavras.push_back(str.substr(previous,current-previous));
     return palavras;
 }
 //----------------------------------------------------------
@@ -404,6 +406,36 @@ void Horario::set_horario(string horario){
 //----------------------------------------------------------
 //------------------------NOME------------------------------
 //----------------------------------------------------------
+
+void Nome::validar(string nome){
+
+    
+    if(nome.length()>TAMANHO_MAX or nome.length()<TAMANHO_MIN)
+        throw invalid_argument("Nome::validar -> Tamanho inválido");
+
+    for(char e : nome)
+        if((!isalpha(e)) and e!=' ')
+            throw invalid_argument("Nome::validar -> Caracter inválido");
+            
+    for(int i=1;i<(int)nome.length();i++)
+        if(nome[i]==' ' and nome[i-1]==' ')
+            throw invalid_argument("Nome::validar -> Não podem haver espaços em sequência");
+           
+    vector<string> palavras = split(nome);
+    if(palavras.size()==1){
+        if(palavras[0].length()<5)
+            throw invalid_argument("Nome::validar -> Nome deve ter no mínimo 5 caracteres");
+    }
+
+    for(string e: palavras)
+        if(islower(e[0]))
+            throw invalid_argument("Nome::validar -> A primeira letra de cada termo deve ser maiúscula");
+}
+
+void Nome::set_nome(string nome){
+    validar(nome);
+    this->nome=nome;
+}
 
 
 

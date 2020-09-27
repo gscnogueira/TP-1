@@ -50,4 +50,8 @@ int main(){
     TUHorario t_horario;
     if(t_horario.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUNome t_nome;
+    if(t_nome.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

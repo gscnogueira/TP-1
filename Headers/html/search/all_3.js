@@ -7,5 +7,6 @@ var searchData=
   ['get_5femissor_14',['get_emissor',['../class_emissor.html#a3bd23bfa3c49ee3d8749a2c9cfb8041f',1,'Emissor']]],
   ['get_5fendereco_15',['get_endereco',['../class_endereco.html#ae6fd024dbc65ad40a18314d2c1c8188b',1,'Endereco']]],
   ['get_5fhorario_16',['get_horario',['../class_horario.html#a95d09138af83c16c81c21fc408685337',1,'Horario']]],
-  ['get_5fvalor_17',['get_valor',['../class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074',1,'CEP']]]
+  ['get_5fnome_17',['get_nome',['../class_nome.html#a0a87131b2d6f24fb1d3ad8bb1c195f5f',1,'Nome']]],
+  ['get_5fvalor_18',['get_valor',['../class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074',1,'CEP']]]
 ];

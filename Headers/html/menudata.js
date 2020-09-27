@@ -28,7 +28,17 @@ var menudata={children:[
 {text:"Lista de Classes",url:"annotated.html"},
 {text:"Índice dos Componentes",url:"classes.html"},
 {text:"Membros de classe",url:"functions.html",children:[
-{text:"Todos",url:"functions.html"},
-{text:"Funções",url:"functions_func.html"}]}]},
+{text:"Todos",url:"functions.html",children:[
+{text:"c",url:"functions.html#index_c"},
+{text:"d",url:"functions.html#index_d"},
+{text:"g",url:"functions.html#index_g"},
+{text:"h",url:"functions.html#index_h"},
+{text:"s",url:"functions.html#index_s"}]},
+{text:"Funções",url:"functions_func.html",children:[
+{text:"c",url:"functions_func.html#index_c"},
+{text:"d",url:"functions_func.html#index_d"},
+{text:"g",url:"functions_func.html#index_g"},
+{text:"h",url:"functions_func.html#index_h"},
+{text:"s",url:"functions_func.html#index_s"}]}]}]},
 {text:"Arquivos",url:"files.html",children:[
 {text:"Lista de Arquivos",url:"files.html"}]}]}

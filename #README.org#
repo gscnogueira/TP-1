@@ -52,10 +52,10 @@
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** TODO NOME [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
+** DONE NOME [3/3]
+  + [X] Classe;
+  + [X] Teste de Unidade;
+  + [X] Documentação;
 ** TODO NÚMERO [0/3]
   - [ ] Classe;
   - [ ] Teste de Unidade;

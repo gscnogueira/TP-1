@@ -403,3 +403,44 @@ bool TUHorario::run(){
 //----------------------------------------------------------
 //------------------------NOME------------------------------
 //----------------------------------------------------------
+
+const string TUNome::VALOR_VALIDO="Maria Da Silva";
+const string TUNome::VALOR_INVALIDO="Mari ";
+
+void  TUNome::set_up(){
+    ptr_nome=new Nome();
+    estado=true;
+}
+void TUNome::tear_down(){
+    delete ptr_nome;
+}
+void TUNome::testa_sucesso(){
+    try{
+        ptr_nome->set_nome(VALOR_VALIDO);
+        if(ptr_nome->get_nome()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        cout<<e.what()<<endl;
+        estado=false;
+    }
+}
+
+void TUNome::testa_falha(){
+    try{
+        ptr_nome->set_nome(VALOR_INVALIDO);
+        if(ptr_nome->get_nome()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUNome::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}
