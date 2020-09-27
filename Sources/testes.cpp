@@ -298,7 +298,6 @@ void TUEmissor::testa_sucesso(){
             estado=false;
     }
     catch(invalid_argument &e){
-        cout<<e.what()<<endl;
         estado=false;
     }
 }
@@ -344,7 +343,6 @@ void TUEndereco::testa_sucesso(){
             estado=false;
     }
     catch(invalid_argument &e){
-        cout<<e.what()<<endl;
         estado=false;
     }
 }
@@ -423,7 +421,6 @@ void TUNome::testa_sucesso(){
             estado=false;
     }
     catch(invalid_argument &e){
-        cout<<e.what()<<endl;
         estado=false;
     }
 }
@@ -469,7 +466,6 @@ void TUNumero::testa_sucesso(){
             estado=false;
     }
     catch(invalid_argument &e){
-        cout<<e.what()<<endl;
         estado=false;
     }
 }
@@ -541,7 +537,6 @@ void TUSenha::testa_sucesso(){
             estado=false;
     }
     catch(invalid_argument &e){
-        cout<<e.what()<<endl;
         estado=false;
     }
 }

@@ -72,12 +72,12 @@ const string CodigoDeAgencia::EXCESSAO = "0000";
 
 void CodigoDeAgencia::validar(string codigo){
     if(codigo.length()!=TAMANHO)
-        throw invalid_argument("CodigoDeAgencia::validar");
+        throw invalid_argument("CodigoDeAgencia::validar -> Tamanho Inválido");
     if(codigo==EXCESSAO)
-        throw invalid_argument("CodigoDeAgencia::validar");
+        throw invalid_argument("CodigoDeAgencia::validar -> Argumento Inválido");
     for(char e: codigo)
         if(!isdigit(e))
-            throw invalid_argument("CodigoDeAgencia::validar");
+            throw invalid_argument("CodigoDeAgencia::validar -> Caractere(s) Inválido(s)");
 }
 CodigoDeAgencia::CodigoDeAgencia(string codigo){
     validar(codigo);
@@ -95,12 +95,12 @@ const string CodigoDeAplicacao::EXCESSAO = "00000";
 
 void CodigoDeAplicacao::validar(string codigo){
     if(codigo.length()!=TAMANHO)
-        throw invalid_argument("CodigoDeAplicacao::validar");
+        throw invalid_argument("CodigoDeAplicacao::validar -> Tamanho Inválido ");
     if(codigo==EXCESSAO)
-        throw invalid_argument("CodigoDeAplicacao::validar");
+        throw invalid_argument("CodigoDeAplicacao::validar -> Argumento Inválido");
     for(char e: codigo)
         if(!isdigit(e))
-            throw invalid_argument("CodigoDeAplicacao::validar");
+            throw invalid_argument("CodigoDeAplicacao::validar -> Caractere(s) Inválido(s)");
 }
 CodigoDeAplicacao::CodigoDeAplicacao(string codigo){
     validar(codigo);
@@ -138,12 +138,12 @@ const string CodigoDeProduto::EXCESSAO="000";
 
 void CodigoDeProduto::validar(string codigo){
     if(codigo.length()!=TAMANHO)
-        throw invalid_argument("CodigoDeProduto::validar");
+        throw invalid_argument("CodigoDeProduto::validar -> Tamanho inválido");
     if(codigo==EXCESSAO)
-        throw invalid_argument("CodigoDeProduto::validar");
+        throw invalid_argument("CodigoDeProduto::validar -> Argumento inválido");
     for(char e:codigo)
         if(!isdigit(e))
-            throw invalid_argument("CodigoDeProduto::validar");
+            throw invalid_argument("CodigoDeProduto::validar -> Caractere(s) inválido(s)");
 }
 
 CodigoDeProduto::CodigoDeProduto(string codigo){
@@ -162,10 +162,10 @@ void CodigoDeProduto::set_codigo(string codigo){
 
 void CPF::validar(string cpf){
     if(cpf.length()!=TAMANHO)
-        throw invalid_argument("CPF::validar");
+        throw invalid_argument("CPF::validar -> Tamanho inválido");
 
     if(!regex_match(cpf,regex("[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}")))
-        throw invalid_argument("CPF::validar");
+        throw invalid_argument("CPF::validar -> Formato inválido");
 
     vector<int> cpf_numeros, v1, v2;
     bool flag=false;
@@ -183,7 +183,7 @@ void CPF::validar(string cpf){
         }
     }
     if(!flag)
-        throw invalid_argument("CPF::validar");
+        throw invalid_argument("CPF::validar -> CPF inválido");
 
     for(int i=0, j= 10;j>1;i++,j--){
         v1.push_back(cpf_numeros[i]*j);
@@ -191,7 +191,7 @@ void CPF::validar(string cpf){
     int d1=accumulate(v1.begin(),v1.end(),0)*10;
     d1 %=11;
     if(d1!=cpf_numeros[9])
-        throw invalid_argument("CPF::validar");
+        throw invalid_argument("CPF::validar -> CPF inválido");
 
 
     for(int i=0, j= 11;j>1;i++,j--){
@@ -200,7 +200,7 @@ void CPF::validar(string cpf){
     int d2=accumulate(v2.begin(),v2.end(),0)*10;
     d2 %=11;
     if(d2!=cpf_numeros[10])
-        throw invalid_argument("CPF::validar");
+        throw invalid_argument("CPF::validar -> CPF inválido");
 }
 void CPF::set_cpf(string cpf){
     validar(cpf);
@@ -216,34 +216,34 @@ void Data::validar(string data){
     set<int> trinta_e_um {1,3,5,7,8,10,12};
 
     if(data.length()!=TAMANHO)
-        throw invalid_argument("data::validar");
+        throw invalid_argument("data::validar -> Formato inválido");
         
     if(!regex_match(data,regex("[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}")))
-        throw invalid_argument("data::validar");
+        throw invalid_argument("data::validar -> Formato inválido");
 
     int dia = stoi(data.substr(0,2));
     int mes = stoi(data.substr(3,2));
     int ano = stoi(data.substr(6));
 
     if(mes>12 or mes<1)
-        throw invalid_argument("data::validar");
+        throw invalid_argument("data::validar -> Data inválida");
     if(ano>2099 or ano<2020)
-        throw invalid_argument("data::validar");
+        throw invalid_argument("data::validar -> Data inválida");
 
     if(trinta.count(mes))
         if(dia>30 or dia<1)
-            throw invalid_argument("data::validar");
+            throw invalid_argument("data::validar -> Data inválida");
     
     if(trinta_e_um.count(mes))
         if(dia>31 or dia<1)
-            throw invalid_argument("data::validar");
+            throw invalid_argument("data::validar -> Data inválida");
     if(mes==2){
         if(!ano%4)
             if(dia>29 or dia<1)
-                throw invalid_argument("data::validar");
+                throw invalid_argument("data::validar -> Data inválida");
         if(ano%4)
             if(dia>28 or dia<1)
-                throw invalid_argument("data::validar");
+                throw invalid_argument("data::validar -> Data inválida");
             
     }
 

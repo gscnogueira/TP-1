@@ -1,45 +1,45 @@
 
-* DOING Domínios
-** DOING CEP [3/4]
+* DONE Domínios
+** DONE CEP [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING CLASSE [3/4]
+  - [X] Arrumar Excessão;
+** DONE CLASSE [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING CÓDIGO DE AGÊNCIA [3/4]
+  - [X] Arrumar Excessão;
+** DONE CÓDIGO DE AGÊNCIA [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING Código de Aplicação [3/4]
+  - [X] Arrumar Excessão;
+** DONE Código de Aplicação [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING CÓDIGO DE BANCO [3/4]
+  - [X] Arrumar Excessão;
+** DONE CÓDIGO DE BANCO [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING CÓDIGO DE PRODUTO [3/4]
+  - [X] Arrumar Excessão;
+** DONE CÓDIGO DE PRODUTO [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING CPF [3/4]
+  - [X] Arrumar Excessão;
+** DONE CPF [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
-** DOING DATA [3/4]
+  - [X] Arrumar Excessão;
+** DONE DATA [4/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-  - [ ] Arrumar Excessão;
+  - [X] Arrumar Excessão;
 ** DONE EMISSOR [3/3]
   - [X] Classe;
   - [X] Teste de Unidade;
