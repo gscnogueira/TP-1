@@ -562,3 +562,32 @@ bool TUSenha::run(){
     tear_down();
     return estado;
 }
+
+//----------------------------------------------------------
+//------------------------TAXA------------------------------
+//----------------------------------------------------------
+void TUTaxa::testa_sucesso(){
+    try{
+        taxa.set_taxa(VALOR_VALIDO);
+        if(taxa.get_taxa()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+void TUTaxa::testa_falha(){
+    try{
+        taxa.set_taxa(VALOR_INVALIDO);
+        estado = false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUTaxa::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}

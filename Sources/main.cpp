@@ -66,4 +66,8 @@ int main(){
     TUSenha t_senha;
     if(t_senha.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUTaxa t_taxa;
+    if(t_taxa.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

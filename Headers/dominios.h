@@ -521,13 +521,52 @@ class Senha{
     public:
         /// @return Cadeia de caracteres correspondente à senha armazenada na instância da classe.
         string get_senha() const;
-        /// - Armazena valor informado caso o mesmo seja **válido**.
+        /// - Armazena a senha informada caso a mesma seja **válida**.
         ///
-        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// - Lança exceção caso a senha informada seja **inválida**.
         /// @param senha : Senha a ser armazenada.
         /// @throw invalid_argument
         void set_senha(string senha);
 };
 inline string Senha::get_senha()const{return senha;};
+
+//----------------------------------------------------------
+//------------------------TAXA------------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de taxa em porcentagem anual.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válida, a taxa deve ser um valor na faixa de 0 a 200 (% ao ano).
+class Taxa{
+    private:
+        static const int MAX = 200;
+        static const int MIN = 0;
+        int taxa;
+        void validar(int taxa);
+    public:
+        ///- Cria objeto e armazena a valor informado, caso o mesmo seja **válido**.
+        ///- Lança exceção caso o valor informado seja **inválido**.
+        ///
+        ///@param taxa : Valor de taxa a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor **0** é armazenado no objeto.
+        ///@throw invalid_argument
+        Taxa(int taxa=0);
+        /// @return Número correspondente ao valor da taxa, armazenado na instância da classe.
+        int get_taxa() const;
+        /// - Armazena valor informado caso o mesmo seja **válido**.
+        ///
+        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// @param taxa : Taxa anual a ser armazenada.
+        /// @throw invalid_argument
+        void set_taxa(int taxa);
+};
+inline int Taxa::get_taxa()const{return taxa;};
+
+//----------------------------------------------------------
+//------------------VALOR-DE-APLICAÇÃO----------------------
+//----------------------------------------------------------
+
+
 
 #endif

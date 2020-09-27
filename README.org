@@ -68,16 +68,16 @@
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** TODO TAXA [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
-** TODO VALOR MÍNIMO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
-** TODO VALOR DE APLICAÇÃO [0/3]
+** DONE TAXA [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
+** DOING VALOR DE APLICAÇÃO [0/3]
   - [ ] Classe;
   - [ ] Teste de Unidade;
   - [ ] Documentação;
     
+** TODO VALOR MÍNIMO [0/3]
+  - [ ] Classe;
+  - [ ] Teste de Unidade;
+  - [ ] Documentação;

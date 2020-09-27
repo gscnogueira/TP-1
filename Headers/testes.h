@@ -237,4 +237,20 @@ class TUSenha{
     public:
         bool run(); 
 };
+
+//----------------------------------------------------------
+//------------------------TAXA------------------------------
+//----------------------------------------------------------
+class TUTaxa{
+    private:
+        const static int VALOR_VALIDO = 50;
+        const static int VALOR_INVALIDO = 250;
+        Taxa taxa;
+        int estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run();
+};
 #endif
+

@@ -11,5 +11,6 @@ var searchData=
   ['get_5fnumero_18',['get_numero',['../class_numero.html#a5dce73482b312729ddce4d7440ac0348',1,'Numero']]],
   ['get_5fprazo_19',['get_prazo',['../class_prazo.html#a542b0ba063a44c3c0250769f21c61e28',1,'Prazo']]],
   ['get_5fsenha_20',['get_senha',['../class_senha.html#a921e651a3288eb3be24742a17518f334',1,'Senha']]],
-  ['get_5fvalor_21',['get_valor',['../class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074',1,'CEP']]]
+  ['get_5ftaxa_21',['get_taxa',['../class_taxa.html#a249f77745e217b66cc4244ae2155ff9c',1,'Taxa']]],
+  ['get_5fvalor_22',['get_valor',['../class_c_e_p.html#a49378d2aa16ec633aeacb0091fdf2074',1,'CEP']]]
 ];

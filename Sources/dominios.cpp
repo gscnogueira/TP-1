@@ -539,3 +539,21 @@ void Senha::set_senha(string senha){
     this->senha=senha;
 }
 
+//----------------------------------------------------------
+//------------------------TAXA------------------------------
+//----------------------------------------------------------
+
+void Taxa::validar(int taxa){
+    if(taxa>MAX or taxa<MIN)
+        throw invalid_argument("Taxa::validar");
+}
+
+Taxa::Taxa(int taxa){
+    validar(taxa);
+    this->taxa=taxa;
+}
+
+void Taxa::set_taxa(int taxa){
+    validar(taxa);
+    this->taxa=taxa;
+}
