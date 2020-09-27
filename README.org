@@ -72,12 +72,12 @@
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
-** DOING VALOR DE APLICAÇÃO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
+** DONE VALOR DE APLICAÇÃO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
     
-** TODO VALOR MÍNIMO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
+** DONE VALOR MÍNIMO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;

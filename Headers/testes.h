@@ -252,5 +252,36 @@ class TUTaxa{
     public:
         bool run();
 };
+//----------------------------------------------------------
+//------------------VALOR-DE-APLICAÇÃO----------------------
+//----------------------------------------------------------
+
+
+class TUValorDeAplicacao{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        ValorDeAplicacao valor;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run(); 
+};
+//----------------------------------------------------------
+//----------------------VALOR-MÍNIMO------------------------
+//----------------------------------------------------------
+
+class TUValorMinimo{
+    private:
+        static const int VALOR_VALIDO=10000;
+        static const int VALOR_INVALIDO=15000;
+        ValorMinimo valor;
+        bool estado=true;
+        void testa_sucesso();
+        void testa_falha();
+    public:
+        bool run(); 
+};
 #endif
 

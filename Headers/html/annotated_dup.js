@@ -15,5 +15,7 @@ var annotated_dup =
     [ "Numero", "class_numero.html", "class_numero" ],
     [ "Prazo", "class_prazo.html", "class_prazo" ],
     [ "Senha", "class_senha.html", "class_senha" ],
-    [ "Taxa", "class_taxa.html", "class_taxa" ]
+    [ "Taxa", "class_taxa.html", "class_taxa" ],
+    [ "ValorDeAplicacao", "class_valor_de_aplicacao.html", "class_valor_de_aplicacao" ],
+    [ "ValorMinimo", "class_valor_minimo.html", "class_valor_minimo" ]
 ];

@@ -566,7 +566,64 @@ inline int Taxa::get_taxa()const{return taxa;};
 //----------------------------------------------------------
 //------------------VALOR-DE-APLICAÇÃO----------------------
 //----------------------------------------------------------
+//
 
+///\brief Padrão para representação de valor de aplicação.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, o valor deve estar na faixa de 0 a 1.000.000,00 (reais).
 
+class ValorDeAplicacao{
+    private:
+        static const int MAX_REAL = 1000000;
+        static const int MAX_CENT = 99;
+        static const int MIN_REAL = 0;
+        static const int MIN_CENT = 0;
+        string valor;
+        void validar(string valor);
+    public:
+        /// @return Valor de aplicação armazenado na instância da classe.
+        string get_valor() const;
+        /// - Armazena valor informado caso o mesmo seja **válido**.
+        ///
+        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// @param valor : Valor de aplicação a ser armazenado.
+        /// @throw invalid_argument
+        void set_valor(string valor);
 
+};
+inline string ValorDeAplicacao::get_valor()const{return valor;};
+
+//----------------------------------------------------------
+//----------------------VALOR-MÍNIMO------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de valor mínimo para aplicação em um produto de investimento.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, o valor deve de 1.000,00, 5.000,00, 10.000,00 ou 50.000,00 (reais).
+class ValorMinimo{
+    private:
+        static const set<int> VALORES_VALIDOS;
+        void validar(int valor);
+        int valor;
+    public:
+        ///- Cria objeto e armazena a valor informado, caso o mesmo seja **válido**.
+        ///- Lança exceção caso o valor informado seja **inválido**.
+        ///
+        ///@param valor : Valor mínimo para aplicação a ser armazenado no objeto criado. Caso esse parâmetro seja omitido, o valor **1000** é armazenado no objeto.
+        ///@throw invalid_argument
+        ValorMinimo(int valor = 1000);
+        /// @return Valor armazenado na instância da classe.
+        int get_valor() const;
+        /// - Armazena valor informado caso o mesmo seja **válido**.
+        ///
+        /// - Lança exceção caso o valor informado seja **inválido**.
+        /// @param valor : Valor mínimo para aplicação a ser armazenado.
+        /// @throw invalid_argument
+        void set_valor(int valor);
+};
+inline int ValorMinimo::get_valor()const{return valor;};
 #endif

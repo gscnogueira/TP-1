@@ -16,7 +16,9 @@ void TUCEP::testa_sucesso(){
 void TUCEP::testa_falha(){
     try{
         cep.set_valor(VALOR_INVALIDO);
-        estado = false;
+        if(cep.get_valor()==VALOR_INVALIDO)
+            estado=false;
+
     }
     catch(invalid_argument &e){
         return;
@@ -587,6 +589,69 @@ void TUTaxa::testa_falha(){
 }
 
 bool TUTaxa::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}
+
+//----------------------------------------------------------
+//------------------VALOR-DE-APLICAÇÃO----------------------
+//----------------------------------------------------------
+
+const string TUValorDeAplicacao::VALOR_VALIDO="154956";
+const string TUValorDeAplicacao::VALOR_INVALIDO="1000000,54";
+
+void TUValorDeAplicacao::testa_sucesso(){
+    try{
+        valor.set_valor(VALOR_VALIDO);
+        if(valor.get_valor()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+void TUValorDeAplicacao::testa_falha(){
+    try{
+        valor.set_valor(VALOR_INVALIDO);
+        if(valor.get_valor()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUValorDeAplicacao::run(){
+    testa_sucesso();
+    testa_falha();
+    return estado;
+}
+//----------------------------------------------------------
+//----------------------VALOR-MÍNIMO------------------------
+//----------------------------------------------------------
+void TUValorMinimo::testa_sucesso(){
+    try{
+        valor.set_valor(VALOR_VALIDO);
+        if(valor.get_valor()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        estado=false;
+    }
+}
+void TUValorMinimo::testa_falha(){
+    try{
+        valor.set_valor(VALOR_INVALIDO);
+        if(valor.get_valor()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUValorMinimo::run(){
     testa_sucesso();
     testa_falha();
     return estado;

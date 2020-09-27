@@ -557,3 +557,55 @@ void Taxa::set_taxa(int taxa){
     validar(taxa);
     this->taxa=taxa;
 }
+
+//----------------------------------------------------------
+//------------------VALOR-DE-APLICAÇÃO----------------------
+//----------------------------------------------------------
+
+void ValorDeAplicacao::validar(string valor){
+    auto virgula =valor.find_first_of(",");
+    int reais,centavos;
+    reais=stoi(valor.substr(0,virgula));
+    if(reais>MAX_REAL or reais<MIN_REAL)
+        throw invalid_argument("ValorDeAplicacao::validar -> Valor inválido de Reais");
+
+    if(virgula!=string::npos){
+        if(virgula<valor.length()-3)
+        {
+            throw invalid_argument("ValorDeAplicacao::validar -> Podem haver até duas casas após a virgula");
+        }
+        centavos=stoi(valor.substr(virgula+1));
+        if(centavos<MIN_CENT or centavos>MAX_CENT)
+            throw invalid_argument("ValorDeAplicacao::validar -> Valor inválido de centavos");
+            
+        if(reais==MAX_REAL and centavos!=MIN_CENT)
+            throw invalid_argument("ValorDeAplicacao::validar -> Valor Acima do permitido");
+
+    }
+    
+}
+
+void ValorDeAplicacao::set_valor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+//----------------------------------------------------------
+//----------------------VALOR-MÍNIMO------------------------
+//----------------------------------------------------------
+const set<int> ValorMinimo::VALORES_VALIDOS={ 1000, 5000, 10000,50000};
+
+void ValorMinimo::validar(int valor){
+    if(!VALORES_VALIDOS.count(valor))
+        throw invalid_argument("ValorMinimo::validar");
+}
+
+ValorMinimo::ValorMinimo(int valor){
+    validar(valor);
+    this->valor=valor;
+}
+
+void ValorMinimo::set_valor(int valor){
+    validar(valor);
+    this->valor=valor;
+}
+

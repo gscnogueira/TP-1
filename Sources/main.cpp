@@ -70,4 +70,13 @@ int main(){
     TUTaxa t_taxa;
     if(t_taxa.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUValorDeAplicacao t_valor;
+    if(t_valor.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
+
+    TUValorMinimo t_valor_min;
+    if(t_valor_min.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
+
 }
