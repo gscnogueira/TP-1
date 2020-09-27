@@ -283,6 +283,12 @@ void Emissor::validar(string emissor){
 
     vector<string> palavras=split(emissor);
 
+    for(int i=1;i<(int)emissor.length();i++){
+        if(emissor[i]==' ' and emissor[i-1]==' ')
+                    throw invalid_argument("Emissor::validar -> Apenas dígitos e números podem estar em sequência");
+            
+    }
+
     if(emissor.length()>TAMANHO_MAX or emissor.length()<TAMANHO_MIN)
         throw invalid_argument("Emissor::validar -> Tamanho inválido");
 
@@ -291,21 +297,14 @@ void Emissor::validar(string emissor){
             throw invalid_argument("Emissor::validar -> Caractere inválido");
 
     for(string e : palavras){
-        if(isalpha(e[0])){
+        if(isalpha(e[0]))
             if(islower(e[0]))
                 throw invalid_argument("Emissor::validar -> Primeira letra da palavra não é minuscula");
 
-            for(char c : e){
-                if(!isalpha(c))
-                    throw invalid_argument("Emissor::validar-> Apenas dígitos e números podem estar em sequência");
-            }
-         }           
-
-        if(isdigit(e[0]))
-            for(char c : e){
-                if(!isdigit(c))
-                    throw invalid_argument("Emissor::validar -> Apenas dígitos e números podem estar em sequência");
-            }
+        for(int i=1; i<(int)e.size();i++){
+            if((!isalnum(e[i-1])and(!isalnum(e[i]))))
+                throw invalid_argument("Emissor::validar -> Apenas dígitos e números podem estar em sequência");
+        }
     }
 }
 
@@ -322,29 +321,27 @@ const set<char> Endereco::VALIDOS={' ','.'};
 void Endereco::validar(string endereco){
     vector<string> palavras =split(endereco);
 
+    for(int i=1;i<(int)endereco.length();i++){
+        if(endereco[i]==' ' and endereco[i-1]==' ')
+                    throw invalid_argument("Endereco::validar -> Apenas dígitos e números podem estar em sequência");
+            
+    }
     if(endereco.length()>TAMANHO_MAX or endereco.length()<TAMANHO_MIN)
         throw invalid_argument("Endereco::validar -> Tamanho inválido");
 
     for(int i=0;i<(int)endereco.length();i++)
         if((!isalnum(endereco[i]))and(!VALIDOS.count(endereco[i])))
             throw invalid_argument("Endereco::validar -> Caractere inválido");
-    for(string e : palavras){
 
-        if(isalpha(e[0])){
+    for(string e : palavras){
+        if(isalpha(e[0]))
             if(islower(e[0]))
                 throw invalid_argument("Endereco::validar -> Primeira letra da palavra não é minuscula");
 
-            for(char c : e){
-                if(!isalpha(c))
-                    throw invalid_argument("Endereco::validar-> Apenas dígitos e números podem estar em sequência");
-            }
-         }           
-
-        if(isdigit(e[0]))
-            for(char c : e){
-                if(!isdigit(c))
-                    throw invalid_argument("Endereco::validar -> Apenas dígitos e números podem estar em sequência");
-            }
+        for(int i=1; i<(int)e.size();i++){
+            if((!isalnum(e[i-1])and(!isalnum(e[i]))))
+                throw invalid_argument("Endereco::validar -> Apenas dígitos e números podem estar em sequência");
+        }
     }
 }
 
@@ -404,5 +401,9 @@ void Horario::set_horario(string horario){
     validar(horario);
     this->horario=horario;
 }
+//----------------------------------------------------------
+//------------------------NOME------------------------------
+//----------------------------------------------------------
+
 
 

@@ -278,8 +278,8 @@ bool TUData::run(){
 //------------------------EMISSOR---------------------------
 //----------------------------------------------------------
 
-const string TUEmissor::VALOR_VALIDO="Meu Amor - 2000";
-const string TUEmissor::VALOR_INVALIDO="Minha nossa";
+const string TUEmissor::VALOR_VALIDO="Meu Amor-1.0";
+const string TUEmissor::VALOR_INVALIDO="Minha  Nossa";
 
 
 void  TUEmissor::set_up(){
@@ -300,6 +300,7 @@ void TUEmissor::testa_sucesso(){
         estado=false;
     }
 }
+
 
 void TUEmissor::testa_falha(){
     try{
@@ -323,8 +324,8 @@ bool TUEmissor::run(){
 //------------------------ENDEREÇO--------------------------
 //----------------------------------------------------------
 
-const string TUEndereco::VALOR_VALIDO="Meu Amor 2000";
-const string TUEndereco::VALOR_INVALIDO="Minha - nossa";
+const string TUEndereco::VALOR_VALIDO="Meu Amor 2.0";
+const string TUEndereco::VALOR_INVALIDO="Minha...nossa";
 
 
 void  TUEndereco::set_up(){
@@ -399,3 +400,6 @@ bool TUHorario::run(){
     testa_falha();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------NOME------------------------------
+//----------------------------------------------------------
