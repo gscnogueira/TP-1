@@ -444,3 +444,49 @@ bool TUNome::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//------------------------NÚMERO----------------------------
+//----------------------------------------------------------
+
+
+const string TUNumero::VALOR_VALIDO="261533-4";
+const string TUNumero::VALOR_INVALIDO="123456-7";
+
+
+void  TUNumero::set_up(){
+    ptr_numero=new Numero();
+    estado=true;
+}
+void TUNumero::tear_down(){
+    delete ptr_numero;
+}
+void TUNumero::testa_sucesso(){
+    try{
+        ptr_numero->set_numero(VALOR_VALIDO);
+        if(ptr_numero->get_numero()!=VALOR_VALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        cout<<e.what()<<endl;
+        estado=false;
+    }
+}
+
+void TUNumero::testa_falha(){
+    try{
+        ptr_numero->set_numero(VALOR_INVALIDO);
+        if(ptr_numero->get_numero()==VALOR_INVALIDO)
+            estado=false;
+    }
+    catch(invalid_argument &e){
+        return;
+    }
+}
+
+bool TUNumero::run(){
+    set_up();
+    testa_sucesso();
+    testa_falha();
+    tear_down();
+    return estado;
+}

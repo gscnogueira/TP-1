@@ -54,4 +54,8 @@ int main(){
     TUNome t_nome;
     if(t_nome.run()) cout<<"SUCESSO"<<endl;
     else cout<<"FALHA"<<endl;
+
+    TUNumero t_numero;
+    if(t_numero.run()) cout<<"SUCESSO"<<endl;
+    else cout<<"FALHA"<<endl;
 }

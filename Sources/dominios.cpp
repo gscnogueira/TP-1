@@ -438,4 +438,58 @@ void Nome::set_nome(string nome){
 }
 
 
+//----------------------------------------------------------
+//------------------------NÚMERO----------------------------
+//----------------------------------------------------------
+
+int Numero::soma_digitos(int n){
+    int soma=0;
+    while(n){
+        soma+=n%10;
+        n/=10;
+    }
+    return soma;
+}
+int Numero::aplica_algoritimo(vector<int> digitos){
+    int digito_v;
+    for(int i=0;i<6;i++){
+        if(i%2)
+            digitos[i]*=2;
+    }
+    for(int i=0;i<6;i++){
+        digitos[i]=soma_digitos(digitos[i]);
+    }
+
+    digito_v=accumulate(digitos.begin(),digitos.end(),0);
+    digito_v%=10;
+    if(digito_v)
+        digito_v=10-digito_v;
+
+    return digito_v;
+
+    
+}
+void Numero::validar(string numero){
+    vector<int> digitos;
+    if(numero.length()!=TAMANHO){
+        throw invalid_argument("Numero::validar -> Tamanho inválido");
+    }
+    if(!regex_match(numero,regex("[0-9]{6}\\-[0-9]{1}")))
+        throw invalid_argument("Numero::validar -> Formato inválido");
+
+    for(char e : numero){
+        if(e=='-')
+            break;
+        digitos.push_back(e-'0');
+    }
+    
+    if(aplica_algoritimo(digitos)!=(numero[7]-'0'))
+        throw invalid_argument("Numero::validar -> Código Inválido ");
+    
+}
+
+void Numero::set_numero(string numero){
+    validar(numero);
+    this->numero=numero;
+}
 

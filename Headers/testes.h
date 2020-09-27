@@ -189,4 +189,22 @@ class TUNome{
     public:
         bool run(); 
 };
+
+//----------------------------------------------------------
+//------------------------NÚMERO----------------------------
+//----------------------------------------------------------
+
+class TUNumero{
+    private:
+        static const string VALOR_VALIDO;
+        static const string VALOR_INVALIDO;
+        Numero* ptr_numero;
+        bool estado;
+        void set_up();
+        void testa_sucesso();
+        void testa_falha();
+        void tear_down();
+    public:
+        bool run(); 
+};
 #endif

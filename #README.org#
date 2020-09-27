@@ -35,7 +35,7 @@
   - [X] Teste de Unidade;
   - [X] Documentação;
   - [ ] Arrumar Excessão;
-** DONE DATA [3/4]
+** DOING DATA [3/4]
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
@@ -56,10 +56,10 @@
   + [X] Classe;
   + [X] Teste de Unidade;
   + [X] Documentação;
-** TODO NÚMERO [0/3]
-  - [ ] Classe;
-  - [ ] Teste de Unidade;
-  - [ ] Documentação;
+** DONE NÚMERO [3/3]
+  - [X] Classe;
+  - [X] Teste de Unidade;
+  - [X] Documentação;
 ** TODO PRAZO [0/3]
   - [ ] Classe;
   - [ ] Teste de Unidade;

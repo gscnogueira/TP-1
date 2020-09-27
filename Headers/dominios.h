@@ -439,4 +439,32 @@ class Nome{
 };
 inline string Nome::get_nome()const{return nome;};
 
+//----------------------------------------------------------
+//------------------------NÚMERO----------------------------
+//----------------------------------------------------------
+
+///\brief Padrão para representação de Número de conta bancária.
+///
+///
+/// ### Requezitos de Formato
+/// Para ser considerado válido, a cadeia de caracteres a ser passada deve ter o formato `XXXXXX-Y`, onde `X` é digito e Y é digito verificador. O método utilizado para calculo do digito de verificção é o [Módulo 10](https://pt.wikipedia.org/wiki/D%C3%ADgito_verificador#M%C3%B3dulo_10).
+class Numero{
+   private: 
+       static const int TAMANHO = 8;
+       string numero;
+       int soma_digitos(int n);
+       int aplica_algoritimo(vector<int> digitos);
+       void validar(string numero);
+    public:
+        /// \return Cadeia de caracteres correspondente ao número de conta armazenado no objeto.
+       string get_numero() const;
+        /// - Em caso de argumento **válido**, armazena cadeia de caracteres no objeto.
+        ///
+        /// - Caso seja passada uma cadeia de caracteres **inválida** como argumento, uma exceção é lançada.
+        /// @param numero : Cadeia de caracteres correspondente ao numero de conta que se deseja armazenar no objeto.
+        /// @throw invalid_argument
+       void set_numero(string numero);
+
+};
+inline string Numero::get_numero()const{return numero;};
 #endif
