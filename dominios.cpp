@@ -1,4 +1,4 @@
-#include "../Headers/dominios.h"
+#include "dominios.h"
 #include <bits/stdc++.h>
 #include <cctype>
 

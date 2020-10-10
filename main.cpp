@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include "../Headers/dominios.h"
-#include "../Headers/testes.h"
+#include "dominios.h"
+#include "testes_dominios.h"
  
 using namespace std;
 
