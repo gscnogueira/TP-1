@@ -1,4 +1,6 @@
-
+#+TITLE: Trabalho Técnicas De Programação 1
+#+DESCRIPTION: Classes a serem elaboradas para a realização do trabalho da matéria Técnicas de Programação 1, ministrada na Universidade de Brasília (UnB).
+#+AUTHOR: Gabriel Nogueira
 * DONE Domínios
 ** DONE CEP [4/4]
   - [X] Classe;
@@ -81,3 +83,32 @@
   - [X] Classe;
   - [X] Teste de Unidade;
   - [X] Documentação;
+
+* TODO Entidades [0/4]
+  
+** TODO Aplicação
+   + Código (~CodigoDeAplicacao~)
+   + Valor (~ValorDeAplicacao~)
+   + Data (~Data~)
+
+** TODO Conta
+   + Banco (~CodigoDeBanco~)
+   + Agência (~CodigodeAgencia~)
+   + Número (~Numero~)
+
+** TODO Produto
+   + Código (~CodigoDeProduto~)
+   + Classe (~Classe~)
+   + Emissor (~Emissor~)
+   + Prazo (~Prazo~)
+   + Vencimento (~Data~)
+   + Taxa (~Taxa~)
+   + Horário (~Horario~)
+   + Valor (~ValorMinimo~)
+
+** TODO Usuário
+   + Nome (~Nome~)
+   + Endereço (~Endereco~)
+   + CEP (~CEP~)
+   + CPF (~CPF~)
+   + Senha (~Senha~)
