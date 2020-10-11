@@ -84,43 +84,43 @@
   - [X] Teste de Unidade;
   - [X] Documentação;
 
-* DOING Entidades [1/4]
+* DOING Entidades [2/4]
   
 ** DONE Aplicação [3/3]
 *** DONE Classe
-    1. Código (~CodigoDeAplicacao~)
-    2. Valor (~ValorDeAplicacao~)
-    3. Data (~Data~)
+    * Código (~CodigoDeAplicacao~)
+    * Valor (~ValorDeAplicacao~)
+    * Data (~Data~)
 *** DONE Testes
 *** DONE Documentação
 
-** TODO Conta [0/3]
-*** DOING Classe
-   1. Banco (~CodigoDeBanco~)
-   2. Agência (~CodigodeAgencia~)
-   3. Número (~Numero~)
-*** TODO Testes
-*** TODO Documentação
+** DONE Conta [3/3]
+*** DONE Classe
+   * Banco (~CodigoDeBanco~)
+   * Agência (~CodigodeAgencia~)
+   * Número (~Numero~)
+*** DONE Testes
+*** DONE Documentação
 
 ** TODO Produto [0/3]
 *** TODO Classe
-   1. Código (~CodigoDeProduto~)
-   2. Classe (~Classe~)
-   3. Emissor (~Emissor~)
-   4. Prazo (~Prazo~)
-   5. Vencimento (~Data~)
-   6. Taxa (~Taxa~)
-   7. Horário (~Horario~)
-   8. Valor (~ValorMinimo~)
+   * Código (~CodigoDeProduto~)
+   * Classe (~Classe~)
+   * Emissor (~Emissor~)
+   * Prazo (~Prazo~)
+   * Vencimento (~Data~)
+   * Taxa (~Taxa~)
+   * Horário (~Horario~)
+   * Valor (~ValorMinimo~)
 *** TODO Testes
 *** TODO Documentação
 
 ** TODO Usuário [0/3]
 *** TODO Classe
-   1. Nome (~Nome~)
-   2. Endereço (~Endereco~)
-   3. CEP (~CEP~)
-   4. CPF (~CPF~)
-   5. Senha (~Senha~)
+   * Nome (~Nome~)
+   * Endereço (~Endereco~)
+   * CEP (~CEP~)
+   * CPF (~CPF~)
+   * Senha (~Senha~)
 *** TODO Testes
 *** TODO Documentação

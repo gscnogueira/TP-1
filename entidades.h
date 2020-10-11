@@ -106,7 +106,86 @@ inline void Conta::set_numero(const Numero &numero){
 inline Numero Conta::get_numero()const{
     return numero;
 }
+//----------------------------------------------------------
+//-----------------------PRODUTO----------------------------
+//----------------------------------------------------------
 
+class Produto{
+    private:
+        CodigoDeProduto codigo;
+        Classe classe;
+        Emissor emissor;
+        Prazo prazo;
+        Data vencimento;
+        Taxa taxa;
+        Horario horario;
+        ValorMinimo valor;
+    public:
+        void set_codigo(const CodigoDeProduto&);
+        CodigoDeProduto get_codigo()const;
+        void set_classe(const Classe&);
+        Classe get_classe()const;
+        void set_emissor(const Emissor&);
+        Emissor get_emissor()const;
+        void set_prazo(const Prazo&);
+        Prazo get_prazo()const;
+        void set_vencimento(const Data&);
+        Data get_vencimento()const;
+        void set_taxa(const Taxa &);
+        Taxa get_taxa()const;
+        void set_horario(const Horario&);
+        Horario get_horario()const;
+        void set_valor(const ValorMinimo&);
+        ValorMinimo get_valor()const;
+};
+inline void Produto::set_codigo(const CodigoDeProduto &codigo){
+    this->codigo=codigo;
+}
+inline CodigoDeProduto Produto::get_codigo()const{
+    return codigo;
+}
+inline void Produto::set_classe(const Classe &classe){
+    this->classe=classe;
+}
+inline Classe Produto::get_classe()const{
+    return classe;
+}
+inline void Produto::set_emissor(const Emissor &emissor){
+    this->emissor=emissor;
+}
+inline Emissor Produto::get_emissor()const{
+    return emissor;
+}
+inline void Produto::set_prazo(const Prazo &prazo){
+    this->prazo=prazo;
+}
+inline Prazo Produto::get_prazo() const{
+    return prazo;
+}
+inline void Produto::set_vencimento(const Data &vencimento){
+    this->vencimento=vencimento;
+}
+inline Data Produto::get_vencimento() const{
+    return vencimento;
+}
+inline void Produto::set_taxa(const Taxa &taxa){
+    this->taxa=taxa;
+}
+inline Taxa Produto::get_taxa() const{
+    return taxa;
+}
+inline void Produto::set_horario(const Horario &horario){
+    this->horario=horario;
+}
+inline Horario Produto::get_horario() const{
+    return horario;
+}
+inline void Produto::set_valor(const ValorMinimo &valor){
+    this->valor=valor;
+}
+inline ValorMinimo Produto::get_valor() const{
+    return valor;
+}
 
 
 

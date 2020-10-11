@@ -16,5 +16,8 @@ int main(){
     if(t_conta.run())cout<<"SUCESSO - CONTA"<<endl;
     else cout<<"FALHA - CONTA"<<endl;
 
+    TUProduto t_produto;
+    if(t_produto.run())cout<<"SUCESSO - PRODUTO"<<endl;
+    else cout<<"FALHA - CONTA"<<endl;
 
 }

@@ -47,5 +47,34 @@ class TUConta{
         bool run();
 
 };
+//----------------------------------------------------------
+//-----------------------PRODUTO----------------------------
+//----------------------------------------------------------
+class TUProduto{
+    private:
+        bool estado;
+        Produto* produto;
+        const static string CODIGO_VALIDO;
+        const static string CLASSE_VALIDO;
+        const static string EMISSOR_VALIDO;
+        const static int PRAZO_VALIDO=24;
+        const static string VENCIMENTO_VALIDO;
+        const static int TAXA_VALIDO=50;
+        const static string HORARIO_VALIDO;
+        const static int VALOR_VALIDO=10000;
+        void set_up();
+        void tear_down();
+        void testa_codigo();
+        void testa_classe();
+        void testa_emissor();
+        void testa_prazo();
+        void testa_vencimento();
+        void testa_taxa();
+        void testa_horario();
+        void testa_valor();
+    public:
+        bool run();
+
+};
 #endif
 
