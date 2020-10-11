@@ -84,31 +84,43 @@
   - [X] Teste de Unidade;
   - [X] Documentação;
 
-* TODO Entidades [0/4]
+* DOING Entidades [1/4]
   
-** TODO Aplicação
-   + Código (~CodigoDeAplicacao~)
-   + Valor (~ValorDeAplicacao~)
-   + Data (~Data~)
+** DONE Aplicação [3/3]
+*** DONE Classe
+    1. Código (~CodigoDeAplicacao~)
+    2. Valor (~ValorDeAplicacao~)
+    3. Data (~Data~)
+*** DONE Testes
+*** DONE Documentação
 
-** TODO Conta
-   + Banco (~CodigoDeBanco~)
-   + Agência (~CodigodeAgencia~)
-   + Número (~Numero~)
+** TODO Conta [0/3]
+*** DOING Classe
+   1. Banco (~CodigoDeBanco~)
+   2. Agência (~CodigodeAgencia~)
+   3. Número (~Numero~)
+*** TODO Testes
+*** TODO Documentação
 
-** TODO Produto
-   + Código (~CodigoDeProduto~)
-   + Classe (~Classe~)
-   + Emissor (~Emissor~)
-   + Prazo (~Prazo~)
-   + Vencimento (~Data~)
-   + Taxa (~Taxa~)
-   + Horário (~Horario~)
-   + Valor (~ValorMinimo~)
+** TODO Produto [0/3]
+*** TODO Classe
+   1. Código (~CodigoDeProduto~)
+   2. Classe (~Classe~)
+   3. Emissor (~Emissor~)
+   4. Prazo (~Prazo~)
+   5. Vencimento (~Data~)
+   6. Taxa (~Taxa~)
+   7. Horário (~Horario~)
+   8. Valor (~ValorMinimo~)
+*** TODO Testes
+*** TODO Documentação
 
-** TODO Usuário
-   + Nome (~Nome~)
-   + Endereço (~Endereco~)
-   + CEP (~CEP~)
-   + CPF (~CPF~)
-   + Senha (~Senha~)
+** TODO Usuário [0/3]
+*** TODO Classe
+   1. Nome (~Nome~)
+   2. Endereço (~Endereco~)
+   3. CEP (~CEP~)
+   4. CPF (~CPF~)
+   5. Senha (~Senha~)
+*** TODO Testes
+*** TODO Documentação
