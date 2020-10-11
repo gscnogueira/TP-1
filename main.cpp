@@ -12,5 +12,9 @@ int main(){
     if(t_aplicacao.run()) cout<<"SUCESSO - APLICAÇÃO"<<endl;
     else cout<<"FALHA - APLICAÇÃO"<<endl;
 
+    TUConta t_conta;
+    if(t_conta.run())cout<<"SUCESSO - CONTA"<<endl;
+    else cout<<"FALHA - CONTA"<<endl;
+
 
 }

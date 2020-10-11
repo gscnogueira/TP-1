@@ -59,5 +59,42 @@ inline void Aplicacao::set_data(const Data &data){
 inline Data Aplicacao::get_data()const{
     return data;
 }
+//----------------------------------------------------------
+//--------------------------CONTA---------------------------
+//----------------------------------------------------------
+class Conta{
+    private:
+        CodigoDeBanco banco;
+        CodigoDeAgencia agencia;
+        Numero numero;
+    public:
+        void set_banco(const CodigoDeBanco&);
+        CodigoDeBanco get_banco() const;
+        void set_agencia(const CodigoDeAgencia&);
+        CodigoDeAgencia get_agencia() const;
+        void set_numero(const Numero&);
+        Numero get_numero() const;
+};
+inline void Conta::set_banco(const CodigoDeBanco &banco){
+    this->banco=banco;
+}
+inline CodigoDeBanco Conta::get_banco() const{
+    return banco;
+}
+inline void Conta::set_agencia(const CodigoDeAgencia &agencia){
+    this->agencia=agencia;
+}
+inline CodigoDeAgencia Conta::get_agencia()const{
+    return agencia;
+}
+inline void Conta::set_numero(const Numero &numero){
+    this->numero=numero;
+}
+inline Numero Conta::get_numero()const{
+    return numero;
+}
+
+
+
 
 #endif

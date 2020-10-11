@@ -28,5 +28,24 @@ class TUAplicacao{
         bool run();
 };
 
+//----------------------------------------------------------
+//--------------------------CONTA---------------------------
+//----------------------------------------------------------
+class TUConta{
+    private:
+        const static string BANCO_VALIDO;
+        const static string AGENCIA_VALIDA;
+        const static string NUMERO_VALIDO;
+        Conta* conta;
+        bool estado;
+        void set_up();
+        void tear_down();
+        void testa_banco();
+        void testa_agencia();
+        void testa_numero();
+    public:
+        bool run();
+
+};
 #endif
 
