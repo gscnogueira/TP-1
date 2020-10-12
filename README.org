@@ -84,7 +84,7 @@
   - [X] Teste de Unidade;
   - [X] Documentação;
 
-* DOING Entidades [2/4]
+* DOING Entidades [3/4]
   
 ** DONE Aplicação [3/3]
 *** DONE Classe
@@ -102,18 +102,26 @@
 *** DONE Testes
 *** DONE Documentação
 
-** TODO Produto [0/3]
-*** TODO Classe
-   * Código (~CodigoDeProduto~)
-   * Classe (~Classe~)
-   * Emissor (~Emissor~)
-   * Prazo (~Prazo~)
-   * Vencimento (~Data~)
-   * Taxa (~Taxa~)
-   * Horário (~Horario~)
-   * Valor (~ValorMinimo~)
-*** TODO Testes
-*** TODO Documentação
+** DONE Produto [3/3]
+*** DONE Classe [8/8]
+   * [X] Código (~CodigoDeProduto~)
+   * [X] Classe (~Classe~)
+   * [X] Emissor (~Emissor~)
+   * [X] Prazo (~Prazo~)
+   * [X] Vencimento (~Data~)
+   * [X] Taxa (~Taxa~)
+   * [X] Horário (~Horario~)
+   * [X] Valor (~ValorMinimo~)
+*** DONE Testes [8/8]
+   * [X] Código (~CodigoDeProduto~)
+   * [X] Classe (~Classe~)
+   * [X] Emissor (~Emissor~)
+   * [X] Prazo (~Prazo~)
+   * [X] Vencimento (~Data~)
+   * [X] Taxa (~Taxa~)
+   * [X] Horário (~Horario~)
+   * [X] Valor (~ValorMinimo~)
+*** DONE Documentação
 
 ** TODO Usuário [0/3]
 *** TODO Classe

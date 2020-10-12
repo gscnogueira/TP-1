@@ -20,17 +20,17 @@ class Aplicacao{
         Data data;
     public:
         /// Função destinada à armazenar, em instância da classe, o código identificador de uma aplicação financeira, caso o mesmo seja considerado **válido**.
-        /// \param codigo : código responsável por identificar a aplicação.
+        /// \param codigo : objeto da classe CodigoDeAplicacao, responsável por identificar a aplicação.
         void set_codigo(const CodigoDeAplicacao&);
         /// \return Código responsável por identificar a aplicação financeira.
         CodigoDeAplicacao get_codigo() const;
         /// Função destinada à armazenar, em instância da classe, o valor de uma aplicação financeira, caso o mesmo seja considerado **válido**.
-        /// \param valor : valor da aplicação financeira.
+        /// \param valor : objeto da classe ValorDeAplicacao , o qual representa o valor da aplicação financeira.
         void set_valor(const ValorDeAplicacao&);
         /// \return Valor da aplicação financeira
         ValorDeAplicacao get_valor() const;
         /// Função destinada à armazenar, em instância da classe, a data em que uma aplicação foi feita, caso a data fornecida seja válida.
-        /// \param data : data em que a aplicação foi feita.
+        /// \param data : objeto da classe Data, responsável por representar a data em que a aplicação foi feita.
         void set_data(const Data&);
         /// \return Data em que uma aplicação financeira foi feita.
         Data get_data() const;
@@ -73,17 +73,17 @@ class Conta{
         Numero numero;
     public:
         /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o código do banco em que a conta está hospedado. 
-        /// \param banco : código do banco em que a conta está hospedada.
+        /// \param banco : instância da classe CodigoDeBanco, representando o código do banco em que a conta está hospedada.
         void set_banco(const CodigoDeBanco&);
         /// \return Código do banco em que a conta está hospedada.
         CodigoDeBanco get_banco() const;
         /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o número da agência da conta.
-        /// \param agencia : código de agência da conta.
+        /// \param agencia : instância da classe CodigoDeAgencia, representando o código de agência da conta.
         void set_agencia(const CodigoDeAgencia&);
         /// \return Código de agencia da conta.
         CodigoDeAgencia get_agencia() const;
         /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o número da conta. 
-        /// \param numero : número da conta armazenado na instância da classe.
+        /// \param numero : instância da classe Numero, representa o número da conta armazenado na instância da classe.
         void set_numero(const Numero&);
         /// \return Número da conta.
         Numero get_numero() const;
@@ -110,6 +110,10 @@ inline Numero Conta::get_numero()const{
 //-----------------------PRODUTO----------------------------
 //----------------------------------------------------------
 
+/// \brief Padrão para representação de produto de investimento.
+//
+/// Para realizar um investimento, é necessário um **produto de investimento**, ao qual o investimento será aplicado. Assim, ele precisa ser identificado por parâmetros, sendo eles: código, classe, emissor, prazo, vencimento, taxa, horário e valor mínimo.
+
 class Produto{
     private:
         CodigoDeProduto codigo;
@@ -121,21 +125,46 @@ class Produto{
         Horario horario;
         ValorMinimo valor;
     public:
+
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o código identificador do produto de investimento.
+        /// \param codigo : instância da classe CodigoDeProduto,sendo o código do produto de investimento.
         void set_codigo(const CodigoDeProduto&);
+        /// \return Código do produto de investimento.
         CodigoDeProduto get_codigo()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando a classe de um produto de investimento.
+        /// \param classe : instância da classe Classe, sendo a classe do produto de investimento.
         void set_classe(const Classe&);
+        /// \return Classe do produto de investimento.
         Classe get_classe()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o emissor de um produto de investimento.
+        /// \param emissor : instância da classe Emissor, representando o emissor do produto de investimento.
         void set_emissor(const Emissor&);
+        /// \return Emissor do produto de investimento.
         Emissor get_emissor()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o prazo em que o retorno do investimento será obtido.
+        /// \param prazo : instância da classe Prazo, representando o prazo em que o retorno do investimento será obtido.
         void set_prazo(const Prazo&);
+        /// \return Prazo em que o retorno do investimento será obtido.
         Prazo get_prazo()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando a data de vencimento na qual os recursos estarão disponíveis.
+        /// \param vencimento : instância da classe Data, representa a data de vencimento na qual os recursos estarão disponíveis.
         void set_vencimento(const Data&);
+        /// \return Data de vencimento na qual os recursos estarão disponíveis.
         Data get_vencimento()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando a taxa de remuneração do produto de investimento.
+        /// \param taxa : objeto da classe Taxa, responsável por representar a taxa de remuneração; 
         void set_taxa(const Taxa &);
+        /// \return Taxa de remuneração.
         Taxa get_taxa()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o horário limite para aplicação no produto de investimento.
+        /// \param taxa : objeto da classe Horario, responsável por representar o horário limite.
         void set_horario(const Horario&);
+        /// \return Horário limite para aplicação no produto de investimento.
         Horario get_horario()const;
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o valor mínimo para a aplicação no produto de investimento. 
+        /// \param valor : instância da classe ValorMinimo, representa o valor mínimo para a aplicação.
         void set_valor(const ValorMinimo&);
+        /// \return Valor mínimo para a aplicação no produto de investimento.
         ValorMinimo get_valor()const;
 };
 inline void Produto::set_codigo(const CodigoDeProduto &codigo){
