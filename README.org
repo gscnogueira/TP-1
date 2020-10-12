@@ -84,7 +84,7 @@
   - [X] Teste de Unidade;
   - [X] Documentação;
 
-* DOING Entidades [3/4]
+* DONE Entidades [4/4]
   
 ** DONE Aplicação [3/3]
 *** DONE Classe
@@ -123,7 +123,7 @@
    * [X] Valor (~ValorMinimo~)
 *** DONE Documentação
 
-** TODO Usuário [2/3]
+** DONE Usuário [3/3]
 *** DONE Classe [5/5]
    * [X] Nome (~Nome~)
    * [X] Endereço (~Endereco~)
@@ -136,9 +136,10 @@
    * [X] CEP (~CEP~)
    * [X] CPF (~CPF~)
    * [X] Senha (~Senha~)
-*** TODO Documentação [0/5]
-   * [ ] Nome (~Nome~)
-   * [ ] Endereço (~Endereco~)
-   * [ ] CEP (~CEP~)
-   * [ ] CPF (~CPF~)
-   * [ ] Senha (~Senha~)
+*** DONE Documentação [5/5]
+   * [X] Nome (~Nome~)
+   * [X] Endereço (~Endereco~)
+   * [X] CEP (~CEP~)
+   * [X] CPF (~CPF~)
+   * [X] Senha (~Senha~)
+     
