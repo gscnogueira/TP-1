@@ -123,12 +123,22 @@
    * [X] Valor (~ValorMinimo~)
 *** DONE Documentação
 
-** TODO Usuário [0/3]
-*** TODO Classe
-   * Nome (~Nome~)
-   * Endereço (~Endereco~)
-   * CEP (~CEP~)
-   * CPF (~CPF~)
-   * Senha (~Senha~)
-*** TODO Testes
-*** TODO Documentação
+** TODO Usuário [2/3]
+*** DONE Classe [5/5]
+   * [X] Nome (~Nome~)
+   * [X] Endereço (~Endereco~)
+   * [X] CEP (~CEP~)
+   * [X] CPF (~CPF~)
+   * [X] Senha (~Senha~)
+*** DONE Testes [5/5]
+   * [X] Nome (~Nome~)
+   * [X] Endereço (~Endereco~)
+   * [X] CEP (~CEP~)
+   * [X] CPF (~CPF~)
+   * [X] Senha (~Senha~)
+*** TODO Documentação [0/5]
+   * [ ] Nome (~Nome~)
+   * [ ] Endereço (~Endereco~)
+   * [ ] CEP (~CEP~)
+   * [ ] CPF (~CPF~)
+   * [ ] Senha (~Senha~)

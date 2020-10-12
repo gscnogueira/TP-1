@@ -188,6 +188,68 @@ bool TUProduto::run(){
     tear_down();
     return estado;
 }
+//----------------------------------------------------------
+//----------------------USUÁRIO-----------------------------
+//----------------------------------------------------------
+
+const string TUUsuario::NOME_VALIDO="Carlos Eduardo Peres";
+const string TUUsuario::ENDERECO_VALIDO="SQN 311 BLOCO B";
+const string TUUsuario::CPF_VALIDO="200.094.918-56";
+const string TUUsuario::SENHA_VALIDO="123456";
+
+void TUUsuario::set_up(){
+    usuario=new Usuario();
+    estado=true;
+}
+void TUUsuario::tear_down(){
+    delete usuario;
+}
+void TUUsuario::testa_nome(){
+    Nome nome;
+    nome.set_nome(NOME_VALIDO);
+    usuario->set_nome(nome);
+    if(usuario->get_nome().get_nome()!=NOME_VALIDO)
+        estado=false;
+}
+void TUUsuario::testa_endereco(){
+    Endereco endereco;
+    endereco.set_endereco(ENDERECO_VALIDO);
+    usuario->set_endereco(endereco);
+    if(usuario->get_endereco().get_endereco()!=ENDERECO_VALIDO)
+        estado=false;
+}
+void TUUsuario::testa_cep(){
+    CEP cep;
+    cep.set_valor(CEP_VALIDO);
+    usuario->set_cep(cep);
+    if(usuario->get_cep().get_valor()!=CEP_VALIDO)
+        estado=false;
+}
+void TUUsuario::testa_cpf(){
+    CPF cpf;
+    cpf.set_cpf(CPF_VALIDO);
+    usuario->set_cpf(cpf);
+    if(usuario->get_cpf().get_cpf()!=CPF_VALIDO)
+        estado=false;
+}
+void TUUsuario::testa_senha(){
+    Senha senha;
+    senha.set_senha(SENHA_VALIDO);
+    usuario->set_senha(senha);
+    if(usuario->get_senha().get_senha()!=SENHA_VALIDO)
+        estado=false;
+}
+bool TUUsuario::run(){
+    set_up();
+    testa_nome();
+    testa_endereco();
+    testa_cep();
+    testa_cpf();
+    testa_senha();
+    tear_down();
+    return estado;
+}
+
 
 
 

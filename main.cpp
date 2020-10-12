@@ -20,4 +20,8 @@ int main(){
     if(t_produto.run())cout<<"SUCESSO - PRODUTO"<<endl;
     else cout<<"FALHA - CONTA"<<endl;
 
+    TUUsuario t_usuario;
+    if(t_usuario.run())cout<<"SUCESSO - USUÁRIO"<<endl;
+    else cout<<"FALHA - USUÁRIO"<<endl;
+
 }

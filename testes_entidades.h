@@ -74,7 +74,28 @@ class TUProduto{
         void testa_valor();
     public:
         bool run();
-
+};
+//----------------------------------------------------------
+//----------------------USUÁRIO-----------------------------
+//----------------------------------------------------------
+class TUUsuario{
+    private:
+        const static string NOME_VALIDO;
+        const static string ENDERECO_VALIDO;
+        const static int CEP_VALIDO=1234567;
+        const static string CPF_VALIDO;
+        const static string SENHA_VALIDO;
+        Usuario* usuario;
+        bool estado;
+        void set_up();
+        void tear_down();
+        void testa_nome();
+        void testa_endereco();
+        void testa_cep();
+        void testa_cpf();
+        void testa_senha();
+    public:
+        bool run();
 };
 #endif
 
