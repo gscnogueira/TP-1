@@ -219,6 +219,9 @@ inline ValorMinimo Produto::get_valor() const{
 //----------------------USUÁRIO-----------------------------
 //----------------------------------------------------------
 
+/// \brief Padrão para representação de usuário de um sistema de investimento.
+//
+/// Para realizar um investimento, é necessário um **produto de investimento**, ao qual o investimento será aplicado. Assim, ele precisa ser identificado por parâmetros, sendo eles: código, classe, emissor, prazo, vencimento, taxa, horário e valor mínimo.
 class Usuario{
     private:
         Nome nome;
@@ -227,15 +230,30 @@ class Usuario{
         CPF cpf;
         Senha senha;
     public:
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o nome completo do usuário.
+        /// \param nome : nome do usuário.
         void set_nome(Nome&);
+        /// \return Nome do usuário.
         Nome get_nome();
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o endereço do usuário.
+        /// \param enderco : instância da classe Endereco, representa o endereço do usuário.
         void set_endereco(Endereco&);
+        /// \return Endereço do usuário.
         Endereco get_endereco();
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o CEP do usuário.
+        /// \param cep : instância da classe CEP, representa o CEP do usuário.
         void set_cep(CEP&);
+        /// \return CEP do usuário.
         CEP get_cep();
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando o CPF do usuário.
+        /// \param cpf : instância da classe CPF, representa CPF do usuário.
         void set_cpf(CPF&);
+        /// \return CPF do usuário.
         CPF get_cpf();
+        /// Caso um parâmetro válido seja passado, o mesmo é armazenado em instância da classe, representando a senha do usuário.
+        /// \param senha : instância da classe Senha, representa a senha do usuário do sistema.
         void set_senha(Senha&);
+        /// \return Senha do usuário do sistema.
         Senha get_senha();
 };
 inline void Usuario::set_nome(Nome &nome){
