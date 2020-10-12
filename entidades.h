@@ -215,7 +215,59 @@ inline void Produto::set_valor(const ValorMinimo &valor){
 inline ValorMinimo Produto::get_valor() const{
     return valor;
 }
+//----------------------------------------------------------
+//----------------------USUÁRIO-----------------------------
+//----------------------------------------------------------
 
+class Usuario{
+    private:
+        Nome nome;
+        Endereco endereco;
+        CEP cep;
+        CPF cpf;
+        Senha senha;
+    public:
+        void set_nome(Nome&);
+        Nome get_nome();
+        void set_endereco(Endereco&);
+        Endereco get_endereco();
+        void set_cep(CEP&);
+        CEP get_cep();
+        void set_cpf(CPF&);
+        CPF get_cpf();
+        void set_senha(Senha&);
+        Senha get_senha();
+};
+inline void Usuario::set_nome(Nome &nome){
+    this->nome=nome;
+}
+inline Nome Usuario::get_nome(){
+    return nome;
+}
+inline void Usuario::set_endereco(Endereco &endereco){
+    this->endereco=endereco;
+}
+inline Endereco Usuario::get_endereco(){
+    return endereco;
+}
+inline void Usuario::set_cep(CEP &cep){
+    this->cep=cep;
+}
+inline CEP Usuario::get_cep(){
+    return cep;
+}
+inline void Usuario::set_cpf(CPF &cpf){
+    this->cpf=cpf;
+}
+inline CPF Usuario::get_cpf(){
+    return cpf;
+}
+inline void Usuario::set_senha(Senha &senha){
+    this->senha=senha;
+}
+inline Senha Usuario::get_senha(){
+    return senha;
+}
 
 
 #endif
