@@ -1,9 +1,6 @@
-#include <string.h>
-#include <stdexcept>
-#include <iostream>
-
+#include<bits/stdc++.h>
 #include <ncurses.h>
-/* #include "interfaces.h" */
+#include "interfaces.h"
 #include "controladorasapresentacao.h"
 /* #include "stubs.h" */
 
@@ -13,9 +10,19 @@ int main()
 {
 
     CntrApresentacaoControle *cntrApresentacaoControle= new CntrApresentacaoControle();
-    initscr();                                                                      // Inicia curses.
-    cntrApresentacaoControle->executar();                                           // Solicita serviço apresentacao.
-    endwin();                                                                       // Finaliza curses.
+
+	IApresentacaoAutenticacao *cntrApresentacaoAutenticacao=new CntrApresentacaoAutenticacao();
+	IApresentacaoPessoal *cntrApresentacaoPessoal=new CntrApresentacaoPessoal();
+	IApresentacaoProdutosFinanceiros *cntrApresentacaoProdutosFinanceiros=new CntrApresentacaoProdutosFinanceiros();
+
+	cntrApresentacaoControle->set_cntr_apresentacao_autenticacao(cntrApresentacaoAutenticacao);
+	cntrApresentacaoControle->set_cntr_apresentacao_pessoal(cntrApresentacaoPessoal);
+	cntrApresentacaoControle->set_cntr_apresentacao_produtos_financeiros(cntrApresentacaoProdutosFinanceiros);
+
+
+    initscr();
+    cntrApresentacaoControle->executar();
+    endwin();
 
     return 0;
 }
