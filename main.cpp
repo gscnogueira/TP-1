@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include <ncurses.h>
 #include "interfaces.h"
+#include"stubs.h"
 #include "controladorasapresentacao.h"
 /* #include "stubs.h" */
 
@@ -18,6 +19,10 @@ int main()
 	cntrApresentacaoControle->set_cntr_apresentacao_autenticacao(cntrApresentacaoAutenticacao);
 	cntrApresentacaoControle->set_cntr_apresentacao_pessoal(cntrApresentacaoPessoal);
 	cntrApresentacaoControle->set_cntr_apresentacao_produtos_financeiros(cntrApresentacaoProdutosFinanceiros);
+
+	IServicoAutenticacao *cntrServicoAutenticacao=new StubServicoAutenticacao();
+
+	cntrApresentacaoAutenticacao->set_cntr_servico_autenticacao(cntrServicoAutenticacao);
 
 
     initscr();

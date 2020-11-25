@@ -58,8 +58,9 @@ int invoca_menu(vector<string>& choices){
 		for(int i=0;i<size ;i++){
 			if(i==highlight)
 				wattron(menu_win,A_REVERSE);
-			mvwprintw(menu_win,i+1,1,choices[i].c_str());
+			mvwprintw(menu_win,i+2,2,choices[i].c_str());
 			wattroff(menu_win,A_REVERSE);
+			printw("\n");
 
 		}
 		choice=wgetch(menu_win);
@@ -87,6 +88,8 @@ int invoca_menu(vector<string>& choices){
 //----------------------------------------------------------
 void CntrApresentacaoControle::executar(){
 	vector<string> choices={"Acessar Produtos de Investimento","Autenticar Usuario", "Cadastrar Usuario",  "Sair"};
+	vector<string> choices_autenticado={"Acessar Produtos de Investimento","Consultar Dados Pessoais", "Consultar Conta Corrente", "Cadastrar Produto de Investimento","Descadastrar Produto de Investimento","Listar Aplicacoes em Produtos de Investimento", "Encerrar Secao"};
+	bool autenticado;
 	while(1){
 		clear();
 		int escolha=invoca_menu(choices);
@@ -94,8 +97,53 @@ void CntrApresentacaoControle::executar(){
 			break;
 		if(escolha==0)
 			cntrApresentacaoProdutosFinanceiros->executar();
-		if(escolha==1)
-			cntrApresentacaoAutenticacao->autenticar();
+		if(escolha==1){
+			if(cntrApresentacaoAutenticacao->autenticar()){
+				autenticado=true;
+				while(autenticado){
+					int escolha_usuario=invoca_menu(choices_autenticado);
+					if(escolha_usuario==0){
+						clear();
+						printw("Dados Produtos de Investimento");
+						getch();
+						clear();
+						
+					}
+					if(escolha_usuario==1){
+						clear();
+						printw("Mostra Dados Pessoais");
+						getch();
+						clear();
+						
+					}
+					if(escolha_usuario==2){
+						clear();
+						printw("Mostra Conta Corrente");
+						getch();
+						clear();
+						
+					}
+					if(escolha_usuario==3){
+
+					}
+					if(escolha_usuario==4){
+						clear();
+						printw("Descadastra Produto");
+						getch();
+						clear();
+					}
+					if(escolha_usuario==5){
+						clear();
+						printw("Lista aplicacoes");
+						getch();
+						clear();
+					}
+					if(escolha_usuario==6)
+						autenticado=false;
+				}
+
+			}
+		}
 		if(escolha==2)
 			cntrApresentacaoPessoal->cadastrar();
 
@@ -123,10 +171,16 @@ bool CntrApresentacaoAutenticacao::autenticar(){
 			ans=son();
 			if(ans=='y')
 				continue;
+			else
+				return false;
 		}
 		autenticar=false;
 	}
-	return true;
+	if( cntr->autenticar(cpf,senha) ){
+		return true;;
+	}
+
+	return false;
 
 }
 //----------------------------------------------------------
@@ -177,6 +231,109 @@ void CntrApresentacaoPessoal::cadastrar(){
 		}
 		cadastrar=false;
 	}
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			cep.set_valor(stoi(invoca_texto(DESC,"CEP:")));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			cpf.set_cpf(invoca_texto(DESC,"CPF:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			senha.set_senha(invoca_texto(DESC,"Senha:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			codigoDeBanco.set_codigo(invoca_texto(DESC,"Codigo de Banco:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			codigoDeAgencia.set_codigo(invoca_texto(DESC,"Codigo de Agencia:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+
+	cadastrar=true;
+	while(cadastrar){
+		try{
+			numero.set_numero(invoca_texto(DESC,"Numero da Conta:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		cadastrar=false;
+	}
+	attron(A_REVERSE);
+	mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
+	attroff(A_REVERSE);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+	getch();
+
 }
 void CntrApresentacaoPessoal::executar(CPF){
 	clear();
