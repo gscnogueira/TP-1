@@ -21,7 +21,7 @@ string invoca_texto(string descricao, string nome){
 	int linha_s, coluna_s;
 	char dado[100];
     getmaxyx(stdscr,linha,coluna);
-	WINDOW *text_win=newwin(linha/10,coluna*3/4,( linha/2 ),( coluna/8 ));
+	WINDOW *text_win=newwin(max(linha/10,3),coluna*3/4,( linha/2 ),( coluna/8 ));
     getmaxyx(text_win,linha_win,coluna_win);
 	getbegyx(text_win,linha_s,coluna_s);
 	char titulo[]="SISTEMA DE INVESTIMENTOS";
@@ -42,13 +42,13 @@ int invoca_menu(vector<string>& choices){
 	clear();
 	int linha, coluna;
 	int linha_win, coluna_win;
+	int choice, size=(int)choices.size();
 	curs_set(0);
     getmaxyx(stdscr,linha,coluna);
-	WINDOW *menu_win= newwin(linha/2,coluna*3/4,( linha/4 ),( coluna/8 ));
+	WINDOW *menu_win= newwin(max(linha/2,size+4),coluna*3/4,( linha/4 ),( coluna/8 ));
     getmaxyx(menu_win,linha_win,coluna_win);
 	keypad(menu_win,true);
 	int highlight=0;
-	int choice, size=(int)choices.size();
 	char titulo[]="SISTEMA DE INVESTIMENTOS";
 	mvprintw(1,(coluna - strlen(titulo))/2,titulo);
 	refresh();
@@ -89,7 +89,7 @@ int invoca_menu(vector<string>& choices){
 //----------------------------------------------------------
 void CntrApresentacaoControle::executar(){
 	vector<string> choices={"Acessar Produtos de Investimento","Autenticar Usuario", "Cadastrar Usuario",  "Sair"};
-	vector<string> choices_autenticado={"Acessar Produtos de Investimento","Consultar Dados Pessoais", "Consultar Conta Corrente", "Cadastrar Produto de Investimento","Descadastrar Produto de Investimento","Listar Aplicacoes em Produtos de Investimento", "Encerrar Secao"};
+	vector<string> choices_autenticado={"Servicos de Pessoal","Servicos relacionados a Produtos Financeiros","Encerrar Sesao"};
 	bool autenticado;
 	while(1){
 		clear();
@@ -104,36 +104,11 @@ void CntrApresentacaoControle::executar(){
 
 				while(autenticado){
 					int escolha_usuario=invoca_menu(choices_autenticado);
-					if(escolha_usuario==0){
-						cntrApresentacaoProdutosFinanceiros->executar();
-					}
-					if(escolha_usuario==1){
-						clear();
-						printw("Mostra Dados Pessoais");
-						getch();
-						clear();
-							
-					}
-					if(escolha_usuario==2){
-						clear();
-						printw("Mostra Conta Corrente");
-						getch();
-						clear();
-						
-					}
-					if(escolha_usuario==3){
-
-					}
-					if(escolha_usuario==4){
-						clear();
-						printw("Descadastra Produto");
-						getch();
-						clear();
-					}
-					if(escolha_usuario==5){
+					if(escolha_usuario==0)
+						cntrApresentacaoPessoal->executar(cpf);
+					if(escolha_usuario==1)
 						cntrApresentacaoProdutosFinanceiros->executar(cpf);
-					}
-					if(escolha_usuario==6)
+					if(escolha_usuario==2)
 						autenticado=false;
 				}
 
@@ -330,9 +305,18 @@ void CntrApresentacaoPessoal::cadastrar(){
 
 }
 void CntrApresentacaoPessoal::executar(CPF){
-	clear();
-	printw("vou te executar");
-	getch();
+	vector<string> choices={"Apresentar Dados Pessoais","Retornar"};
+	bool executa=true;
+	while(executa){
+		int choice=invoca_menu(choices);
+		if(!choice){
+			clear();
+			printw("Mostra seus dados pessoais");
+			getch();
+		}
+		else
+			executa=false;
+	}
 }
 //----------------------------------------------------------
 //----------Móulo-Apresentação-Produtos-Financeiros---------
@@ -354,8 +338,49 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
 	}
 }
 void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
+	vector<string> choices={"Consultar Conta Corrente","Cadastrar Produto de Investimento", "Descadastrar Produto de Investimento", "Realizar Aplicacao em Produto de Investimento","Listar Aplicacoes em Produtos de Investimento", "Retornar"};
+	bool executa=true;
+	while(executa){
+		int choice=invoca_menu(choices);
+		if(choice==0)
+			consulta_conta();
+		if(choice==1)
+			cadastra_produto();
+		if(choice==2)
+			descadastra_produto();
+		if(choice==3)
+			realizar_aplicacao();
+		if(choice==4)
+			listar_aplicacoes();
+		if(choice==5)
+			executa=false;
+	}
+}
+
+void CntrApresentacaoProdutosFinanceiros::consulta_conta(){
 	clear();
-	printw("vou executar os SEUS produtos");
+	printw("Dados da sua conta");
 	getch();
 }
+void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
+	clear();
+	printw("Cadastrar Produto");
+	getch();
+}
+void CntrApresentacaoProdutosFinanceiros::descadastra_produto(){
+	clear();
+	printw("Descadastrar Produto");
+	getch();
+}
+void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(){
+	clear();
+	printw("Realiza Aplicacao");
+	getch();
+}
+void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(){
+	clear();
+	printw("Listar aplicacoes");
+	getch();
+}
+
 
