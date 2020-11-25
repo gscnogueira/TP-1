@@ -11,6 +11,7 @@
 //----------------------------------------------------------
 class CntrApresentacaoControle{
 	private:
+		CPF cpf;
 		IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
 		IApresentacaoPessoal *cntrApresentacaoPessoal;
 		IApresentacaoProdutosFinanceiros *cntrApresentacaoProdutosFinanceiros;
@@ -38,7 +39,7 @@ class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
 	private:
 		IServicoAutenticacao *cntr;
 	public:
-		bool autenticar();
+		bool autenticar(CPF*);
 		void set_cntr_servico_autenticacao(IServicoAutenticacao*);
 };
 inline void CntrApresentacaoAutenticacao::set_cntr_servico_autenticacao(IServicoAutenticacao *cntr){

@@ -21,7 +21,7 @@ class IServicoProdutosFinanceiros;
 
 class IApresentacaoAutenticacao {
     public:
-        virtual bool autenticar() = 0;
+        virtual bool autenticar(CPF*) = 0;
         virtual void set_cntr_servico_autenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoAutenticacao(){}
 };

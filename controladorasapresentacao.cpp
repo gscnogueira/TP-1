@@ -39,6 +39,7 @@ string invoca_texto(string descricao, string nome){
 
 }
 int invoca_menu(vector<string>& choices){
+	clear();
 	int linha, coluna;
 	int linha_win, coluna_win;
 	curs_set(0);
@@ -98,23 +99,20 @@ void CntrApresentacaoControle::executar(){
 		if(escolha==0)
 			cntrApresentacaoProdutosFinanceiros->executar();
 		if(escolha==1){
-			if(cntrApresentacaoAutenticacao->autenticar()){
+			if(cntrApresentacaoAutenticacao->autenticar(&cpf)){
 				autenticado=true;
+
 				while(autenticado){
 					int escolha_usuario=invoca_menu(choices_autenticado);
 					if(escolha_usuario==0){
-						clear();
-						printw("Dados Produtos de Investimento");
-						getch();
-						clear();
-						
+						cntrApresentacaoProdutosFinanceiros->executar();
 					}
 					if(escolha_usuario==1){
 						clear();
 						printw("Mostra Dados Pessoais");
 						getch();
 						clear();
-						
+							
 					}
 					if(escolha_usuario==2){
 						clear();
@@ -133,10 +131,7 @@ void CntrApresentacaoControle::executar(){
 						clear();
 					}
 					if(escolha_usuario==5){
-						clear();
-						printw("Lista aplicacoes");
-						getch();
-						clear();
+						cntrApresentacaoProdutosFinanceiros->executar(cpf);
 					}
 					if(escolha_usuario==6)
 						autenticado=false;
@@ -152,8 +147,7 @@ void CntrApresentacaoControle::executar(){
 //----------------------------------------------------------
 //-----------------Móulo-Apresentação-Autenticação---------
 //----------------------------------------------------------
-bool CntrApresentacaoAutenticacao::autenticar(){
-	CPF cpf;
+bool CntrApresentacaoAutenticacao::autenticar(CPF* cpf){
 	Senha senha;
 	char ans;
 	bool autenticar=true;
@@ -161,7 +155,7 @@ bool CntrApresentacaoAutenticacao::autenticar(){
     getmaxyx(stdscr,linha,coluna);
 	while(autenticar){
 		try{
-			cpf.set_cpf(invoca_texto(DESC,"CPF:"));
+			cpf->set_cpf(invoca_texto(DESC,"CPF:"));
 			senha.set_senha(invoca_texto(DESC,"Senha:"));
 
 		}
@@ -176,7 +170,7 @@ bool CntrApresentacaoAutenticacao::autenticar(){
 		}
 		autenticar=false;
 	}
-	if( cntr->autenticar(cpf,senha) ){
+	if( cntr->autenticar(*cpf,senha) ){
 		return true;;
 	}
 
@@ -344,11 +338,22 @@ void CntrApresentacaoPessoal::executar(CPF){
 //----------Móulo-Apresentação-Produtos-Financeiros---------
 //----------------------------------------------------------
 void CntrApresentacaoProdutosFinanceiros::executar(){
-	clear();
-	printw("vou executar os produtos");
-	getch();
+	bool consulta=true;
+	vector<string> choices={"CDB","LCA","LCI","LF","LC","Retornar"};
+	while(consulta){
+		int choice=invoca_menu(choices);
+		switch (choice) {
+			case 5:
+				consulta=false;
+					break;
+			default:
+				clear();
+				printw("Mostra lista");
+				getch();
+		}
+	}
 }
-void CntrApresentacaoProdutosFinanceiros::executar(CPF){
+void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 	clear();
 	printw("vou executar os SEUS produtos");
 	getch();
