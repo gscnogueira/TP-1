@@ -2,5 +2,13 @@
 #+DESCRIPTION: Sistema de Investimentos a ser elaborado para a realização do trabalho da matéria Técnicas de Programação 1, ministrada na Universidade de Brasília (UnB).
 #+AUTHOR: Gabriel Nogueira
 
-* Smoke Test [0/1]
+* Apresentação[/]
+** Autenticacao[/]
+*** TODO Falha na autenticação;
+** Produtos Financeiros[/]
+*** TODO Descadastramento
+**** TODO Não encotrou produto
+* Smoke Test [0/2]
 ** TODO Arrumar CEP
+** TODO Trocar a posição de valor mínimo no teste 5
+

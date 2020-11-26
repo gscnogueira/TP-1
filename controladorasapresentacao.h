@@ -57,13 +57,13 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
 		void executar(CPF);
 		void cadastrar();
 		void set_cntr_servico_pessoal(IServicoPessoal*);
-		void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*);
+		void set_cntr_servico_produtos_financeiros(IServicoProdutosFinanceiros*);
 		
 };
 inline void CntrApresentacaoPessoal::set_cntr_servico_pessoal(IServicoPessoal* cntr){
 	cntrServicoPessoal=cntr;
 }
-inline void CntrApresentacaoPessoal::setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros* cntr){
+inline void CntrApresentacaoPessoal::set_cntr_servico_produtos_financeiros(IServicoProdutosFinanceiros* cntr){
 	cntrServicoProdutosFinanceiros=cntr;
 }
 //----------------------------------------------------------

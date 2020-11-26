@@ -31,7 +31,7 @@ class IApresentacaoPessoal{
         virtual void executar(CPF) = 0;
         virtual void cadastrar() = 0;
         virtual void set_cntr_servico_pessoal(IServicoPessoal*) = 0;
-        virtual void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*) = 0;
+        virtual void set_cntr_servico_produtos_financeiros(IServicoProdutosFinanceiros*) = 0;
         virtual ~IApresentacaoPessoal(){}
 };
 
@@ -54,18 +54,18 @@ class IServicoAutenticacao {
 
 class IServicoPessoal{
 public:
-        virtual bool cadastrarUsuario(Usuario) = 0;
+        virtual bool cadastrar_usuario(Usuario) = 0;
         virtual ~IServicoPessoal(){}
 };
 
 class IServicoProdutosFinanceiros{
 public:
-        virtual bool cadastrarConta(Conta) = 0;
-        virtual bool consultarConta(Conta*) = 0;
-        virtual bool cadastrarProdutoInvestimento(Produto) = 0;
-        virtual bool descadastrarProdutoInvestimento(CodigoDeProduto) = 0;
-        virtual bool realizarAplicacao(Aplicacao) = 0;
-        virtual bool recuperarAplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.
+        virtual bool cadastrar_conta(Conta) = 0;
+        virtual bool consultar_conta(Conta*) = 0;
+        virtual bool cadastrar_produto(Produto) = 0;
+        virtual bool descadastrar_produto(CodigoDeProduto) = 0;
+        virtual bool realizar_aplicacao(Aplicacao) = 0;
+        virtual bool recuperar_aplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.
         virtual ~IServicoProdutosFinanceiros(){}
 };
 

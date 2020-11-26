@@ -91,6 +91,8 @@ void CntrApresentacaoControle::executar(){
 	vector<string> choices={"Acessar Produtos de Investimento","Autenticar Usuario", "Cadastrar Usuario",  "Sair"};
 	vector<string> choices_autenticado={"Servicos de Pessoal","Servicos relacionados a Produtos Financeiros","Encerrar Sesao"};
 	bool autenticado;
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
 	while(1){
 		clear();
 		int escolha=invoca_menu(choices);
@@ -111,7 +113,14 @@ void CntrApresentacaoControle::executar(){
 					if(escolha_usuario==2)
 						autenticado=false;
 				}
-
+			}
+			else{
+				attron(A_REVERSE);
+				mvprintw(linha-2,0,"CPF ou senha incorretos");
+				attroff(A_REVERSE);
+				mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+				getch();
+				
 			}
 		}
 		if(escolha==2)
@@ -165,11 +174,12 @@ void CntrApresentacaoPessoal::cadastrar(){
 	CodigoDeBanco codigoDeBanco;
 	CodigoDeAgencia codigoDeAgencia;
 	Numero numero;
-	bool cadastrar=true;
+	Usuario usuario;
+	Conta conta;
 	char ans;
 	int linha,coluna;
     getmaxyx(stdscr,linha,coluna);
-	while(cadastrar){
+	while(true){
 		try{
 			nome.set_nome(invoca_texto(DESC,"Nome:"));
 		}
@@ -182,10 +192,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			endereco.set_endereco(invoca_texto(DESC,"Endereco:"));
 		}
@@ -198,10 +207,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			cep.set_valor(stoi(invoca_texto(DESC,"CEP:")));
 		}
@@ -214,10 +222,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			cpf.set_cpf(invoca_texto(DESC,"CPF:"));
 		}
@@ -230,10 +237,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			senha.set_senha(invoca_texto(DESC,"Senha:"));
 		}
@@ -246,10 +252,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			codigoDeBanco.set_codigo(invoca_texto(DESC,"Codigo de Banco:"));
 		}
@@ -262,10 +267,9 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			codigoDeAgencia.set_codigo(invoca_texto(DESC,"Codigo de Agencia:"));
 		}
@@ -278,27 +282,41 @@ void CntrApresentacaoPessoal::cadastrar(){
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
 
-	cadastrar=true;
-	while(cadastrar){
+	while(true){
 		try{
 			numero.set_numero(invoca_texto(DESC,"Numero da Conta:"));
 		}
 		catch(invalid_argument &exp){
 			mvprintw(linha-2,0,AVISO);
-			refresh();
 			ans=son();
 			if(ans=='n')
 				return;
 			else 
 				continue;
 		}
-		cadastrar=false;
+		break;
 	}
+
+	usuario.set_nome(nome);
+	usuario.set_endereco(endereco);
+	usuario.set_cep(cep);
+	usuario.set_cpf(cpf);
+	usuario.set_senha(senha);
+	conta.set_agencia(codigoDeAgencia);
+	conta.set_banco(codigoDeBanco);
+	conta.set_numero(numero);
+
 	attron(A_REVERSE);
-	mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
+
+	if(cntrServicoPessoal->cadastrar_usuario(usuario)&&
+	   cntrServicoProdutosFinanceiros->cadastrar_conta(conta))
+		mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
+	else
+		mvprintw(linha-2,0,"Falha na realizacao do cadastro. Tente novamente.");
+
 	attroff(A_REVERSE);
 	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
 	getch();
@@ -338,8 +356,8 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
 	}
 }
 void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
-	vector<string> choices={"Consultar Conta Corrente","Cadastrar Produto de Investimento", "Descadastrar Produto de Investimento", "Realizar Aplicacao em Produto de Investimento","Listar Aplicacoes em Produtos de Investimento", "Retornar"};
 	bool executa=true;
+	vector<string> choices={"Consultar Conta Corrente","Cadastrar Produto de Investimento","Descadastrar Produto de Investimento","Realizar Aplicacao em Produto de Investimento","Listar Aplicacao em Produtos de Investimento","Retornar"};
 	while(executa){
 		int choice=invoca_menu(choices);
 		if(choice==0)
@@ -364,18 +382,258 @@ void CntrApresentacaoProdutosFinanceiros::consulta_conta(){
 }
 void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
 	clear();
-	printw("Cadastrar Produto");
+	CodigoDeProduto codigo;
+	Classe classe;
+	Emissor emissor;
+	Prazo prazo;
+	Data data;
+	Taxa taxa;
+	Horario horario;
+	ValorMinimo valorMinimo;
+	Produto produto;
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
+	bool cadastrar=true;
+	char ans;
+	while(cadastrar){
+		try{
+			codigo.set_codigo(invoca_texto(DESC,"Codigo de Produto:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			classe.set_classe(invoca_texto(DESC,"Classe:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			emissor.set_emissor(invoca_texto(DESC,"Emissor:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			prazo.set_prazo(stoi(invoca_texto(DESC,"Prazo de Aplicacao (em meses):")));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			data.set_data(invoca_texto(DESC,"Data de Vencimento:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			taxa.set_taxa(stoi(invoca_texto(DESC,"Taxa de Remuneracao (%% ao ano):")));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			horario.set_horario(invoca_texto(DESC,"Horario Limite para Aplicacao:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	while(cadastrar){
+		try{
+			valorMinimo.set_valor(stoi(invoca_texto(DESC,"Valor Minimo para Aplicacao (reais):")));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	produto.set_classe(classe);
+	produto.set_codigo(codigo);
+	produto.set_emissor(emissor);
+	produto.set_horario(horario);
+	produto.set_prazo(prazo);
+	produto.set_taxa(taxa);
+	produto.set_vencimento(data);
+	produto.set_valor(valorMinimo);
+
+	attron(A_REVERSE);
+	if(cntrServicoProdutosFinanceiros->cadastrar_produto(produto))
+		mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
+	else
+		mvprintw(linha-2,0,"Falha na realizacao do cadastro. Tente novamente.");
+	attroff(A_REVERSE);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
 	getch();
 }
 void CntrApresentacaoProdutosFinanceiros::descadastra_produto(){
-	clear();
-	printw("Descadastrar Produto");
+	CodigoDeProduto codigo;
+	char ans;
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
+	while(true){
+		try{
+			codigo=invoca_texto("Digite o codigo do produto a ser descadastrado:","Codigo de Produto:");
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			ans=son();
+			if(ans=='n')
+				return;
+			else
+				continue;
+		}
+		break;
+	}
+	attron(A_REVERSE);
+	if(cntrServicoProdutosFinanceiros->descadastrar_produto(codigo))
+		mvprintw(linha-2,0,"Descadastramento realizado com sucesso.");
+	else
+		mvprintw(linha-2,0,"Falha no descadastramento, o produto nao foi encontrado.");
+
+	attroff(A_REVERSE);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
 	getch();
+	
 }
 void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(){
-	clear();
-	printw("Realiza Aplicacao");
+	CodigoDeAplicacao codigoAplicacao;
+	CodigoDeProduto codigoProduto;
+	ValorDeAplicacao valor;
+	Data data;
+	Aplicacao aplicacao;
+	char ans;
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
+	while(true){
+		try{
+			codigoAplicacao.set_codigo( invoca_texto(DESC,"Codigo da Aplicacao:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		break;
+	}
+	while(true){
+		try{
+			codigoProduto.set_codigo( invoca_texto(DESC,"Codigo do Produto:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		break;
+	}
+	while(true){
+		try{
+			valor.set_valor( invoca_texto(DESC,"Valor da Aplicacao:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		break;
+	}
+	while(true){
+		try{
+			data.set_data(invoca_texto(DESC,"Data da Aplicacao:"));
+		}
+		catch(invalid_argument &exp){
+			mvprintw(linha-2,0,AVISO);
+			refresh();
+			ans=son();
+			if(ans=='n')
+				return;
+			else 
+				continue;
+		}
+		break;
+	}
+	attron(A_REVERSE);
+	if(cntrServicoProdutosFinanceiros->realizar_aplicacao(aplicacao))
+		mvprintw(linha-2,0,"Aplicacao realizada com sucesso.");
+	else
+		mvprintw(linha-2,0,"Falha na realizacao da aplicacao. Tente novamente.");
+
+	attroff(A_REVERSE);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
 	getch();
+
 }
 void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(){
 	clear();
