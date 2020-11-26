@@ -3,6 +3,7 @@
 #include "interfaces.h"
 #include"stubs.h"
 #include "controladorasapresentacao.h"
+#include "controladorasservico.h"
 /* #include "stubs.h" */
 
 using namespace std;
@@ -20,7 +21,7 @@ int main()
 	cntrApresentacaoControle->set_cntr_apresentacao_pessoal(cntrApresentacaoPessoal);
 	cntrApresentacaoControle->set_cntr_apresentacao_produtos_financeiros(cntrApresentacaoProdutosFinanceiros);
 
-	IServicoAutenticacao *cntrServicoAutenticacao=new StubServicoAutenticacao();
+	IServicoAutenticacao *cntrServicoAutenticacao=new CntrServicoAutenticacao();
 	IServicoPessoal *cntrServicoPessoal=new StubServicoPessoal();
 	IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros=new StubServicoProdutosFinanceiros();
 

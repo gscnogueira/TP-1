@@ -155,7 +155,7 @@ bool CntrApresentacaoAutenticacao::autenticar(CPF* cpf){
 		autenticar=false;
 	}
 	if( cntr->autenticar(*cpf,senha) ){
-		return true;;
+		return true;
 	}
 
 	return false;
