@@ -13,6 +13,11 @@ class CntrServicoAutenticacao:public IServicoAutenticacao{
 		bool autenticar(CPF,Senha);
 };
 
+class CntrServicoPessoal:public IServicoPessoal{
+	public:
+		bool cadastrar_usuario(Usuario);
+};
+
 
 
 

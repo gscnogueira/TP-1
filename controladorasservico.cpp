@@ -16,3 +16,16 @@ bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
 	}
 	return true;
 }
+
+bool CntrServicoPessoal::cadastrar_usuario(Usuario usuario){
+	ComandoCadastrarUsuario comandoCadastrarUsuario(usuario);
+	try{
+		comandoCadastrarUsuario.executar();
+	}
+	catch(ErroPersistencia &exp){
+		printw("%s",exp.what().c_str());
+		return false;
+
+	}
+	return true;
+}

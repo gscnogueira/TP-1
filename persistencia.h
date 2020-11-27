@@ -58,5 +58,15 @@ class ComandoLerSenha:public ComandoSQL{
 		ComandoLerSenha(CPF);
 		string get_resultado();
 };
+class ComandoPesquisarUsuario:public ComandoSQL{
+	public:
+		ComandoPesquisarUsuario(CPF);
+		Usuario get_resultado();
+
+};
+class ComandoCadastrarUsuario:public ComandoSQL{
+	public:
+		ComandoCadastrarUsuario(Usuario);
+};
 
 #endif

@@ -22,7 +22,7 @@ int main()
 	cntrApresentacaoControle->set_cntr_apresentacao_produtos_financeiros(cntrApresentacaoProdutosFinanceiros);
 
 	IServicoAutenticacao *cntrServicoAutenticacao=new CntrServicoAutenticacao();
-	IServicoPessoal *cntrServicoPessoal=new StubServicoPessoal();
+	IServicoPessoal *cntrServicoPessoal=new CntrServicoPessoal();
 	IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros=new StubServicoProdutosFinanceiros();
 
 	cntrApresentacaoAutenticacao->set_cntr_servico_autenticacao(cntrServicoAutenticacao);

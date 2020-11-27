@@ -36,7 +36,7 @@ void ComandoSQL::executar(){
 	if(rc!= SQLITE_OK){
 		sqlite3_free(mensagem);
 		desconectar();
-		throw ErroPersistencia("Erro na execucao do comando SQL.");
+		throw ErroPersistencia(comandoSQL);
 	}
 	desconectar();
 }
@@ -70,5 +70,62 @@ string ComandoLerSenha::get_resultado(){
 	senha=resultado.get_valor_coluna();
 
 	return senha;
+}
+
+ComandoPesquisarUsuario::ComandoPesquisarUsuario(CPF cpf){
+	comandoSQL = "SELECT * FROM usuarios WHERE cpf = \"";
+	comandoSQL+=cpf.get_cpf();
+	comandoSQL+="\"";
+}
+
+Usuario ComandoPesquisarUsuario::get_resultado(){
+	ElementoResultado resultado;
+	Usuario usuario;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Nome nome;
+	nome.set_nome(resultado.get_valor_coluna());
+	usuario.set_nome(nome);
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Endereco endereco;
+	endereco.set_endereco(resultado.get_valor_coluna());
+	usuario.set_endereco(endereco);
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	CEP cep;
+	cep.set_valor(stoi(resultado.get_valor_coluna()));
+	usuario.set_cep(cep);
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	CPF cpf;
+	cpf.set_cpf(resultado.get_valor_coluna());
+	usuario.set_cpf(cpf);
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Senha senha;
+	senha.set_senha(resultado.get_valor_coluna());
+	usuario.set_senha(senha);
+
+	return usuario;
+}
+
+ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario){
+	comandoSQL= "INSERT INTO usuarios VALUES (";
+	comandoSQL+="'"+usuario.get_nome().get_nome()+"', ";
+	comandoSQL+="'"+usuario.get_endereco().get_endereco()+"', ";
+	comandoSQL+="'"+to_string(usuario.get_cep().get_valor() )+"', ";
+	comandoSQL+="'"+usuario.get_cpf().get_cpf()+"', ";
+	comandoSQL+="'"+usuario.get_senha().get_senha()+"')";
 }
 
