@@ -55,6 +55,7 @@ class IServicoAutenticacao {
 class IServicoPessoal{
 public:
         virtual bool cadastrar_usuario(Usuario) = 0;
+		virtual bool consultar_usuario(Usuario*, CPF) =0;
         virtual ~IServicoPessoal(){}
 };
 

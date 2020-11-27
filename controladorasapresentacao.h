@@ -53,6 +53,7 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
 	private:
 		IServicoPessoal* cntrServicoPessoal;
 		IServicoProdutosFinanceiros* cntrServicoProdutosFinanceiros;
+		void consulta_dados(CPF);
 	public:
 		void executar(CPF);
 		void cadastrar();

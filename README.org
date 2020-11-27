@@ -2,7 +2,7 @@
 #+DESCRIPTION: Sistema de Investimentos a ser elaborado para a realização do trabalho da matéria Técnicas de Programação 1, ministrada na Universidade de Brasília (UnB).
 #+AUTHOR: Gabriel Nogueira
 
-* Apresentação[1/4]
+* Apresentação[2/4]
 ** TODO Desativar cursor na confirmação de tentar novamente
 ** DONE Autenticacao[1/1]
 *** DONE Falha na autenticação;
@@ -11,13 +11,28 @@
 **** DONE Realizado com sucesso 
 *** TODO Descadastramento 
 **** TODO Realizado com sucesso 
-** TODO Produtos Financeiros[3/3]
+** DONE Produtos Financeiros[3/3]
 *** DONE Cadastramento
 **** DONE Realizado com sucesso
 *** DONE Descadastramento
 **** DONE Realizado com sucesso
 *** DONE Aplicação
 **** DONE Realizado com sucesso
+* Serviço [1/4]
+** DONE Autenticação[1/1]
+*** DONE Autenticar
+** DOING Pessoal [2/3] 
+*** DONE Dados pessoais
+*** DONE Cadastrar
+*** TODO Descadastrar
+** TODO Produtos Financeiros[0/5]
+*** TODO Acessar todos
+*** TODO Cadastrar
+*** TODO Descadastrar
+*** TODO Aplicação
+*** TODO Listar Aplicações
+* Outro [0/1]
+** TODO  Deletar Ponteiros
 * Smoke Test [0/2]
 ** TODO Arrumar CEP
 ** TODO Trocar a posição de valor mínimo no teste 5

@@ -84,6 +84,29 @@ int invoca_menu(vector<string>& choices){
 	}
 	return highlight;
 }
+
+void mostra_atributos(vector<string>& choices){
+	clear();
+	int linha, coluna;
+	int linha_win, coluna_win;
+	int size=(int)choices.size();
+	curs_set(0);
+    getmaxyx(stdscr,linha,coluna);
+	WINDOW *menu_win= newwin(max(linha/2,size+4),coluna*3/4,( linha/4 ),( coluna/8 ));
+    getmaxyx(menu_win,linha_win,coluna_win);
+	keypad(menu_win,true);
+	char titulo[]="SISTEMA DE INVESTIMENTOS";
+	mvprintw(1,(coluna - strlen(titulo))/2,titulo);
+	refresh();
+	box(menu_win,0,0);
+	wrefresh(menu_win);
+	noecho();
+	for(int i=0;i<size ;i++){
+		mvwprintw(menu_win,i+2,2,choices[i].c_str());
+	}
+	wrefresh(menu_win);
+	getch();
+}
 //----------------------------------------------------------
 //-----------------Móulo-Apresentação-Controle--------------
 //----------------------------------------------------------
@@ -322,19 +345,31 @@ void CntrApresentacaoPessoal::cadastrar(){
 	getch();
 
 }
-void CntrApresentacaoPessoal::executar(CPF){
+void CntrApresentacaoPessoal::executar(CPF cpf){
 	vector<string> choices={"Apresentar Dados Pessoais","Retornar"};
 	bool executa=true;
 	while(executa){
 		int choice=invoca_menu(choices);
 		if(!choice){
-			clear();
-			printw("Mostra seus dados pessoais");
-			getch();
+			consulta_dados(cpf);
 		}
 		else
 			executa=false;
 	}
+}
+void CntrApresentacaoPessoal::consulta_dados(CPF cpf){
+	Usuario usuario;
+	vector<string>choices={"Nome    : ","Endereco: ","CEP     : ","CPF     : "};
+
+	if(!cntrServicoPessoal->consultar_usuario(&usuario,cpf))
+		return;
+	choices[0]+=usuario.get_nome().get_nome();
+	choices[1]+=usuario.get_endereco().get_endereco();
+	choices[2]+=to_string(usuario.get_cep().get_valor());
+	choices[3]+=usuario.get_cpf().get_cpf();
+
+	mostra_atributos(choices);
+	
 }
 //----------------------------------------------------------
 //----------Móulo-Apresentação-Produtos-Financeiros---------
