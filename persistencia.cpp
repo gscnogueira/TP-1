@@ -120,13 +120,14 @@ Usuario ComandoPesquisarUsuario::get_resultado(){
 	return usuario;
 }
 
-ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario){
+ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario,Numero numero){
 	comandoSQL= "INSERT INTO usuarios VALUES (";
 	comandoSQL+="'"+usuario.get_nome().get_nome()+"', ";
 	comandoSQL+="'"+usuario.get_endereco().get_endereco()+"', ";
 	comandoSQL+="'"+to_string(usuario.get_cep().get_valor() )+"', ";
 	comandoSQL+="'"+usuario.get_cpf().get_cpf()+"', ";
-	comandoSQL+="'"+usuario.get_senha().get_senha()+"')";
+	comandoSQL+="'"+usuario.get_senha().get_senha()+"', ";
+	comandoSQL+="'"+numero.get_numero()+"') ";
 }
 
 ComandoCadastraConta::ComandoCadastraConta(Conta conta){
@@ -147,4 +148,51 @@ ComandoCadastraProduto::ComandoCadastraProduto(Produto produto){
 	comandoSQL+="'"+produto.get_horario().get_horario()+"', ";
 	comandoSQL+="'"+to_string(produto.get_valor().get_valor())+"')";
 }
+ComandoAcessaNumeroConta::ComandoAcessaNumeroConta(CPF cpf){
+	comandoSQL="SELECT conta FROM usuarios WHERE cpf = '";
+	comandoSQL+=cpf.get_cpf()+"'";
+}
+Numero ComandoAcessaNumeroConta::get_resultado(){
+	ElementoResultado resultado;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Numero numero;
+	numero.set_numero(resultado.get_valor_coluna());
+	return numero;
+}
 
+ComandoPesquisarConta::ComandoPesquisarConta(Numero numero){
+	comandoSQL+="SELECT * FROM conta WHERE numero = ";
+	comandoSQL+=numero.get_numero();
+}
+
+Conta ComandoPesquisarConta::get_resultado(){
+	ElementoResultado resultado;
+	Conta conta;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	CodigoDeBanco banco;
+	banco.set_codigo(resultado.get_valor_coluna());
+	conta.set_banco(banco);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	CodigoDeAgencia agencia;
+	agencia.set_codigo(resultado.get_valor_coluna());
+	conta.set_agencia(agencia);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Numero numero;
+	numero.set_numero(resultado.get_valor_coluna());
+	conta.set_numero(numero);
+	return conta;
+}

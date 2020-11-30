@@ -17,8 +17,8 @@ bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
 	return true;
 }
 
-bool CntrServicoPessoal::cadastrar_usuario(Usuario usuario){
-	ComandoCadastrarUsuario comandoCadastrarUsuario(usuario);
+bool CntrServicoPessoal::cadastrar_usuario(Usuario usuario, Numero numero){
+	ComandoCadastrarUsuario comandoCadastrarUsuario(usuario,numero);
 	try{
 		comandoCadastrarUsuario.executar();
 	}
@@ -54,7 +54,19 @@ bool CntrServicoProdutosFinanceiros::cadastrar_conta(Conta conta){
 	}
 	return true;
 }
-bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta){
+bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta,CPF cpf){
+	ComandoAcessaNumeroConta cmd_acessa(cpf);
+	Numero numero;
+	try{
+		numero=cmd_acessa.get_resultado();
+		printw("%s",numero.get_numero().c_str());
+		ComandoPesquisarConta cmd_conta(numero);
+		*conta=cmd_conta.get_resultado();
+	}
+	catch(ErroPersistencia &exp){
+		return false;
+	}
+
 	return true;
 }
 bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){

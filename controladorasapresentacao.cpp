@@ -334,7 +334,7 @@ void CntrApresentacaoPessoal::cadastrar(){
 
 	attron(A_REVERSE);
 
-	if(cntrServicoPessoal->cadastrar_usuario(usuario)&&
+	if(cntrServicoPessoal->cadastrar_usuario(usuario,numero)&&
 	   cntrServicoProdutosFinanceiros->cadastrar_conta(conta))
 		mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
 	else
@@ -396,7 +396,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 	while(executa){
 		int choice=invoca_menu(choices);
 		if(choice==0)
-			consulta_conta();
+			consulta_conta(cpf);
 		if(choice==1)
 			cadastra_produto();
 		if(choice==2)
@@ -410,10 +410,21 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 	}
 }
 
-void CntrApresentacaoProdutosFinanceiros::consulta_conta(){
-	clear();
-	printw("Dados da sua conta");
-	getch();
+void CntrApresentacaoProdutosFinanceiros::consulta_conta(CPF cpf){
+	Conta* conta=new Conta();
+
+	vector<string>choices={
+		"Banco         : ",
+		"Agencia       : ",
+		"Numero Numero : "};
+
+	if(cntrServicoProdutosFinanceiros->consultar_conta(conta,cpf))
+		return;
+	choices[0]+=conta->get_banco().get_codigo();
+	choices[1]+=conta->get_agencia().get_codigo();
+	choices[2]+=conta->get_numero().get_numero();
+
+	mostra_atributos(choices);
 }
 void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
 	clear();

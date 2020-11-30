@@ -66,12 +66,23 @@ class ComandoPesquisarUsuario:public ComandoSQL{
 };
 class ComandoCadastrarUsuario:public ComandoSQL{
 	public:
-		ComandoCadastrarUsuario(Usuario);
+		ComandoCadastrarUsuario(Usuario, Numero);
 };
 
 class ComandoCadastraConta:public ComandoSQL{
 	public:
 		ComandoCadastraConta(Conta);
+};
+class ComandoAcessaNumeroConta:public ComandoSQL{
+	public:
+		ComandoAcessaNumeroConta(CPF);
+		Numero get_resultado();
+};
+class ComandoPesquisarConta:public ComandoSQL{
+	public:
+		ComandoPesquisarConta(Numero);
+		Conta get_resultado();
+
 };
 class ComandoCadastraProduto:public ComandoSQL{
 	public:

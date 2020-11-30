@@ -15,13 +15,13 @@ class CntrServicoAutenticacao:public IServicoAutenticacao{
 
 class CntrServicoPessoal:public IServicoPessoal{
 	public:
-		bool cadastrar_usuario(Usuario);
+		bool cadastrar_usuario(Usuario,Numero);
 		bool consultar_usuario(Usuario*, CPF);
 };
 class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
 	public:
 		bool cadastrar_conta(Conta);
-		bool consultar_conta(Conta*);
+		bool consultar_conta(Conta*, CPF);
 		bool cadastrar_produto(Produto) ;
 		bool descadastrar_produto(CodigoDeProduto);
 		bool realizar_aplicacao(Aplicacao);
