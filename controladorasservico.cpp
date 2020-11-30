@@ -58,7 +58,14 @@ bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta){
 	return true;
 }
 bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
-	return (produto.get_classe().get_classe()!="LCI");
+	ComandoCadastraProduto cmd(produto);
+	try{
+		cmd.executar();
+	}
+	catch(ErroPersistencia &exp){
+		return false;
+	}
+	return true;
 }
 bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo){
 	return (codigo.get_codigo()!="123");

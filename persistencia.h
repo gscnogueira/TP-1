@@ -73,5 +73,9 @@ class ComandoCadastraConta:public ComandoSQL{
 	public:
 		ComandoCadastraConta(Conta);
 };
+class ComandoCadastraProduto:public ComandoSQL{
+	public:
+		ComandoCadastraProduto(Produto);
+};
 
 #endif

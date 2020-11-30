@@ -136,3 +136,15 @@ ComandoCadastraConta::ComandoCadastraConta(Conta conta){
 	comandoSQL+="'"+conta.get_numero().get_numero()+"')";
 }
 
+ComandoCadastraProduto::ComandoCadastraProduto(Produto produto){
+	comandoSQL+="INSERT INTO produto VALUES(";
+	comandoSQL+="'"+produto.get_codigo().get_codigo()+"', ";
+	comandoSQL+="'"+produto.get_classe().get_classe()+"', ";
+	comandoSQL+="'"+produto.get_emissor().get_emissor()+"', ";
+	comandoSQL+="'"+to_string(produto.get_prazo().get_prazo())+"', ";
+	comandoSQL+="'"+produto.get_vencimento().get_data()+"', ";
+	comandoSQL+="'"+to_string( produto.get_taxa().get_taxa() )+"', ";
+	comandoSQL+="'"+produto.get_horario().get_horario()+"', ";
+	comandoSQL+="'"+to_string(produto.get_valor().get_valor())+"')";
+}
+
