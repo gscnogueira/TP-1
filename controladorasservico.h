@@ -18,6 +18,15 @@ class CntrServicoPessoal:public IServicoPessoal{
 		bool cadastrar_usuario(Usuario);
 		bool consultar_usuario(Usuario*, CPF);
 };
+class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
+	public:
+		bool cadastrar_conta(Conta);
+		bool consultar_conta(Conta*);
+		bool cadastrar_produto(Produto) ;
+		bool descadastrar_produto(CodigoDeProduto);
+		bool realizar_aplicacao(Aplicacao);
+		bool recuperar_aplicacao(Aplicacao*);
+};
 
 
 

@@ -69,4 +69,9 @@ class ComandoCadastrarUsuario:public ComandoSQL{
 		ComandoCadastrarUsuario(Usuario);
 };
 
+class ComandoCadastraConta:public ComandoSQL{
+	public:
+		ComandoCadastraConta(Conta);
+};
+
 #endif

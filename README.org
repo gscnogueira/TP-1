@@ -31,8 +31,9 @@
 *** TODO Descadastrar
 *** TODO Aplicação
 *** TODO Listar Aplicações
-* Outro [0/1]
-** TODO  Deletar Ponteiros
+* Outro [0/2]
+** TODO Deletar Ponteiros
+** TODO Verificar Valores de CEP
 * Smoke Test [0/2]
 ** TODO Arrumar CEP
 ** TODO Trocar a posição de valor mínimo no teste 5

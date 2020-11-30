@@ -129,3 +129,10 @@ ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario){
 	comandoSQL+="'"+usuario.get_senha().get_senha()+"')";
 }
 
+ComandoCadastraConta::ComandoCadastraConta(Conta conta){
+	comandoSQL="INSERT INTO conta VALUES (";
+	comandoSQL+="'"+conta.get_banco().get_codigo()+"', ";
+	comandoSQL+="'"+conta.get_agencia().get_codigo()+"', ";
+	comandoSQL+="'"+conta.get_numero().get_numero()+"')";
+}
+

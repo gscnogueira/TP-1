@@ -40,3 +40,33 @@ bool CntrServicoPessoal::consultar_usuario(Usuario* usuario,CPF cpf){
 	}
 	return true;
 }
+
+
+bool CntrServicoProdutosFinanceiros::cadastrar_conta(Conta conta){
+	ComandoCadastraConta cmd(conta);
+	try{
+		cmd.executar();
+	}
+	catch(ErroPersistencia &exp){
+		printw("%s",exp.what().c_str());
+		getch();
+		return false;
+	}
+	return true;
+}
+bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta){
+	return true;
+}
+bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
+	return (produto.get_classe().get_classe()!="LCI");
+}
+bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo){
+	return (codigo.get_codigo()!="123");
+}
+bool CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao){
+	return (aplicacao.get_codigo().get_codigo()=="99999");
+}
+bool CntrServicoProdutosFinanceiros::recuperar_aplicacao(Aplicacao* aplicacao){
+	return true;
+}
+
