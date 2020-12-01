@@ -130,7 +130,8 @@ void CntrApresentacaoControle::executar(){
 				while(autenticado){
 					int escolha_usuario=invoca_menu(choices_autenticado);
 					if(escolha_usuario==0)
-						cntrApresentacaoPessoal->executar(cpf);
+						if(!cntrApresentacaoPessoal->executar(cpf))
+							autenticado=false;
 					if(escolha_usuario==1)
 						cntrApresentacaoProdutosFinanceiros->executar(cpf);
 					if(escolha_usuario==2)
@@ -345,17 +346,24 @@ void CntrApresentacaoPessoal::cadastrar(){
 	getch();
 
 }
-void CntrApresentacaoPessoal::executar(CPF cpf){
-	vector<string> choices={"Apresentar Dados Pessoais","Retornar"};
+	bool CntrApresentacaoPessoal::executar(CPF cpf){
+	vector<string> choices={"Apresentar Dados Pessoais","Descadastrar Usuario","Retornar"};
 	bool executa=true;
+	bool cadastrado=true;
 	while(executa){
 		int choice=invoca_menu(choices);
-		if(!choice){
+		if(choice==0){
 			consulta_dados(cpf);
+		}
+		else if(choice==1)
+		{
+			descadastrar(cpf);
+			cadastrado=executa=false;
 		}
 		else
 			executa=false;
 	}
+	return cadastrado;
 }
 void CntrApresentacaoPessoal::consulta_dados(CPF cpf){
 	Usuario usuario;
@@ -370,6 +378,23 @@ void CntrApresentacaoPessoal::consulta_dados(CPF cpf){
 
 	mostra_atributos(choices);
 	
+}
+void CntrApresentacaoPessoal::descadastrar(CPF cpf){
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
+	attron(A_REVERSE);
+	clear();
+	if(cntrServicoProdutosFinanceiros->descadastrar_conta(cpf)&&
+		cntrServicoPessoal->descadastrar_usuario(cpf))
+		mvprintw(linha-2,0,"Descadastramento realizado com sucesso.");
+	else
+		mvprintw(linha-2,0,"Falha no descadastramento. Tente novamente.");
+
+	attroff(A_REVERSE);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+	refresh();
+	getch();
+
 }
 //----------------------------------------------------------
 //----------Móulo-Apresentação-Produtos-Financeiros---------

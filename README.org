@@ -18,13 +18,13 @@
 **** DONE Realizado com sucesso
 *** DONE Aplicação
 **** DONE Realizado com sucesso
-* Serviço [1/4]
+* Serviço [2/3]
 ** DONE Autenticação[1/1]
 *** DONE Autenticar
-** DOING Pessoal [2/3] 
+** DONE Pessoal [3/3] 
 *** DONE Dados pessoais
 *** DONE Cadastrar
-*** TODO Descadastrar
+*** DONE Descadastrar
 ** TODO Produtos Financeiros[4/6]
 *** TODO Acessar todos
 *** DONE Mostrar dados Conta

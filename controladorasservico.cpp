@@ -23,9 +23,18 @@ bool CntrServicoPessoal::cadastrar_usuario(Usuario usuario, Numero numero){
 		comandoCadastrarUsuario.executar();
 	}
 	catch(ErroPersistencia &exp){
-		printw("%s",exp.what().c_str());
 		return false;
 
+	}
+	return true;
+}
+bool CntrServicoPessoal::descadastrar_usuario(CPF cpf){
+	ComandoDescadastraUsuario cmd(cpf);
+	try{
+		cmd.executar();
+	}
+	catch(ErroPersistencia &exp){
+		return false;
 	}
 	return true;
 }
@@ -48,10 +57,42 @@ bool CntrServicoProdutosFinanceiros::cadastrar_conta(Conta conta){
 		cmd.executar();
 	}
 	catch(ErroPersistencia &exp){
-		printw("%s",exp.what().c_str());
-		getch();
 		return false;
 	}
+	return true;
+}
+bool CntrServicoProdutosFinanceiros::acessa_numero_conta(CPF cpf, Numero* numero){
+	ComandoAcessaNumeroConta cmd(cpf);
+	try{
+		cmd.executar();
+		*numero=cmd.get_resultado();
+	}
+	catch(ErroPersistencia &exp){
+		return false;
+	}
+	return true;
+}
+
+bool CntrServicoProdutosFinanceiros::descadastrar_conta(CPF cpf){
+	Numero* numero=new Numero();
+	if(!acessa_numero_conta(cpf,numero)){
+		delete numero;
+		return false;
+	}
+
+	ComandoDescadastraConta cmdConta(*numero);
+	ComandoDescadastrarProduto cmdProduto(*numero);
+	ComandoDescadastraAplicacao cmdAplicacao(*numero);
+	try{
+		cmdAplicacao.executar();
+		cmdProduto.executar();
+		cmdConta.executar();
+	}
+	catch(ErroPersistencia &exp){
+		delete numero;
+		return false;
+	}
+	delete numero;
 	return true;
 }
 bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta,CPF cpf){
@@ -60,15 +101,11 @@ bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta,CPF cpf){
 	try{
 		cmd_acessa.executar();
 		numero=cmd_acessa.get_resultado();
-		printw("%s",numero.get_numero().c_str());
 		ComandoPesquisarConta cmd_conta(numero);
 		cmd_conta.executar();
 		*conta=cmd_conta.get_resultado();
 	}
 	catch(ErroPersistencia &exp){
-		printw("%s",exp.what().c_str());
-		refresh();
-		getch();
 		return false;
 	}
 

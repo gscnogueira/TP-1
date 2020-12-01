@@ -1,5 +1,4 @@
 #include"persistencia.h"
-#include <ncurses.h>
 
 list<ElementoResultado> ComandoSQL::listaResultado;
 
@@ -37,7 +36,7 @@ void ComandoSQL::executar(){
 	if(rc!= SQLITE_OK){
 		sqlite3_free(mensagem);
 		desconectar();
-		throw ErroPersistencia("Erro na execucao do comando SQL");
+		throw ErroPersistencia(comandoSQL);
 	}
 	desconectar();
 }
@@ -132,11 +131,21 @@ ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario,Numero numero){
 	comandoSQL+="'"+numero.get_numero()+"') ";
 }
 
+ComandoDescadastraUsuario::ComandoDescadastraUsuario(CPF cpf){
+	comandoSQL="DELETE FROM usuarios WHERE cpf = ";
+	comandoSQL+="'"+cpf.get_cpf()+"'";
+}
+
 ComandoCadastraConta::ComandoCadastraConta(Conta conta){
 	comandoSQL="INSERT INTO conta VALUES (";
 	comandoSQL+="'"+conta.get_banco().get_codigo()+"', ";
 	comandoSQL+="'"+conta.get_agencia().get_codigo()+"', ";
 	comandoSQL+="'"+conta.get_numero().get_numero()+"')";
+}
+
+ComandoDescadastraConta::ComandoDescadastraConta(Numero numero){
+	comandoSQL="DELETE FROM conta WHERE numero = ";
+	comandoSQL+="'"+numero.get_numero()+"'";
 }
 
 ComandoAcessaNumeroConta::ComandoAcessaNumeroConta(CPF cpf){
@@ -314,11 +323,20 @@ ComandoDescadastrarProduto::ComandoDescadastrarProduto(CodigoDeProduto codigo){
 	comandoSQL="DELETE FROM produto WHERE codigo = ";
 	comandoSQL+="'"+codigo.get_codigo()+"'";
 }
+ComandoDescadastrarProduto::ComandoDescadastrarProduto(Numero numero){
+	comandoSQL="DELETE FROM produto WHERE conta = ";
+	comandoSQL+="'"+numero.get_numero()+"'";
+}
+
 ComandoDescadastraAplicacao::ComandoDescadastraAplicacao(CodigoDeProduto codigoDeProduto){
 	comandoSQL="DELETE FROM aplicacao WHERE produto = ";
 	comandoSQL+="'"+codigoDeProduto.get_codigo()+"'";
 }
 
+ComandoDescadastraAplicacao::ComandoDescadastraAplicacao(Numero numero){
+	comandoSQL="DELETE FROM aplicacao WHERE conta = ";
+	comandoSQL+="'"+numero.get_numero()+"'";
+}
 ComandoContaAplicacoes::ComandoContaAplicacoes(CPF cpf){
 	ComandoAcessaNumeroConta cmdNumero(cpf);
 	cmdNumero.executar();

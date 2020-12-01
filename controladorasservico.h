@@ -16,11 +16,15 @@ class CntrServicoAutenticacao:public IServicoAutenticacao{
 class CntrServicoPessoal:public IServicoPessoal{
 	public:
 		bool cadastrar_usuario(Usuario,Numero);
+		bool descadastrar_usuario(CPF);
 		bool consultar_usuario(Usuario*, CPF);
 };
 class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
+	private:
+		bool acessa_numero_conta(CPF,Numero *);
 	public:
 		bool cadastrar_conta(Conta);
+		bool descadastrar_conta(CPF);
 		bool consultar_conta(Conta*, CPF);
 		bool cadastrar_produto(Produto, CPF) ;
 		bool descadastrar_produto(CodigoDeProduto, CPF);

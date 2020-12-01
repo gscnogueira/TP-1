@@ -54,8 +54,9 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
 		IServicoPessoal* cntrServicoPessoal;
 		IServicoProdutosFinanceiros* cntrServicoProdutosFinanceiros;
 		void consulta_dados(CPF);
+		void descadastrar(CPF);
 	public:
-		void executar(CPF);
+		bool executar(CPF);
 		void cadastrar();
 		void set_cntr_servico_pessoal(IServicoPessoal*);
 		void set_cntr_servico_produtos_financeiros(IServicoProdutosFinanceiros*);

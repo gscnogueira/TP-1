@@ -69,9 +69,18 @@ class ComandoCadastrarUsuario:public ComandoSQL{
 		ComandoCadastrarUsuario(Usuario, Numero);
 };
 
+class ComandoDescadastraUsuario:public ComandoSQL{
+	public:
+		ComandoDescadastraUsuario(CPF);
+};
+
 class ComandoCadastraConta:public ComandoSQL{
 	public:
 		ComandoCadastraConta(Conta);
+};
+class ComandoDescadastraConta:public ComandoSQL{
+	public:
+		ComandoDescadastraConta(Numero);
 };
 class ComandoAcessaNumeroConta:public ComandoSQL{
 	public:
@@ -107,10 +116,12 @@ class ComandoNumeroContaProduto: public ComandoSQL{
 class ComandoDescadastrarProduto:public ComandoSQL{
 	public:
 		ComandoDescadastrarProduto(CodigoDeProduto);
+		ComandoDescadastrarProduto(Numero);
 };
 class ComandoDescadastraAplicacao:public ComandoSQL{
 	public:
 		ComandoDescadastraAplicacao(CodigoDeProduto);
+		ComandoDescadastraAplicacao(Numero);
 };
 
 class ComandoContaAplicacoes:public ComandoSQL{
