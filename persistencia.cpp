@@ -189,11 +189,23 @@ Conta ComandoPesquisarConta::get_resultado(){
 	conta.set_agencia(agencia);
 
 	if(listaResultado.empty())
-		throw ErroPersistencia("Lista de resultados vazia.");
+		throw ErroPersistencia("Lista de resultados vaziaa.");
 	resultado=listaResultado.back();
 	listaResultado.pop_back();
 	Numero numero;
 	numero.set_numero(resultado.get_valor_coluna());
 	conta.set_numero(numero);
 	return conta;
+}
+
+ComandoAplicacao::ComandoAplicacao(Aplicacao aplicacao,CPF cpf,CodigoDeProduto codigo){
+	ComandoAcessaNumeroConta cmdConta(cpf);
+	cmdConta.executar();
+	Numero numero=cmdConta.get_resultado();
+	comandoSQL="INSERT INTO aplicacao VALUES (";
+	comandoSQL+="'"+aplicacao.get_codigo().get_codigo()+"', ";
+	comandoSQL+="'"+aplicacao.get_valor().get_valor()+"', ";
+	comandoSQL+="'"+aplicacao.get_data().get_data()+"', ";
+	comandoSQL+="'"+numero.get_numero()+"', ";
+	comandoSQL+="'"+codigo.get_codigo()+"')";
 }

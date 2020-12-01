@@ -89,4 +89,9 @@ class ComandoCadastraProduto:public ComandoSQL{
 		ComandoCadastraProduto(Produto);
 };
 
+class ComandoAplicacao:public ComandoSQL{
+	public:
+		ComandoAplicacao(Aplicacao,CPF,CodigoDeProduto);
+};
+
 #endif

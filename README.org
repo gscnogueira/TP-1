@@ -30,7 +30,8 @@
 *** DONE Mostrar dados Conta
 *** DONE Cadastrar
 *** TODO Descadastrar
-*** TODO Aplicação
+*** DOING Aplicação
+**** TODO Confirmar valor mínimo
 *** TODO Listar Aplicações
 * Outro [0/2]
 ** TODO Deletar Ponteiros

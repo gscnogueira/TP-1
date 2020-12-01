@@ -87,8 +87,16 @@ bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
 bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo){
 	return (codigo.get_codigo()!="123");
 }
-bool CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao){
-	return (aplicacao.get_codigo().get_codigo()=="99999");
+bool CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao,CPF cpf, CodigoDeProduto codigo){
+	ComandoAplicacao cmd(aplicacao,cpf,codigo);
+	try{
+		cmd.executar();
+	}
+	catch(ErroPersistencia &exp){
+		printw("%s",exp.what().c_str());
+		return false;
+	}
+	return true;
 }
 bool CntrServicoProdutosFinanceiros::recuperar_aplicacao(Aplicacao* aplicacao){
 	return true;

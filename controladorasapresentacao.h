@@ -73,10 +73,10 @@ inline void CntrApresentacaoPessoal::set_cntr_servico_produtos_financeiros(IServ
 class CntrApresentacaoProdutosFinanceiros: public IApresentacaoProdutosFinanceiros{
 	private:
 		IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros;
-		void consulta_conta(CPF cpf);
+		void consulta_conta(CPF);
 		void cadastra_produto();
 		void descadastra_produto();
-		void realizar_aplicacao();
+		void realizar_aplicacao(CPF);
 		void listar_aplicacoes();
 	public:
 		void executar();

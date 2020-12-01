@@ -402,7 +402,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 		if(choice==2)
 			descadastra_produto();
 		if(choice==3)
-			realizar_aplicacao();
+			realizar_aplicacao(cpf);
 		if(choice==4)
 			listar_aplicacoes();
 		if(choice==5)
@@ -601,7 +601,7 @@ void CntrApresentacaoProdutosFinanceiros::descadastra_produto(){
 	getch();
 	
 }
-void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(){
+void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(CPF cpf){
 	CodigoDeAplicacao codigoAplicacao;
 	CodigoDeProduto codigoProduto;
 	ValorDeAplicacao valor;
@@ -670,8 +670,11 @@ void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(){
 		}
 		break;
 	}
+	aplicacao.set_codigo(codigoAplicacao);
+	aplicacao.set_valor(valor);
+	aplicacao.set_data(data);
 	attron(A_REVERSE);
-	if(cntrServicoProdutosFinanceiros->realizar_aplicacao(aplicacao))
+	if(cntrServicoProdutosFinanceiros->realizar_aplicacao(aplicacao,cpf,codigoProduto))
 		mvprintw(linha-2,0,"Aplicacao realizada com sucesso.");
 	else
 		mvprintw(linha-2,0,"Falha na realizacao da aplicacao. Tente novamente.");
