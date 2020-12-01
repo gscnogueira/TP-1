@@ -25,9 +25,10 @@
 *** DONE Dados pessoais
 *** DONE Cadastrar
 *** TODO Descadastrar
-** TODO Produtos Financeiros[0/5]
+** TODO Produtos Financeiros[2/6]
 *** TODO Acessar todos
-*** TODO Cadastrar
+*** DONE Mostrar dados Conta
+*** DONE Cadastrar
 *** TODO Descadastrar
 *** TODO Aplicação
 *** TODO Listar Aplicações

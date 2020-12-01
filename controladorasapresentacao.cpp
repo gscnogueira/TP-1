@@ -414,11 +414,11 @@ void CntrApresentacaoProdutosFinanceiros::consulta_conta(CPF cpf){
 	Conta* conta=new Conta();
 
 	vector<string>choices={
-		"Banco         : ",
-		"Agencia       : ",
-		"Numero Numero : "};
+		"Banco   : ",
+		"Agencia : ",
+		"Numero  : "};
 
-	if(cntrServicoProdutosFinanceiros->consultar_conta(conta,cpf))
+	if(!cntrServicoProdutosFinanceiros->consultar_conta(conta,cpf))
 		return;
 	choices[0]+=conta->get_banco().get_codigo();
 	choices[1]+=conta->get_agencia().get_codigo();

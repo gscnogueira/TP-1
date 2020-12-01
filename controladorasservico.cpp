@@ -58,12 +58,17 @@ bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta,CPF cpf){
 	ComandoAcessaNumeroConta cmd_acessa(cpf);
 	Numero numero;
 	try{
+		cmd_acessa.executar();
 		numero=cmd_acessa.get_resultado();
 		printw("%s",numero.get_numero().c_str());
 		ComandoPesquisarConta cmd_conta(numero);
+		cmd_conta.executar();
 		*conta=cmd_conta.get_resultado();
 	}
 	catch(ErroPersistencia &exp){
+		printw("%s",exp.what().c_str());
+		refresh();
+		getch();
 		return false;
 	}
 

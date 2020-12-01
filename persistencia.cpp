@@ -116,6 +116,7 @@ Usuario ComandoPesquisarUsuario::get_resultado(){
 	Senha senha;
 	senha.set_senha(resultado.get_valor_coluna());
 	usuario.set_senha(senha);
+	listaResultado.pop_back();
 
 	return usuario;
 }
@@ -164,8 +165,8 @@ Numero ComandoAcessaNumeroConta::get_resultado(){
 }
 
 ComandoPesquisarConta::ComandoPesquisarConta(Numero numero){
-	comandoSQL+="SELECT * FROM conta WHERE numero = ";
-	comandoSQL+=numero.get_numero();
+	comandoSQL+="SELECT * FROM conta WHERE numero = '";
+	comandoSQL+=numero.get_numero()+="'";
 }
 
 Conta ComandoPesquisarConta::get_resultado(){
