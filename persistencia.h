@@ -86,7 +86,7 @@ class ComandoPesquisarConta:public ComandoSQL{
 };
 class ComandoCadastraProduto:public ComandoSQL{
 	public:
-		ComandoCadastraProduto(Produto);
+		ComandoCadastraProduto(Produto, CPF);
 };
 
 class ComandoAplicacao:public ComandoSQL{
@@ -98,6 +98,19 @@ class ComandoPesquisaProduto:public ComandoSQL{
 	public:
 		ComandoPesquisaProduto(CodigoDeProduto);
 		Produto get_resultado();
+};
+class ComandoNumeroContaProduto: public ComandoSQL{
+	public:
+		ComandoNumeroContaProduto(CodigoDeProduto);
+		Numero get_resultado();
+};
+class ComandoDescadastrarProduto:public ComandoSQL{
+	public:
+		ComandoDescadastrarProduto(CodigoDeProduto);
+};
+class ComandoDescadastraAplicacao:public ComandoSQL{
+	public:
+		ComandoDescadastraAplicacao(CodigoDeProduto);
 };
 
 class ComandoContaAplicacoes:public ComandoSQL{

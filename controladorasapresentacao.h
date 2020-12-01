@@ -74,8 +74,8 @@ class CntrApresentacaoProdutosFinanceiros: public IApresentacaoProdutosFinanceir
 	private:
 		IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros;
 		void consulta_conta(CPF);
-		void cadastra_produto();
-		void descadastra_produto();
+		void cadastra_produto(CPF);
+		void descadastra_produto(CPF);
 		void realizar_aplicacao(CPF);
 		void listar_aplicacoes();
 	public:

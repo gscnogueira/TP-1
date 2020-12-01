@@ -398,9 +398,9 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 		if(choice==0)
 			consulta_conta(cpf);
 		if(choice==1)
-			cadastra_produto();
+			cadastra_produto(cpf);
 		if(choice==2)
-			descadastra_produto();
+			descadastra_produto(cpf);
 		if(choice==3)
 			realizar_aplicacao(cpf);
 		if(choice==4)
@@ -426,7 +426,7 @@ void CntrApresentacaoProdutosFinanceiros::consulta_conta(CPF cpf){
 
 	mostra_atributos(choices);
 }
-void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
+void CntrApresentacaoProdutosFinanceiros::cadastra_produto(CPF cpf){
 	clear();
 	CodigoDeProduto codigo;
 	Classe classe;
@@ -563,7 +563,7 @@ void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
 	produto.set_valor(valorMinimo);
 
 	attron(A_REVERSE);
-	if(cntrServicoProdutosFinanceiros->cadastrar_produto(produto))
+	if(cntrServicoProdutosFinanceiros->cadastrar_produto(produto,cpf))
 		mvprintw(linha-2,0,"Cadastro realizado com sucesso.");
 	else
 		mvprintw(linha-2,0,"Falha na realizacao do cadastro. Tente novamente.");
@@ -571,7 +571,7 @@ void CntrApresentacaoProdutosFinanceiros::cadastra_produto(){
 	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
 	getch();
 }
-void CntrApresentacaoProdutosFinanceiros::descadastra_produto(){
+void CntrApresentacaoProdutosFinanceiros::descadastra_produto(CPF cpf){
 	CodigoDeProduto codigo;
 	char ans;
 	int linha,coluna;
@@ -591,10 +591,10 @@ void CntrApresentacaoProdutosFinanceiros::descadastra_produto(){
 		break;
 	}
 	attron(A_REVERSE);
-	if(cntrServicoProdutosFinanceiros->descadastrar_produto(codigo))
+	if(cntrServicoProdutosFinanceiros->descadastrar_produto(codigo,cpf))
 		mvprintw(linha-2,0,"Descadastramento realizado com sucesso.");
 	else
-		mvprintw(linha-2,0,"Falha no descadastramento, o produto nao foi encontrado.");
+		mvprintw(linha-3,0,"Falha no descadastramento. O produto nao foi encontrado ou nao pode ser descadastrado pelo usuario.");
 
 	attroff(A_REVERSE);
 	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");

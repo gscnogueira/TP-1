@@ -1,4 +1,5 @@
 #include"persistencia.h"
+#include <ncurses.h>
 
 list<ElementoResultado> ComandoSQL::listaResultado;
 
@@ -138,17 +139,6 @@ ComandoCadastraConta::ComandoCadastraConta(Conta conta){
 	comandoSQL+="'"+conta.get_numero().get_numero()+"')";
 }
 
-ComandoCadastraProduto::ComandoCadastraProduto(Produto produto){
-	comandoSQL+="INSERT INTO produto VALUES(";
-	comandoSQL+="'"+produto.get_codigo().get_codigo()+"', ";
-	comandoSQL+="'"+produto.get_classe().get_classe()+"', ";
-	comandoSQL+="'"+produto.get_emissor().get_emissor()+"', ";
-	comandoSQL+="'"+to_string(produto.get_prazo().get_prazo())+"', ";
-	comandoSQL+="'"+produto.get_vencimento().get_data()+"', ";
-	comandoSQL+="'"+to_string( produto.get_taxa().get_taxa() )+"', ";
-	comandoSQL+="'"+produto.get_horario().get_horario()+"', ";
-	comandoSQL+="'"+to_string(produto.get_valor().get_valor())+"')";
-}
 ComandoAcessaNumeroConta::ComandoAcessaNumeroConta(CPF cpf){
 	comandoSQL="SELECT conta FROM usuarios WHERE cpf = '";
 	comandoSQL+=cpf.get_cpf()+"'";
@@ -162,6 +152,22 @@ Numero ComandoAcessaNumeroConta::get_resultado(){
 	Numero numero;
 	numero.set_numero(resultado.get_valor_coluna());
 	return numero;
+}
+
+ComandoCadastraProduto::ComandoCadastraProduto(Produto produto,CPF cpf){
+	ComandoAcessaNumeroConta cmdNumero(cpf);
+	cmdNumero.executar();
+	comandoSQL+="INSERT INTO produto VALUES(";
+	comandoSQL+="'"+produto.get_codigo().get_codigo()+"', ";
+	comandoSQL+="'"+produto.get_classe().get_classe()+"', ";
+	comandoSQL+="'"+produto.get_emissor().get_emissor()+"', ";
+	comandoSQL+="'"+to_string(produto.get_prazo().get_prazo())+"', ";
+	comandoSQL+="'"+produto.get_vencimento().get_data()+"', ";
+	comandoSQL+="'"+to_string( produto.get_taxa().get_taxa() )+"', ";
+	comandoSQL+="'"+produto.get_horario().get_horario()+"', ";
+	comandoSQL+="'"+to_string(produto.get_valor().get_valor())+"', ";
+	comandoSQL+="'"+cmdNumero.get_resultado().get_numero()+"')";
+
 }
 
 ComandoPesquisarConta::ComandoPesquisarConta(Numero numero){
@@ -284,8 +290,35 @@ Produto ComandoPesquisaProduto::get_resultado(){
 	ValorMinimo valorMinimo(stoi(resultado.get_valor_coluna()));
 	produto.set_valor(valorMinimo);
 
+	listaResultado.pop_back();
 	return produto;
 }
+
+ComandoNumeroContaProduto::ComandoNumeroContaProduto(CodigoDeProduto codigo){
+	comandoSQL="SELECT conta FROM produto WHERE codigo = ";
+	comandoSQL+="'"+codigo.get_codigo()+"'";
+}
+Numero ComandoNumeroContaProduto::get_resultado(){
+	ElementoResultado resultado;
+	Numero numero;
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vaiza.");
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	numero.set_numero(resultado.get_valor_coluna());
+	return numero;
+}
+
+ComandoDescadastrarProduto::ComandoDescadastrarProduto(CodigoDeProduto codigo){
+	comandoSQL="DELETE FROM produto WHERE codigo = ";
+	comandoSQL+="'"+codigo.get_codigo()+"'";
+}
+ComandoDescadastraAplicacao::ComandoDescadastraAplicacao(CodigoDeProduto codigoDeProduto){
+	comandoSQL="DELETE FROM aplicacao WHERE produto = ";
+	comandoSQL+="'"+codigoDeProduto.get_codigo()+"'";
+}
+
 ComandoContaAplicacoes::ComandoContaAplicacoes(CPF cpf){
 	ComandoAcessaNumeroConta cmdNumero(cpf);
 	cmdNumero.executar();
@@ -298,3 +331,4 @@ int ComandoContaAplicacoes::get_resultado(){
 	listaResultado.pop_back();
 	return stoi(resultado.get_valor_coluna());
 }
+

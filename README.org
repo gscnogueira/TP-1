@@ -25,13 +25,13 @@
 *** DONE Dados pessoais
 *** DONE Cadastrar
 *** TODO Descadastrar
-** TODO Produtos Financeiros[2/6]
+** TODO Produtos Financeiros[4/6]
 *** TODO Acessar todos
 *** DONE Mostrar dados Conta
 *** DONE Cadastrar
-*** TODO Descadastrar
-*** DOING Aplicação
-**** TODO Confirmar valor mínimo
+*** DONE Descadastrar
+*** DONE Aplicação
+**** DONE Confirmar valor mínimo
 *** TODO Listar Aplicações
 * Outro [0/2]
 ** TODO Deletar Ponteiros

@@ -74,8 +74,8 @@ bool CntrServicoProdutosFinanceiros::consultar_conta(Conta* conta,CPF cpf){
 
 	return true;
 }
-bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
-	ComandoCadastraProduto cmd(produto);
+bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto, CPF cpf){
+	ComandoCadastraProduto cmd(produto,cpf);
 	try{
 		cmd.executar();
 	}
@@ -84,8 +84,28 @@ bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
 	}
 	return true;
 }
-bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo){
-	return (codigo.get_codigo()!="123");
+bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo,CPF cpf){
+	ComandoDescadastraAplicacao cmdAplicacao(codigo);
+	ComandoDescadastrarProduto cmdProduto(codigo);
+	ComandoAcessaNumeroConta cmdContaUsuario(cpf);
+	ComandoNumeroContaProduto cmdContaProduto(codigo);
+
+	try{
+		cmdContaUsuario.executar();
+		cmdContaProduto.executar();
+
+		Numero numero1,numero2;
+		numero1=cmdContaUsuario.get_resultado();
+		numero2=cmdContaProduto.get_resultado();
+		if(numero1.get_numero()!=numero2.get_numero())
+			return false;
+		cmdProduto.executar();
+		cmdAplicacao.executar();
+	}
+	catch( ErroPersistencia &exp ){
+		return false;
+	}
+	return true;
 }
 int CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao,CPF cpf, CodigoDeProduto codigo){
 	ComandoAplicacao cmd(aplicacao,cpf,codigo);
