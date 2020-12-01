@@ -36,6 +36,13 @@ int main()
     initscr();
     cntrApresentacaoControle->executar();
     endwin();
+	delete cntrApresentacaoControle;
+	delete cntrApresentacaoAutenticacao;
+	delete cntrApresentacaoPessoal;
+	delete cntrApresentacaoProdutosFinanceiros;
+	delete cntrServicoAutenticacao;
+	delete cntrServicoPessoal;
+	delete cntrServicoProdutosFinanceiros;
 
     return 0;
 }

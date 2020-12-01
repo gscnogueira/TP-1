@@ -36,7 +36,7 @@ void ComandoSQL::executar(){
 	if(rc!= SQLITE_OK){
 		sqlite3_free(mensagem);
 		desconectar();
-		throw ErroPersistencia(comandoSQL);
+		throw ErroPersistencia("Erro na execucao do comando SQL");
 	}
 	desconectar();
 }
@@ -208,4 +208,93 @@ ComandoAplicacao::ComandoAplicacao(Aplicacao aplicacao,CPF cpf,CodigoDeProduto c
 	comandoSQL+="'"+aplicacao.get_data().get_data()+"', ";
 	comandoSQL+="'"+numero.get_numero()+"', ";
 	comandoSQL+="'"+codigo.get_codigo()+"')";
+}
+
+ComandoPesquisaProduto::ComandoPesquisaProduto(CodigoDeProduto codigo){
+	comandoSQL="SELECT * FROM produto WHERE codigo = ";
+	comandoSQL+="'"+codigo.get_codigo()+"'";
+}
+
+Produto ComandoPesquisaProduto::get_resultado(){
+	ElementoResultado resultado;
+	Produto produto;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	CodigoDeProduto codigo(resultado.get_valor_coluna());
+	produto.set_codigo(codigo);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Classe classe(resultado.get_valor_coluna());
+	produto.set_classe(classe);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Emissor emissor;
+	emissor.set_emissor(resultado.get_valor_coluna());
+	produto.set_emissor(emissor);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Prazo prazo(stoi(resultado.get_valor_coluna()));
+	produto.set_prazo(prazo);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Data vencimento(resultado.get_valor_coluna());
+	produto.set_vencimento(vencimento);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Taxa taxa(stoi(resultado.get_valor_coluna()));
+	produto.set_taxa(taxa);
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	Horario horario(resultado.get_valor_coluna());
+	produto.set_horario(horario);
+
+
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+
+	resultado=listaResultado.back();
+	listaResultado.pop_back();
+	ValorMinimo valorMinimo(stoi(resultado.get_valor_coluna()));
+	produto.set_valor(valorMinimo);
+
+	return produto;
+}
+ComandoContaAplicacoes::ComandoContaAplicacoes(CPF cpf){
+	ComandoAcessaNumeroConta cmdNumero(cpf);
+	cmdNumero.executar();
+	comandoSQL="SELECT COUNT(*) FROM aplicacao WHERE conta =";
+	comandoSQL+="'"+cmdNumero.get_resultado().get_numero()+"'";
+}
+
+int ComandoContaAplicacoes::get_resultado(){
+	ElementoResultado resultado=listaResultado.back();
+	listaResultado.pop_back();
+	return stoi(resultado.get_valor_coluna());
 }

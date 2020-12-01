@@ -674,10 +674,22 @@ void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(CPF cpf){
 	aplicacao.set_valor(valor);
 	aplicacao.set_data(data);
 	attron(A_REVERSE);
-	if(cntrServicoProdutosFinanceiros->realizar_aplicacao(aplicacao,cpf,codigoProduto))
+	int resultado=cntrServicoProdutosFinanceiros->realizar_aplicacao(aplicacao,cpf,codigoProduto);
+	if(resultado==0)
 		mvprintw(linha-2,0,"Aplicacao realizada com sucesso.");
-	else
-		mvprintw(linha-2,0,"Falha na realizacao da aplicacao. Tente novamente.");
+	else if(resultado==1)
+		mvprintw(linha-3,0,"Falha na realizacao da aplicacao. Valor fornecido abaixo do valor minimo para aplicacao neste produto.");
+
+	else if(resultado==2)
+		mvprintw(linha-3,0,"Falha na realizacao da aplicacao. Produto nao encontrado.");
+
+	else if(resultado==3)
+		mvprintw(linha-3,0,"Falha na realizacao da aplicacao.Codigo de aplicacao fornecido ja existe.");
+
+	else if(resultado==4)
+		mvprintw(linha-3,0,"Falha na realizacao da aplicacao. O usuario ja atingiu o numero maximo de 5 aplicacoes.");
+	else 
+		mvprintw(linha-3,0,"Falha na realizacao da aplicacao.Tente novamente.");
 
 	attroff(A_REVERSE);
 	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");

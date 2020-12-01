@@ -24,7 +24,7 @@ class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
 		bool consultar_conta(Conta*, CPF);
 		bool cadastrar_produto(Produto) ;
 		bool descadastrar_produto(CodigoDeProduto);
-		bool realizar_aplicacao(Aplicacao, CPF, CodigoDeProduto);
+		int realizar_aplicacao(Aplicacao, CPF, CodigoDeProduto);
 		bool recuperar_aplicacao(Aplicacao*);
 };
 

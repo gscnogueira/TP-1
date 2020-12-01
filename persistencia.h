@@ -94,4 +94,15 @@ class ComandoAplicacao:public ComandoSQL{
 		ComandoAplicacao(Aplicacao,CPF,CodigoDeProduto);
 };
 
+class ComandoPesquisaProduto:public ComandoSQL{
+	public:
+		ComandoPesquisaProduto(CodigoDeProduto);
+		Produto get_resultado();
+};
+
+class ComandoContaAplicacoes:public ComandoSQL{
+	public:
+		ComandoContaAplicacoes(CPF);
+		int get_resultado();
+};
 #endif

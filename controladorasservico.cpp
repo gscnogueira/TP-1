@@ -87,16 +87,29 @@ bool CntrServicoProdutosFinanceiros::cadastrar_produto(Produto produto){
 bool CntrServicoProdutosFinanceiros::descadastrar_produto(CodigoDeProduto codigo){
 	return (codigo.get_codigo()!="123");
 }
-bool CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao,CPF cpf, CodigoDeProduto codigo){
+int CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao,CPF cpf, CodigoDeProduto codigo){
 	ComandoAplicacao cmd(aplicacao,cpf,codigo);
+	ComandoPesquisaProduto cmdPesquisa(codigo);
+	Produto produto;
 	try{
+		ComandoContaAplicacoes cmdConta(cpf);
+		cmdConta.executar();
+		if(cmdConta.get_resultado()>=5)
+			return 4;
+		cmdPesquisa.executar();
+		produto=cmdPesquisa.get_resultado();
+		if(stod(aplicacao.get_valor().get_valor())<produto.get_valor().get_valor())
+			return 1;
 		cmd.executar();
 	}
 	catch(ErroPersistencia &exp){
-		printw("%s",exp.what().c_str());
-		return false;
+		if(exp.what()=="Lista de resultados vazia.")
+			return 2;
+		if(exp.what()=="Erro na execucao do comando SQL")
+			return 3;
+		return 5;
 	}
-	return true;
+	return 0;
 }
 bool CntrServicoProdutosFinanceiros::recuperar_aplicacao(Aplicacao* aplicacao){
 	return true;
