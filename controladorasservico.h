@@ -27,6 +27,7 @@ class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
 		bool descadastrar_conta(CPF);
 		bool consultar_conta(Conta*, CPF);
 		bool cadastrar_produto(Produto, CPF) ;
+		bool consultar_produtos(vector<Produto>&, string classe);
 		bool descadastrar_produto(CodigoDeProduto, CPF);
 		int realizar_aplicacao(Aplicacao, CPF, CodigoDeProduto);
 		bool recuperar_aplicacao(Aplicacao*);

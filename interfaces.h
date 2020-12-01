@@ -66,6 +66,7 @@ public:
 		virtual bool descadastrar_conta(CPF)=0;
         virtual bool consultar_conta(Conta*, CPF) = 0;
         virtual bool cadastrar_produto(Produto,CPF) = 0;
+		virtual bool consultar_produtos(vector<Produto>&, string )=0;
         virtual bool descadastrar_produto(CodigoDeProduto, CPF) = 0;
         virtual int realizar_aplicacao(Aplicacao,CPF,CodigoDeProduto) = 0;
         virtual bool recuperar_aplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.

@@ -328,6 +328,70 @@ ComandoDescadastrarProduto::ComandoDescadastrarProduto(Numero numero){
 	comandoSQL+="'"+numero.get_numero()+"'";
 }
 
+ComandoAcessaProdutos::ComandoAcessaProdutos(string classe){
+	comandoSQL="SELECT * FROM produto WHERE classe = ";
+	comandoSQL+="'"+classe+"'";
+}
+vector<Produto> ComandoAcessaProdutos::get_resultado(){
+	ElementoResultado resultado;
+	vector<Produto> produtos;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	while(listaResultado.size()){
+		Produto produto;
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_codigo(CodigoDeProduto(resultado.get_valor_coluna()));
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_classe(Classe(resultado.get_valor_coluna()));
+		
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		Emissor emissor;
+		emissor.set_emissor(resultado.get_valor_coluna());
+		produto.set_emissor(emissor);
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_prazo(Prazo(stoi(resultado.get_valor_coluna())));
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_vencimento(Data(resultado.get_valor_coluna()));
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_taxa(Taxa(stoi(resultado.get_valor_coluna())));
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_horario(Horario(resultado.get_valor_coluna()));
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		produto.set_valor(ValorMinimo(stoi(resultado.get_valor_coluna())));
+		listaResultado.pop_back();
+		produtos.push_back(produto);
+	}
+	return produtos;
+}
 ComandoDescadastraAplicacao::ComandoDescadastraAplicacao(CodigoDeProduto codigoDeProduto){
 	comandoSQL="DELETE FROM aplicacao WHERE produto = ";
 	comandoSQL+="'"+codigoDeProduto.get_codigo()+"'";

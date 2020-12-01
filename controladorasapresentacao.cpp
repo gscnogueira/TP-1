@@ -105,7 +105,6 @@ void mostra_atributos(vector<string>& choices){
 		mvwprintw(menu_win,i+2,2,choices[i].c_str());
 	}
 	wrefresh(menu_win);
-	getch();
 }
 //----------------------------------------------------------
 //-----------------Móulo-Apresentação-Controle--------------
@@ -367,6 +366,8 @@ void CntrApresentacaoPessoal::cadastrar(){
 }
 void CntrApresentacaoPessoal::consulta_dados(CPF cpf){
 	Usuario usuario;
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
 	vector<string>choices={"Nome    : ","Endereco: ","CEP     : ","CPF     : "};
 
 	if(!cntrServicoPessoal->consultar_usuario(&usuario,cpf))
@@ -377,13 +378,17 @@ void CntrApresentacaoPessoal::consulta_dados(CPF cpf){
 	choices[3]+=usuario.get_cpf().get_cpf();
 
 	mostra_atributos(choices);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+	getch();
 	
 }
 void CntrApresentacaoPessoal::descadastrar(CPF cpf){
 	int linha,coluna;
     getmaxyx(stdscr,linha,coluna);
-	attron(A_REVERSE);
 	clear();
+	char titulo[]="SISTEMA DE INVESTIMENTOS";
+	mvprintw(1,(coluna - strlen(titulo))/2,titulo);
+	attron(A_REVERSE);
 	if(cntrServicoProdutosFinanceiros->descadastrar_conta(cpf)&&
 		cntrServicoPessoal->descadastrar_usuario(cpf))
 		mvprintw(linha-2,0,"Descadastramento realizado com sucesso.");
@@ -399,43 +404,96 @@ void CntrApresentacaoPessoal::descadastrar(CPF cpf){
 //----------------------------------------------------------
 //----------Móulo-Apresentação-Produtos-Financeiros---------
 //----------------------------------------------------------
-void CntrApresentacaoProdutosFinanceiros::executar(){
+void CntrApresentacaoProdutosFinanceiros::listar_produtos(string classe){
+	vector<Produto> produtos;
+	int linha, coluna,contador =1;
+    getmaxyx(stdscr,linha,coluna);
+	if(!cntrServicoProdutosFinanceiros->consultar_produtos(produtos, classe)){
+		clear();
+		char titulo[]="SISTEMA DE INVESTIMENTOS";
+		mvprintw(1,(coluna - strlen(titulo))/2,titulo);
+
+		attron(A_REVERSE);
+		mvprintw(linha-2,0,"Ainda nao foram cadastrados produtos desta classe");
+		attroff(A_REVERSE);
+		mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+		refresh();
+		getch();
+		return;
+	}
+	int size= produtos.size();
+	while(produtos.size()){
+		vector<string>atributos={
+			"Codigo                        : ",
+			"Classe                        : ",
+			"Emissor                       : ",
+			"Prazo (meses)                 : ",
+			"Vencimento                    : ",
+			"Taxa (%% ao ano)               : ",
+			"Horario Limite para Aplicacao : ",
+			"Valor Minimo (R$)             : "
+		};
+		Produto produto=produtos.back();
+		atributos[0]+=produto.get_codigo().get_codigo();
+		atributos[1]+=produto.get_classe().get_classe();
+		atributos[2]+=produto.get_emissor().get_emissor();
+		atributos[3]+=to_string( produto.get_prazo().get_prazo() );
+		atributos[4]+=produto.get_vencimento().get_data();
+		atributos[5]+=to_string( produto.get_taxa().get_taxa() );
+		atributos[6]+=produto.get_horario().get_horario();
+		atributos[7]+=to_string( produto.get_valor().get_valor() );
+		mostra_atributos(atributos);
+		mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+		attron(A_REVERSE);
+		mvprintw(linha-1,coluna-5,"%d/%d",contador,size);
+		attroff(A_REVERSE);
+		refresh();
+		getch();
+		contador++;
+		produtos.pop_back();
+
+	}
+
+}
+void CntrApresentacaoProdutosFinanceiros::selecionar_produtos(){
 	bool consulta=true;
 	vector<string> choices={"CDB","LCA","LCI","LF","LC","Retornar"};
 	while(consulta){
 		int choice=invoca_menu(choices);
-		switch (choice) {
-			case 5:
-				consulta=false;
-					break;
-			default:
-				clear();
-				printw("Mostra lista");
-				getch();
-		}
+		if(choice==5)
+			break;
+		listar_produtos(choices[choice]);
+		
 	}
+}
+void CntrApresentacaoProdutosFinanceiros::executar(){
+	selecionar_produtos();
 }
 void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 	bool executa=true;
-	vector<string> choices={"Consultar Conta Corrente","Cadastrar Produto de Investimento","Descadastrar Produto de Investimento","Realizar Aplicacao em Produto de Investimento","Listar Aplicacao em Produtos de Investimento","Retornar"};
+	vector<string> choices={"Acessar Produtos de Investimento","Consultar Conta Corrente","Cadastrar Produto de Investimento","Descadastrar Produto de Investimento","Realizar Aplicacao em Produto de Investimento","Listar Aplicacao em Produtos de Investimento","Retornar"};
 	while(executa){
 		int choice=invoca_menu(choices);
 		if(choice==0)
-			consulta_conta(cpf);
+			selecionar_produtos();
 		if(choice==1)
-			cadastra_produto(cpf);
+			consulta_conta(cpf);
 		if(choice==2)
-			descadastra_produto(cpf);
+			cadastra_produto(cpf);
 		if(choice==3)
-			realizar_aplicacao(cpf);
+			descadastra_produto(cpf);
 		if(choice==4)
-			listar_aplicacoes();
+			realizar_aplicacao(cpf);
 		if(choice==5)
+			listar_aplicacoes();
+		if(choice==6)
 			executa=false;
 	}
 }
 
 void CntrApresentacaoProdutosFinanceiros::consulta_conta(CPF cpf){
+	int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);
 	Conta* conta=new Conta();
 
 	vector<string>choices={
@@ -450,6 +508,8 @@ void CntrApresentacaoProdutosFinanceiros::consulta_conta(CPF cpf){
 	choices[2]+=conta->get_numero().get_numero();
 
 	mostra_atributos(choices);
+	mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+	getch();
 }
 void CntrApresentacaoProdutosFinanceiros::cadastra_produto(CPF cpf){
 	clear();

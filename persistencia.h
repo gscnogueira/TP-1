@@ -118,6 +118,12 @@ class ComandoDescadastrarProduto:public ComandoSQL{
 		ComandoDescadastrarProduto(CodigoDeProduto);
 		ComandoDescadastrarProduto(Numero);
 };
+
+class ComandoAcessaProdutos:public ComandoSQL{
+	public:
+		ComandoAcessaProdutos(string);
+		vector<Produto> get_resultado();
+};
 class ComandoDescadastraAplicacao:public ComandoSQL{
 	public:
 		ComandoDescadastraAplicacao(CodigoDeProduto);
@@ -129,4 +135,5 @@ class ComandoContaAplicacoes:public ComandoSQL{
 		ComandoContaAplicacoes(CPF);
 		int get_resultado();
 };
+
 #endif

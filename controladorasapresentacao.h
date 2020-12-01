@@ -79,6 +79,8 @@ class CntrApresentacaoProdutosFinanceiros: public IApresentacaoProdutosFinanceir
 		void descadastra_produto(CPF);
 		void realizar_aplicacao(CPF);
 		void listar_aplicacoes();
+		void listar_produtos(string);
+		void selecionar_produtos();
 	public:
 		void executar();
 		void executar(CPF);

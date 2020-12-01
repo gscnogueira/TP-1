@@ -168,6 +168,17 @@ int CntrServicoProdutosFinanceiros::realizar_aplicacao(Aplicacao aplicacao,CPF c
 	}
 	return 0;
 }
+bool CntrServicoProdutosFinanceiros::consultar_produtos(vector<Produto>& produtos, string classe){
+	ComandoAcessaProdutos cmd(classe);
+	try{
+		cmd.executar();
+		produtos=cmd.get_resultado();
+	}
+	catch(ErroPersistencia &exp){
+		return false;
+	}
+	return true;
+}
 bool CntrServicoProdutosFinanceiros::recuperar_aplicacao(Aplicacao* aplicacao){
 	return true;
 }
