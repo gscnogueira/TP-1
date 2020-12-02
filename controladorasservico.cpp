@@ -179,7 +179,22 @@ bool CntrServicoProdutosFinanceiros::consultar_produtos(vector<Produto>& produto
 	}
 	return true;
 }
-bool CntrServicoProdutosFinanceiros::recuperar_aplicacao(Aplicacao* aplicacao){
+bool CntrServicoProdutosFinanceiros::recuperar_aplicacoes(vector<Aplicacao>& aplicacoes,CPF cpf){
+	Numero* numero=new Numero();
+	if(!acessa_numero_conta(cpf,numero)){
+		delete numero;
+		return false;
+	}
+	ComandoAcessaAplicacoes cmd(*numero);
+	try{
+		cmd.executar();
+		aplicacoes=cmd.get_resultado();
+	}
+	catch(ErroPersistencia &exp){
+		delete numero;
+		return false;
+	}
+	delete numero;
 	return true;
 }
 

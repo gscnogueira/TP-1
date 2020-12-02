@@ -36,7 +36,7 @@ void ComandoSQL::executar(){
 	if(rc!= SQLITE_OK){
 		sqlite3_free(mensagem);
 		desconectar();
-		throw ErroPersistencia(comandoSQL);
+		throw ErroPersistencia("Erro na execucao do comando SQL");
 	}
 	desconectar();
 }
@@ -413,4 +413,49 @@ int ComandoContaAplicacoes::get_resultado(){
 	listaResultado.pop_back();
 	return stoi(resultado.get_valor_coluna());
 }
+
+ComandoAcessaAplicacoes::ComandoAcessaAplicacoes(Numero numero){
+	comandoSQL="SELECT * FROM aplicacao WHERE conta = ";
+	comandoSQL+="'"+numero.get_numero()+"'";
+}
+vector<Aplicacao> ComandoAcessaAplicacoes::get_resultado(){
+	vector<Aplicacao>aplicacoes;
+	ElementoResultado resultado;
+	if(listaResultado.empty())
+		throw ErroPersistencia("Lista de resultados vazia.");
+	while(listaResultado.size()){
+		Aplicacao aplicacao;
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		aplicacao.set_codigo(CodigoDeAplicacao(resultado.get_valor_coluna()));
+
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		ValorDeAplicacao valor;
+		valor.set_valor(resultado.get_valor_coluna());
+		aplicacao.set_valor(valor);
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
+		listaResultado.pop_back();
+		aplicacao.set_data(Data(resultado.get_valor_coluna()));
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		listaResultado.pop_back();
+
+		if(listaResultado.empty())
+			throw ErroPersistencia("Lista de resultados vazia.");
+		listaResultado.pop_back();
+		aplicacoes.push_back(aplicacao);
+
+	}
+	return aplicacoes;
+}
+
 

@@ -485,7 +485,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF cpf){
 		if(choice==4)
 			realizar_aplicacao(cpf);
 		if(choice==5)
-			listar_aplicacoes();
+			listar_aplicacoes(cpf);
 		if(choice==6)
 			executa=false;
 	}
@@ -781,10 +781,46 @@ void CntrApresentacaoProdutosFinanceiros::realizar_aplicacao(CPF cpf){
 	getch();
 
 }
-void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(){
-	clear();
-	printw("Listar aplicacoes");
-	getch();
+void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(CPF cpf){
+	int linha, coluna,contador =1;
+    getmaxyx(stdscr,linha,coluna);
+	vector<Aplicacao> aplicacoes;
+	if(!cntrServicoProdutosFinanceiros->recuperar_aplicacoes(aplicacoes, cpf))
+	{
+		clear();
+		char titulo[]="SISTEMA DE INVESTIMENTOS";
+		mvprintw(1,(coluna - strlen(titulo))/2,titulo);
+
+		attron(A_REVERSE);
+		mvprintw(linha-2,0,"Ainda nao foram cadastrados produtos desta classe");
+		attroff(A_REVERSE);
+		mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+		refresh();
+		getch();
+		return;
+	}
+	int size=aplicacoes.size();
+	while(aplicacoes.size()){
+		vector<string>atributos={
+			"Codigo de Aplicacao : ",
+			"Valor (R$)          : ",
+			"Data                : "
+		};
+		Aplicacao aplicacao = aplicacoes.back();
+		atributos[0]+=aplicacao.get_codigo().get_codigo();
+		atributos[1]+=aplicacao.get_valor().get_valor();
+		atributos[2]+=aplicacao.get_data().get_data();
+
+		mostra_atributos(atributos);
+		mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
+		attron(A_REVERSE);
+		mvprintw(linha-1,coluna-5,"%d/%d",contador,size);
+		attroff(A_REVERSE);
+		refresh();
+		getch();
+		contador++;
+		aplicacoes.pop_back();
+	}
 }
 
 

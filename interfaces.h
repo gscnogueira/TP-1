@@ -69,7 +69,7 @@ public:
 		virtual bool consultar_produtos(vector<Produto>&, string )=0;
         virtual bool descadastrar_produto(CodigoDeProduto, CPF) = 0;
         virtual int realizar_aplicacao(Aplicacao,CPF,CodigoDeProduto) = 0;
-        virtual bool recuperar_aplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.
+        virtual bool recuperar_aplicacoes(vector<Aplicacao>&, CPF) = 0;                        // Adaptar aos requisitos.
         virtual ~IServicoProdutosFinanceiros(){}
 };
 

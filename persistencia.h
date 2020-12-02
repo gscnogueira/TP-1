@@ -136,4 +136,10 @@ class ComandoContaAplicacoes:public ComandoSQL{
 		int get_resultado();
 };
 
+class ComandoAcessaAplicacoes:public ComandoSQL{
+	public:
+		ComandoAcessaAplicacoes(Numero);
+		vector<Aplicacao> get_resultado();
+};
+
 #endif
