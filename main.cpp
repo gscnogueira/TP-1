@@ -1,10 +1,8 @@
 #include<bits/stdc++.h>
 #include <ncurses.h>
 #include "interfaces.h"
-#include"stubs.h"
 #include "controladorasapresentacao.h"
 #include "controladorasservico.h"
-/* #include "stubs.h" */
 
 using namespace std;
 
