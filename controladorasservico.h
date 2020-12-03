@@ -30,7 +30,7 @@ class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
 		bool consultar_produtos(vector<Produto>&, string classe);
 		bool descadastrar_produto(CodigoDeProduto, CPF);
 		int realizar_aplicacao(Aplicacao, CPF, CodigoDeProduto);
-		bool recuperar_aplicacoes(vector<Aplicacao>&,CPF);
+		bool recuperar_aplicacoes(vector<Aplicacao>&,vector<CodigoDeProduto>&, CPF);
 };
 
 

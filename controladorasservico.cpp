@@ -179,7 +179,7 @@ bool CntrServicoProdutosFinanceiros::consultar_produtos(vector<Produto>& produto
 	}
 	return true;
 }
-bool CntrServicoProdutosFinanceiros::recuperar_aplicacoes(vector<Aplicacao>& aplicacoes,CPF cpf){
+bool CntrServicoProdutosFinanceiros::recuperar_aplicacoes(vector<Aplicacao>& aplicacoes,vector<CodigoDeProduto>& codigosDeProduto,CPF cpf){
 	Numero* numero=new Numero();
 	if(!acessa_numero_conta(cpf,numero)){
 		delete numero;
@@ -188,7 +188,7 @@ bool CntrServicoProdutosFinanceiros::recuperar_aplicacoes(vector<Aplicacao>& apl
 	ComandoAcessaAplicacoes cmd(*numero);
 	try{
 		cmd.executar();
-		aplicacoes=cmd.get_resultado();
+		aplicacoes=cmd.get_resultado(codigosDeProduto);
 	}
 	catch(ErroPersistencia &exp){
 		delete numero;

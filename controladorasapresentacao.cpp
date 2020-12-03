@@ -785,7 +785,8 @@ void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(CPF cpf){
 	int linha, coluna,contador =1;
     getmaxyx(stdscr,linha,coluna);
 	vector<Aplicacao> aplicacoes;
-	if(!cntrServicoProdutosFinanceiros->recuperar_aplicacoes(aplicacoes, cpf))
+	vector<CodigoDeProduto> codigosDeProduto;
+	if(!cntrServicoProdutosFinanceiros->recuperar_aplicacoes(aplicacoes,codigosDeProduto, cpf))
 	{
 		clear();
 		char titulo[]="SISTEMA DE INVESTIMENTOS";
@@ -803,13 +804,16 @@ void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(CPF cpf){
 	while(aplicacoes.size()){
 		vector<string>atributos={
 			"Codigo de Aplicacao : ",
+			"Codigo de Produto   : ",
 			"Valor (R$)          : ",
 			"Data                : "
 		};
 		Aplicacao aplicacao = aplicacoes.back();
+		CodigoDeProduto codigoDeProduto=codigosDeProduto.back();
 		atributos[0]+=aplicacao.get_codigo().get_codigo();
-		atributos[1]+=aplicacao.get_valor().get_valor();
-		atributos[2]+=aplicacao.get_data().get_data();
+		atributos[1]+=codigoDeProduto.get_codigo();
+		atributos[2]+=aplicacao.get_valor().get_valor();
+		atributos[3]+=aplicacao.get_data().get_data();
 
 		mostra_atributos(atributos);
 		mvprintw(linha-1,0,"Pressione qualquer tecla para continuar.");
@@ -820,6 +824,7 @@ void CntrApresentacaoProdutosFinanceiros::listar_aplicacoes(CPF cpf){
 		getch();
 		contador++;
 		aplicacoes.pop_back();
+		codigosDeProduto.pop_back();
 	}
 }
 

@@ -1,4 +1,4 @@
-trabalho : main.o dominios.o  controladorasapresentacao.o  controladorasservico.o persistencia.o
+trabalho : main.o dominios.o  controladorasapresentacao.o controladorasservico.o persistencia.o
 	g++ -std=c++11 -lncurses -l sqlite3 -Wall -o trabalho main.o dominios.o controladorasapresentacao.o controladorasservico.o persistencia.o
 main.o : main.cpp interfaces.h controladorasapresentacao.h controladorasservico.h
 	g++ -c main.cpp

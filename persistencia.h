@@ -118,7 +118,6 @@ class ComandoDescadastrarProduto:public ComandoSQL{
 		ComandoDescadastrarProduto(CodigoDeProduto);
 		ComandoDescadastrarProduto(Numero);
 };
-
 class ComandoAcessaProdutos:public ComandoSQL{
 	public:
 		ComandoAcessaProdutos(string);
@@ -139,7 +138,7 @@ class ComandoContaAplicacoes:public ComandoSQL{
 class ComandoAcessaAplicacoes:public ComandoSQL{
 	public:
 		ComandoAcessaAplicacoes(Numero);
-		vector<Aplicacao> get_resultado();
+		vector<Aplicacao> get_resultado(vector<CodigoDeProduto>&);
 };
 
 #endif

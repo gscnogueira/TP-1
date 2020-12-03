@@ -413,18 +413,18 @@ int ComandoContaAplicacoes::get_resultado(){
 	listaResultado.pop_back();
 	return stoi(resultado.get_valor_coluna());
 }
-
 ComandoAcessaAplicacoes::ComandoAcessaAplicacoes(Numero numero){
 	comandoSQL="SELECT * FROM aplicacao WHERE conta = ";
 	comandoSQL+="'"+numero.get_numero()+"'";
 }
-vector<Aplicacao> ComandoAcessaAplicacoes::get_resultado(){
+vector<Aplicacao> ComandoAcessaAplicacoes::get_resultado(vector<CodigoDeProduto>& codigosDeProduto){
 	vector<Aplicacao>aplicacoes;
 	ElementoResultado resultado;
 	if(listaResultado.empty())
 		throw ErroPersistencia("Lista de resultados vazia.");
 	while(listaResultado.size()){
 		Aplicacao aplicacao;
+		CodigoDeProduto codigoDeProduto;
 		if(listaResultado.empty())
 			throw ErroPersistencia("Lista de resultados vazia.");
 		resultado=listaResultado.back();
@@ -451,7 +451,11 @@ vector<Aplicacao> ComandoAcessaAplicacoes::get_resultado(){
 
 		if(listaResultado.empty())
 			throw ErroPersistencia("Lista de resultados vazia.");
+		resultado=listaResultado.back();
 		listaResultado.pop_back();
+		codigoDeProduto.set_codigo(resultado.get_valor_coluna());
+		codigosDeProduto.push_back(codigoDeProduto);
+
 		aplicacoes.push_back(aplicacao);
 
 	}
